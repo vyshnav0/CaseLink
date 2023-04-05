@@ -1,0 +1,25 @@
+.wholeNavbar{
+    width: fit-content;
+    background-color: rgb(72, 178, 34);
+    width: auto;
+    height: auto;
+}
+
+.titleofnav{
+    font-size: 300%;
+    color: rgb(69, 26, 26);
+    padding-left: 15px;
+}
+
+.boxOfNavbarRight{
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 14px;
+}
+
+.comps{
+    color: rgb(69, 26, 26);
+    padding-right: 30px;
+    font-size: 150%;
+}
