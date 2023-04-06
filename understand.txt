@@ -1,1 +1,1 @@
-reusable components are put inside component folder. Multiple pages have same navbar footer etc
+reusable components are put inside component folder. Multiple pages have same navbar footer etc. Routes are used for single page webapp.
