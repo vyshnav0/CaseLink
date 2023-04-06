@@ -1,11 +1,12 @@
 import React from 'react'
 import '../style/Footer.css'
+import {Link} from 'react-router-dom'
 
 export default function Footer() {
   return (
     <div id = 'wholeOfFooter'>
         <span id = "contactUs">Contact Us?</span>
-        <a id='contactus' href=''>Click here</a>
+        <Link id='contactus' to='/'>Click here</Link>
     </div>
   )
 }
