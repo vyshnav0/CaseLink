@@ -3,6 +3,8 @@ import '../style/LoginBody.css'
 
 export default function LoginBody() {
   return (
-    <div>Login</div>
+    <div>
+      
+    </div>
   )
 }

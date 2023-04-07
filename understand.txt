@@ -3,4 +3,6 @@ reusable components are put inside component folder. Multiple pages have same na
     pages are set up but navbar is not responsive. 
     When a user is logged in , then traversing using navbar should not change status of logout back to login.
     Need to add a link on login button and invoke a page where the <Navbar loggedIn={true}></Navbar> so that logged out appear
+    Use this by adding <Link className='comps' id='log' to='/'>{props.loggedIn ? 'Profile' : 'Links'}</Link> where if {props.loggedIn}
+        is true, it displays profile and if false displays links
 }
