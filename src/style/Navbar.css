@@ -9,6 +9,7 @@
     font-size: 300%;
     color: rgb(69, 26, 26);
     padding-left: 15px;
+    text-decoration: none;
 }
 
 .boxOfNavbarRight{
@@ -27,4 +28,9 @@
 
 .comps:hover{
     color: red;
+}
+
+.titleofnav:hover{
+    color: red;
+    opacity: 70%;
 }
