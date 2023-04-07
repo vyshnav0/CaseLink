@@ -22,4 +22,9 @@
     color: rgb(69, 26, 26);
     padding-right: 30px;
     font-size: 150%;
+    text-decoration: none;
+}
+
+.comps:hover{
+    color: red;
 }
