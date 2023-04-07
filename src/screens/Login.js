@@ -6,7 +6,7 @@ import LoginBody from '../components/LoginBody'
 export default function Login() {
   return (
     <div>
-        <Navbar></Navbar>
+        <Navbar loggedIn={true}></Navbar>
         <LoginBody></LoginBody>
         <Footer></Footer>
     </div>
