@@ -18,7 +18,6 @@ function App() {
         <Routes>
           <Route exact path = "/" element = {<Home></Home>} ></Route>
           <Route exact path = "/login" element = {<Login></Login>} ></Route>
-          <Route exact path = "/signup" element = {<SignUp></SignUp>} ></Route>
           <Route exact path = '/signout' element = {<SignOut></SignOut>} ></Route>
           <Route exact path = '/contactinfo' element = {<ContactUs></ContactUs>} ></Route>
         </Routes>
