@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <div id = 'wholeOfFooter'>
         <span id = "contactUs">Contact Us?</span>
-        <Link id='contactus' to='/'>Click here</Link>
+        <Link id='contactus' to='/contactinfo'>Click here</Link>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import SignOut from './screens/SignOut';
+import ContactUs from './screens/ContactUs'
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,6 +20,7 @@ function App() {
           <Route exact path = "/login" element = {<Login></Login>} ></Route>
           <Route exact path = "/signup" element = {<SignUp></SignUp>} ></Route>
           <Route exact path = '/signout' element = {<SignOut></SignOut>} ></Route>
+          <Route exact path = '/contactinfo' element = {<ContactUs></ContactUs>} ></Route>
         </Routes>
       </div>
     </Router>
