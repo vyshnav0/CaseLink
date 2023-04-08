@@ -1,8 +1,17 @@
 Registration and login
 
 HOME Features:
-    1. lookout notice- hover over the home screen from the start  40%
+    1. lookout notice- hover over the home screen from the start and slides its contents 40%
     2. signup and login near the corners  10%
     3. dashboard- full view in home, hamburger menu in other pages 
     4. alert messages 
 
+LOGIN/SIGNUP Feature:
+    1. Select login or signup from top tab. Load the module based on tab selected. 
+       For officers use PEN(Permanent Employee Number) number as username and for civilians use their username.
+       So 1 user login and 2 seperate register for officers and civilians.
+    2. In signup give option for officer registraion.
+
+COMPLAINT REGISTRATION:
+    1. If not logged in, redirect to login.
+    2. Date,Complainants name,phone,email(optional),address,matter,nature of complaint,name of company/person against whom,specific details.
