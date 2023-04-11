@@ -2,10 +2,8 @@ Registration and login
 
 HEADER: {https://www.mixpanel.com}
     1. Website Logo.
-    2. Links
+    2. Links(Feedback,ContactUs)
     3. Login/Signup
-    
-
 
 HOME Features:
     1. lookout notice- hover over the home screen from the start and slides its contents 40%
