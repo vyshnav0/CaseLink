@@ -6,3 +6,7 @@ reusable components are put inside component folder. Multiple pages have same na
     Use this by adding <Link className='comps' id='log' to='/'>{props.loggedIn ? 'Profile' : 'Links'}</Link> where if {props.loggedIn}
         is true, it displays profile and if false displays links
 }
+
+git push origin --delete yadu - delete origin branch
+git revert 63d0b1a - revert to a state before the commit mentioned
+git branch --delete yadu - to delete local branch

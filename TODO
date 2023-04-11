@@ -21,3 +21,4 @@ COMPLAINT REGISTRATION:
     1. If not logged in, redirect to login.
     2. Date,Complainants name,phone,email(optional),address,matter,nature of complaint,name of company/person against whom,specific details.
                         link='https://www.jotform.com/form-templates/online-complaint-form-2'
+    3. All complaint must have a unique complaint id shared with the complainant.
