@@ -10,3 +10,17 @@ reusable components are put inside component folder. Multiple pages have same na
 git push origin --delete yadu - delete origin branch
 git revert 63d0b1a - revert to a state before the commit mentioned
 git branch --delete yadu - to delete local branch
+
+Link vs anchor tag{
+    Refreshing pages are commonly used for applications that require data to be updated frequently, 
+    such as stock market data, news feeds, or social media feeds. 
+    In these cases, refreshing the page allows the user to see the most up-to-date information 
+    without having to manually refresh the page.
+
+    Single non-refreshing page websites, on the other hand, are used for applications that require 
+    dynamic content to be loaded without requiring the user to refresh the entire page. 
+    This can provide a more seamless and intuitive user experience, as the user can interact 
+    with the website without interruptions caused by page refreshes.
+}
+so if data needs to be up to date we need to replace Link with a or add a refresh button near the data to be updated which will
+an <a> to the same page but it will reload data
