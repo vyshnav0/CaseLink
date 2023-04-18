@@ -35,6 +35,7 @@ USE CASE(Actors , stickman) class diagram(Box):
             Type
             Reported by(id)FK
             Investigated by(PEN no)FK
+            Criminal(FK(Criminal id))
             Victim 
             Status
 
