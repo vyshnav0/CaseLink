@@ -22,6 +22,7 @@ USE CASE(Actors , stickman) class diagram(Box):
         Citizen:
             Username(id)(PK)
             Name
+            Age(D.O.B)
             Sex
             Contact Number
             Address
@@ -38,8 +39,8 @@ USE CASE(Actors , stickman) class diagram(Box):
             Status
 
         Criminal:
-            Crime No(FK)
             Criminal Id(PK)
+            Crime No(FK)
             Name
             Age
             Sex
