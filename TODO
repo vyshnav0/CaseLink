@@ -3,11 +3,67 @@ Reference : https://www.youtube.com/watch?v=k6cNm_gHV-M&t=63s
             https://www.youtube.com/watch?v=cSJWqdw78wE
             https://www.youtube.com/watch?v=xRdhVWdfMPM&t=2s
 
+USE CASE(Actors , stickman) class diagram(Box):
+    Entities:
+        Police Officer
+        Citizen
+        Crime
+        Criminal
+        Victim
+        Admin
+
+    Attributes:
+        Police Officer:
+            PEN Number(PK)
+            Name
+            Contact Number
+            Working Station
+
+        Citizen:
+            Username(id)(PK)
+            Name
+            Sex
+            Contact Number
+            Address
+            Email
+        
+        Crime:
+            Crime Number(PK)
+            Location
+            Time
+            Type
+            Reported by(id)FK
+            Investigated by(PEN no)FK
+            Victim 
+            Status
+
+        Criminal:
+            Crime No(FK)
+            Criminal Id(PK)
+            Name
+            Age
+            Sex
+            Identification Mark
+            Nationality
+            Status(Imprisoned,Released,Still under investigation)
+
+        Victim:
+            Name
+            Crime No(FK)
+            Age
+            Sex
+            Contact Number
+            Address
+            Status(Dead or Alive)
+
+        Admin: //is also a police officer who has reasonable technical knowledge
+            PEN no(FK)
+
+
 HEADER: {https://www.mixpanel.com}
     1. Website Logo.
     2. ContactUs -->(Feedback,About)
     3. Login/Signup
-    4. 
 
 HOME Features:
     1. lookout notice- hover over the home screen from the start and slides its contents 40%
@@ -24,5 +80,5 @@ LOGIN/SIGNUP Feature:
 COMPLAINT REGISTRATION:
     1. If not logged in, redirect to login.
     2. Date,Complainants name,phone,email(optional),address,matter,nature of complaint,name of company/person against whom,specific details.
-                        link='https://www.jotform.com/form-templates/online-complaint-form-2'
+        link='https://www.jotform.com/form-templates/online-complaint-form-2'
     3. All complaint must have a unique complaint id shared with the complainant.
