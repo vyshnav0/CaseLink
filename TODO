@@ -1,3 +1,5 @@
+Software is used by a primary police station. So all the different levels of police officers are to be thoroughly studied and implemented
+
 https://www.freeprojectz.com/project-source-code-database-download/crime-record-management-system
 Reference : https://www.youtube.com/watch?v=k6cNm_gHV-M&t=63s
             https://www.youtube.com/watch?v=cSJWqdw78wE
@@ -76,7 +78,9 @@ HOME Features:
 LOGIN/SIGNUP Feature:
     1. Select login or signup from top tab. Load the module based on tab selected. 
        For officers use PEN(Permanent Employee Number) number as username and for civilians use their username.
-       So 1 user login and 2 seperate register for officers and civilians.
+       Civilians are also mandatorily asked to enter email (Email-ID is important because a copy of your e-FIR 
+       will be sent to you via email for verification.)
+       So 1 user login for all users and 2 seperate register for officers and civilians.
     2. In signup give option for officer registraion.
 
 COMPLAINT REGISTRATION:
