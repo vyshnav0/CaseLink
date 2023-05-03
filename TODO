@@ -68,7 +68,7 @@ HEADER: {https://www.mixpanel.com}
     1. Website Logo.
     2. ContactUs -->(Feedback,About)
     3. Login/Signup
-    4. Implement Breadcrumps
+    4. Implement Breadcrumps or navbar
 
 HOME Features:
     1. lookout notice- hover over the home screen from the start and slides its contents 40%
