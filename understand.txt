@@ -24,3 +24,11 @@ Link vs anchor tag{
 }
 so if data needs to be up to date we need to replace Link with a or add a refresh button near the data to be updated which will
 an <a> to the same page but it will reload data
+
+
+COMMANDS TO RUN FIRST TIME
+    npm init
+    npm i react-router-dom
+    npm install
+    npm i bootstrap
+    npm i react-bootstrap
