@@ -32,3 +32,7 @@ COMMANDS TO RUN FIRST TIME
     npm install
     npm i bootstrap
     npm i react-bootstrap
+
+    all this inside crimeapp
+    now create folder backend in crimeapp
+    and run: npm i init express mongoose nodemon
