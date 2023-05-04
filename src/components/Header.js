@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
-import "../style/Header.css";
-import throttle from "lodash/throttle";
+import React, { useEffect } from 'react'
+import '../style/Header.css'
+import throttle from 'lodash/throttle';
+import {Link} from 'react-router-dom'
 
 export default function Header() {
   useEffect(() => {
@@ -22,28 +23,23 @@ export default function Header() {
   return (
     <div>
       <header className="header sticky sticky--top js-header">
-        <div className="grid">
-          <nav className="navigation">
-            <ul className="navigation__list navigation__list--inline">
-              <li className="navigation__item">
-                <a href="#" className="navigation__link navigation__link--is-active">Logo</a>
-              </li>
-              <li className="navigation__item">
-                <h1>CaseLink</h1>
-              </li>
-              <li className="navigation__item">
-                <a href="#" className="navigation__link">Work</a>
-              </li>
-              <li className="navigation__item">
-                <a href="#" className="navigation__link">Signup</a>
-              </li>
-              <li className="navigation__item">
-                <a href="#" className="navigation__link">Login</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+
+<div className="grid">
+
+  <nav className="navigation">
+    <ul className="navigation__list navigation__list--inline">
+      <li className="navigation__item"><Link to="/contactinfo" className="navigation__link">Contact</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link navigation__link--is-active">Home</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link">About Us</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link">Work</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link">Clients</Link></li>
+    </ul>
+  </nav>
+
+</div>
+
+</header>
+
     </div>
   );
 }
