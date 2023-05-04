@@ -67,7 +67,8 @@ USE CASE(Actors , stickman) class diagram(Box):
 HEADER: {https://www.mixpanel.com}
     1. Website Logo.
     2. ContactUs -->(Feedback,About)
-    3. Login/Signup
+    3. Login/Signup -- Signup drops down 2 options: citizeens & officer.
+    4. Implement Breadcrumps or navbar
 
 HOME Features:
     1. lookout notice- hover over the home screen from the start and slides its contents 40%
@@ -83,8 +84,15 @@ LOGIN/SIGNUP Feature:
        So 1 user login for all users and 2 seperate register for officers and civilians.
     2. In signup give option for officer registraion.
 
+AFTER LOGIN:
+    1. A new page
+    2. The previous alerts and missing person reports can be accesses via Navbar
+    3. A profile icon at the right top side droping down to user details and logout
+
 COMPLAINT REGISTRATION:
     1. If not logged in, redirect to login.
     2. Date,Complainants name,phone,email(optional),address,matter,nature of complaint,name of company/person against whom,specific details.
         link='https://www.jotform.com/form-templates/online-complaint-form-2'
     3. All complaint must have a unique complaint id shared with the complainant.
+    4. If the complaint is reported by a registered citizen, the complaint form details should be automatically filled including fields like "Reported by" :"Citizen Name".
+       Else if it is a officer, those fields should be available for filling necessary info.
