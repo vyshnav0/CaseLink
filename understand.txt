@@ -36,3 +36,8 @@ COMMANDS TO RUN FIRST TIME
     all this inside crimeapp
     now create folder backend in crimeapp
     and run: npm i init express mongoose nodemon
+
+NEXT todo{
+    write code for login of user and officer in LoginBody
+    write same for registration/signup of officer in SignUpBodyOfficer
+}
