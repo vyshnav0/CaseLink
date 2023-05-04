@@ -16,4 +16,4 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.json())
-app.use('/api',require('./Routes/createUser'))
+app.use('',require('./Routes/createUser'))
