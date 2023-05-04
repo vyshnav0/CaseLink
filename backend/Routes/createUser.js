@@ -35,7 +35,7 @@ body('contactno').isNumeric()
     }
 })
 
-router.post("/login",
+router.post("/loginuser",
 body('email').isEmail(),
 body('password').isLength({min : 6}),
 async(req,res) => {
