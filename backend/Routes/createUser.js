@@ -5,17 +5,17 @@ const User = require('../models/User')
 router.post("/createuser",async(req,res) => {
     try {
         await User.create({
-            username:"arjun",
-            fname:"Arjun",
-            lname:"Vinod",
-            age:22,
-            sex:"Male",
-            contactno:"7907374687",
-            email:"arjunvinod09@gmail.com",
-            address:"Vipanchika Kannur",
-            fathersName:"Vinod",
-            mothersName:"Sheena",
-            idNo:"123768374627"
+            username:req.body.username,
+            fname:req.body.fname,
+            lname:req.body.lname,
+            age:req.body.age,
+            sex:req.body.sex,
+            contactno:req.body.contactno,
+            email:req.body.email,
+            address:req.body.address,
+            fathersName:req.body.fathersName,
+            mothersName:req.body.mothersName,
+            idNo:req.body.idNo
         })
         res.json({success:true});
     } catch (error) {
