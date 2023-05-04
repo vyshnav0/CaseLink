@@ -18,6 +18,8 @@ USE CASE(Actors , stickman) class diagram(Box):
         Police Officer:
             PEN Number(PK)
             Name
+            Age
+            Rank
             Contact Number
             Working Station
 
