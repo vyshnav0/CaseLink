@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import '../style/SignUpBody.css'
+import {Link,useNavigate} from 'react-router-dom'
 
 export default function SignUpBody() {
 
+  const navigate = useNavigate()
   const [credentials, setcredentials] = useState({username:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idNo:"",password:""})
 
   const handleSubmit = async(e)=>{
@@ -20,6 +22,9 @@ export default function SignUpBody() {
 
     if(!json.success){
       alert("Enter valid credentials")
+    }
+    if(json.success){
+      navigate("/");
     }
   }
 
