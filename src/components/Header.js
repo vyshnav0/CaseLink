@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import '../style/Header.css'
 import throttle from 'lodash/throttle';
+import {Link} from 'react-router-dom'
 
 export default function Header() {
   useEffect(() => {
@@ -26,11 +27,11 @@ export default function Header() {
 
   <nav className="navigation">
     <ul className="navigation__list navigation__list--inline">
-      <li className="navigation__item"><a href="#" className="navigation__link navigation__link--is-active">Home</a></li>
-      <li className="navigation__item"><a href="#" className="navigation__link">About Us</a></li>
-      <li className="navigation__item"><a href="#" className="navigation__link">Work</a></li>
-      <li className="navigation__item"><a href="#" className="navigation__link">Clients</a></li>
-      <li className="navigation__item"><a href="#" className="navigation__link">Contact</a></li>
+      <li className="navigation__item"><Link to="/contactinfo" className="navigation__link">Contact</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link navigation__link--is-active">Home</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link">About Us</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link">Work</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link">Clients</Link></li>
     </ul>
   </nav>
 
