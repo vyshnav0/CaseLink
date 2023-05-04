@@ -35,4 +35,32 @@ body('contactno').isNumeric()
     }
 })
 
+router.post("/login",
+body('email').isEmail(),
+body('password').isLength({min : 6}),
+async(req,res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({errors: errors.array()});
+    }
+
+    try {
+        const email = req.body.email
+        const userData = await User.findOne({email})
+        if(!userData){
+            return res.status(400).json({errors: "try loggin in with correct credentials"});
+        }
+
+        if(req.body.password !== userData.password){
+            return res.status(400).json({errors: "try loggin in with correct credentials"});
+        }
+        else{
+            res.send("Succesfully logged in")
+        }
+    } catch (error) {
+        console.error(error)
+        res.json({success:false});
+    }
+})
+
 module.exports = router;
