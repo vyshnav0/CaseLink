@@ -23,9 +23,7 @@ export default function SignUpBody() {
       alert("Enter valid credentials")
     }
     if(json.success){
-      localStorage.setItem("authToken",json.authToken);
-      console.log(localStorage.getItem("authToken"));
-      navigate("/");
+      navigate("/login");
     }
   }
 
