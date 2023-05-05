@@ -27,7 +27,9 @@ export default function LoginBody() {
       }
       if(json.success){
         localStorage.setItem("authToken",json.authToken);
+        localStorage.setItem("usertype",userOrOfficer);
         console.log(localStorage.getItem("authToken"));
+        console.log(localStorage.getItem("usertype"));
         navigate("/");
       }
       console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
@@ -48,8 +50,10 @@ export default function LoginBody() {
         alert("Enter valid credentials")
       }
       if(json.success){
+        localStorage.setItem("usertype",userOrOfficer);
         localStorage.setItem("authToken",json.authToken);
         console.log(localStorage.getItem("authToken"));
+        console.log(localStorage.getItem("usertype"));
         navigate("/");
       }
       console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
