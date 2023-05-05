@@ -1,0 +1,63 @@
+const mongoose = require("mongoose")
+
+const {Schema} = mongoose;
+
+const crimeSchema = new Schema({
+    cid:{
+        type : String,
+        required : false,
+        unique : true
+    },
+    reportedby:{
+        type : String,
+        required : true
+    },
+    type:{
+        type : String,
+        required : true
+    },
+    location:{
+        type : String,
+        required : true
+    },
+    time:{
+        type : Date,
+        required : true
+    },
+    accused:{
+        type : String,
+        required : true
+    },
+    victim:{
+        type : String,
+        required : true
+    },
+    description:{
+        type : String,
+        required : true
+    },
+    nearestStation:{
+        type : String,
+        required : false
+    }
+});
+
+crimeSchema.pre("save", async function (next) {
+    if (!this.isNew) {
+      return next();
+    }
+  
+    const latestDocument = await mongoose
+      .model("crime", crimeSchema)
+      .findOne({}, { cid: 1 })
+      .sort({ cid: -1 });
+  
+    const latestCid = latestDocument ? parseInt(latestDocument.cid.slice(2)) + 1 : 1;
+  
+    this.cid = "CN" + latestCid.toString().padStart(6, "0");
+    next();
+  });
+  
+  
+
+module.exports = mongoose.model('crime',crimeSchema,'crimeData')
