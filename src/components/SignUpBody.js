@@ -14,7 +14,6 @@ export default function SignUpBody() {
     headers:{
       'Content-Type' : 'application/json'
     },
-    // possible error since age is not string yet initialised to string 
     body:JSON.stringify({username:credentials.name,fname:credentials.fname,lname:credentials.lname,age:credentials.age,sex:credentials.sex,contactno:credentials.contactno,email:credentials.email,address:credentials.address,fathersName:credentials.fathersName,mothersName:credentials.mothersName,idNo:credentials.idNo,password:credentials.password})
     })
     const json = await response.json()
