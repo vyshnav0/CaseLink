@@ -1,61 +1,72 @@
 const express = require('express')
 const router = express.Router()
-const {body,validationResult} = require('express-validator');
+const { body, validationResult } = require('express-validator');
 const Officer = require('../models/Officer');
+const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
+const jwtSecret = "Thisisarandomstringforsecuringsite"
 
 router.post("/createofficer",
-body('password').isLength({min : 6}),
-body('contactno').isNumeric()
-,async(req,res) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array()});
-    }
+    body('password').isLength({ min: 6 }),
+    body('contactno').isNumeric()
+    , async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
 
-    try {
-        await Officer.create({
-            pen:req.body.pen,
-            fname:req.body.fname,
-            lname:req.body.lname,
-            age:req.body.age,
-            sex:req.body.sex,
-            contactno:req.body.contactno,
-            rank:req.body.rank,
-            password:req.body.password,
-            station:req.body.station
-        })
-        res.json({success:true});
-    } catch (error) {
-        console.error(error)
-        res.json({success:false});
-    }
-})
+        const salt = await bcrypt.genSalt(10)
+        let secPass = await bcrypt.hash(req.body.password, salt)
+
+        try {
+            await Officer.create({
+                pen: req.body.pen,
+                fname: req.body.fname,
+                lname: req.body.lname,
+                age: req.body.age,
+                sex: req.body.sex,
+                contactno: req.body.contactno,
+                rank: req.body.rank,
+                password: secPass,
+                station: req.body.station
+            })
+            res.json({ success: true });
+        } catch (error) {
+            console.error(error)
+            res.json({ success: false });
+        }
+    })
 
 router.post("/loginofficer",
-body('password').isLength({min : 6}),
-async(req,res) => {
-    const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        return res.status(400).json({errors: errors.array()});
-    }
-
-    try {
-        const pen = req.body.pen
-        const userData = await Officer.findOne({pen})
-        if(!userData){
-            return res.status(400).json({errors: "try loggin in with correct credentials"});
+    body('password').isLength({ min: 6 }),
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
         }
 
-        if(req.body.password !== userData.password){
-            return res.status(400).json({errors: "try loggin in with correct credentials"});
+        try {
+            const pen = req.body.pen
+            const userData = await Officer.findOne({ pen })
+            if (!userData) {
+                return res.status(400).json({ errors: "try loggin in with correct credentials" });
+            }
+
+            const pwdCompare = await bcrypt.compare(req.body.password, userData.password)
+            if (!pwdCompare) {
+                return res.status(400).json({ errors: "try loggin in with correct credentials" });
+            }
+            
+            const data = {
+                id : userData.id
+            }
+
+            const authToken = jwt.sign(data,jwtSecret)
+            res.json({success : true , authToken : authToken})
+        } catch (error) {
+            console.error(error)
+            res.json({ success: false });
         }
-        else{
-            res.send("Succesfully logged in")
-        }
-    } catch (error) {
-        console.error(error)
-        res.json({success:false});
-    }
-})
+    })
 
 module.exports = router;
