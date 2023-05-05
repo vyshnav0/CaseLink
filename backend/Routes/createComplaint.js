@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const Crime = require('../models/Crime')
+const Complaint = require('../models/Complaint')
 
-router.post("/createcrime",
+router.post("/createcomplaint",
     async (req, res) => {
         try {
-            await Crime.create({
+            await Complaint.create({
                 reportedby: req.body.reportedby,
                 type: req.body.type,
                 location: req.body.location,

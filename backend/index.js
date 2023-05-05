@@ -24,4 +24,4 @@ app.get('/', (req, res) => {
 app.use(express.json())
 app.use('',require('./Routes/createUser'))
 app.use('',require('./Routes/createOfficer'))
-app.use('',require('./Routes/createCrime'))
+app.use('',require('./Routes/createComplaint'))

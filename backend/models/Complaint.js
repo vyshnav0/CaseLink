@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const {Schema} = mongoose;
 
-const crimeSchema = new Schema({
+const complaintSchema = new Schema({
     cid:{
         type : String,
         required : false,
@@ -42,13 +42,13 @@ const crimeSchema = new Schema({
     }
 });
 
-crimeSchema.pre("save", async function (next) {
+complaintSchema.pre("save", async function (next) {
     if (!this.isNew) {
       return next();
     }
   
     const latestDocument = await mongoose
-      .model("crime", crimeSchema)
+      .model("complaint", complaintSchema)
       .findOne({}, { cid: 1 })
       .sort({ cid: -1 });
   
@@ -60,4 +60,4 @@ crimeSchema.pre("save", async function (next) {
   
   
 
-module.exports = mongoose.model('crime',crimeSchema,'crimeData')
+module.exports = mongoose.model('complaint',complaintSchema,'complaintData')
