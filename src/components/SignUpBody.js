@@ -14,7 +14,7 @@ export default function SignUpBody() {
     headers:{
       'Content-Type' : 'application/json'
     },
-    body:JSON.stringify({username:credentials.name,fname:credentials.fname,lname:credentials.lname,age:credentials.age,sex:credentials.sex,contactno:credentials.contactno,email:credentials.email,address:credentials.address,fathersName:credentials.fathersName,mothersName:credentials.mothersName,idNo:credentials.idNo,password:credentials.password})
+    body:JSON.stringify({username:credentials.username,fname:credentials.fname,lname:credentials.lname,age:credentials.age,sex:credentials.sex,contactno:credentials.contactno,email:credentials.email,address:credentials.address,fathersName:credentials.fathersName,mothersName:credentials.mothersName,idNo:credentials.idNo,password:credentials.password})
     })
     const json = await response.json()
     console.log(json)
