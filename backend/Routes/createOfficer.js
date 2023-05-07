@@ -63,8 +63,10 @@ router.post("/loginofficer",
 
             const authToken = jwt.sign(data,jwtSecret)
             res.cookie("authToken",authToken,{
+                path : '/',
+                sameSite : 'none',
                 httpOnly : true,
-                // secure : true,
+                secure : true,
                 maxAge : 1000*60*60*12
             })
             .json({success:true});

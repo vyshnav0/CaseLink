@@ -69,8 +69,10 @@ router.post("/loginuser",
 
             const authToken = jwt.sign(data, jwtSecret)
             res.cookie("authToken",authToken,{
+                path : '/',
                 httpOnly : true,
-                // secure : true,
+                sameSite : 'none',
+                secure : true,
                 maxAge : 1000*60*60*12
             })
             .json({success:true});
