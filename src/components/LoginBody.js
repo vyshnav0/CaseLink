@@ -26,9 +26,7 @@ export default function LoginBody() {
         alert("Enter valid credentials")
       }
       if(json.success){
-        localStorage.setItem("authToken",json.authToken);
         localStorage.setItem("usertype",userOrOfficer);
-        console.log(localStorage.getItem("authToken"));
         console.log(localStorage.getItem("usertype"));
         navigate("/");
       }
@@ -51,8 +49,6 @@ export default function LoginBody() {
       }
       if(json.success){
         localStorage.setItem("usertype",userOrOfficer);
-        localStorage.setItem("authToken",json.authToken);
-        console.log(localStorage.getItem("authToken"));
         console.log(localStorage.getItem("usertype"));
         navigate("/");
       }
@@ -64,19 +60,19 @@ export default function LoginBody() {
     setcredentials({...credentials,[event.target.name] : event.target.value})
   }
   return (
-    // <div> model of how to use form and input attributes
-    //   <form onSubmit={handleSubmit}>
-    //     <div>
-    //       <label>Email address</label>
-    //       <input name = "email" value = {credentials.email} onChange={onChange}></input>
-    //     </div>
-    //     <div>
-    //       <label>Password</label>
-    //       <input type = "password" name = "password" value = {credentials.password} onChange={onChange}></input>
-    //     </div>
-    //     <button>Login</button>
-    //   </form>
-    // </div>
-    <></>
+    <div> model of how to use form and input attributes
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Email address</label>
+          <input name = "email" value = {credentials.email} onChange={onChange}></input>
+        </div>
+        <div>
+          <label>Password</label>
+          <input type = "password" name = "password" value = {credentials.password} onChange={onChange}></input>
+        </div>
+        <button>Login</button>
+      </form>
+    </div>
+    // <></>
   )
 }
