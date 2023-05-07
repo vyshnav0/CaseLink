@@ -1,9 +1,34 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 
 export default function FileComplaint() {
-
+    
     const navigate = useNavigate()
+    const callComplaintPage = async() => {
+        try {
+            const response = await fetch("http://localhost:5000/complaintauth" , {
+                method:"GET",
+                headers:{
+                    Accept : "*/*",
+                    "Content-Type" : "application/json"
+                },
+                credentials : "include"
+            });
+            const data = await response.json();
+            console.log(data);
+
+            if(!response.status(200)){
+                console.log("There was an error in authentication")
+            }
+        } catch (error) {
+            navigate("/login");
+        }
+    }
+
+    useEffect(() => {
+        callComplaintPage()
+    }, [])
+
     const [credentials, setcredentials] = useState({reportedby:"",type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
 
     const handleSubmit = async(e)=>{
