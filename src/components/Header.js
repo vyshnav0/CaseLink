@@ -34,7 +34,8 @@ export default function Header() {
 
     <div className='d-flex'>
     <Link to="/contactinfo" className="btn text-success navigation__link">About Us</Link>
-      <Link to="#" className="navigation__link">Sign In</Link>
+      <Link to="/login" className="navigation__link">Sign In</Link>
+      <Link to="/filecomplaint" className="navigation__link">File a complaint</Link>{/* temporary */}
     </div>
 
 
