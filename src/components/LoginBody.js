@@ -10,7 +10,7 @@ export default function LoginBody() {
   const handleSubmit = async(e)=>{
     e.preventDefault();
     const userOrOfficer = credentials.email.includes('@') ? 'user' : 'officer'
-    if(userOrOfficer=='user'){
+    if(userOrOfficer==='user'){
       const response = await fetch("http://localhost:5000/loginuser",{
       method:'POST',
       headers:{

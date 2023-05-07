@@ -28,12 +28,16 @@ export default function Header() {
 
   <nav className="navigation">
     <ul className="navigation__list navigation__list--inline">
-      <li className="navigation__item"><Link to="/contactinfo" className="navigation__link">Contact</Link></li>
-      <li className="navigation__item"><Link to="#" className="navigation__link navigation__link--is-active">Home</Link></li>
-      <li className="navigation__item"><Link to="#" className="navigation__link">About Us</Link></li>
-      <li className="navigation__item"><Link to="#" className="navigation__link">Work</Link></li>
-      <li className="navigation__item"><Link to="#" className="navigation__link">Clients</Link></li>
+      <li className="navigation__item"><Link to="#" className="navigation__link navigation__link--is-active">Logo</Link></li>
+      {/* The above was made a logo so that clicking it will direct to homepage */}
     </ul>
+
+    <div className='d-flex'>
+    <Link to="/contactinfo" className="btn text-success navigation__link">About Us</Link>
+      <Link to="#" className="navigation__link">Sign In</Link>
+    </div>
+
+
   </nav>
 
 </div>
