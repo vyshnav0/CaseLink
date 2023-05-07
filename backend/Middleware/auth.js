@@ -5,8 +5,8 @@ const Officer = require('../models/Officer')
 
 const Authenticate = async (req, res, next) => {
     try {
-        authToken = req.cookies.authToken
-        const data = jwt.verify(authToken,jwtSecret)
+        const recToken = req.cookies.authToken
+        const data = jwt.verify(recToken,jwtSecret)
         const curUser = data.user
         if(User.findOne(curUser)){
             req.curUser = curUser
@@ -15,13 +15,17 @@ const Authenticate = async (req, res, next) => {
             req.curUser = curUser
         }
         else{
+            req.curUser = "Undefined"
             res.json({success:false})
+            console.log("No such user found. Refresh and try loggin in again");
         }
         next()
-        } catch (error) {
-            console.error(error)
-            res.json({ success: false,exception:"yes" });
-        }
+    } 
+    catch (error) {
+        console.error(error)
+        res.json({ success: false,token: `${req.cookies.authToken}` });
+        console.log("UNAUTHORIZED : No Token Provided");
+    }
     }
 
 module.exports = Authenticate;
