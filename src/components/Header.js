@@ -29,10 +29,10 @@ export default function Header() {
   <nav className="navigation">
     <ul className="navigation__list navigation__list--inline">
       <li className="navigation__item"><Link to="/contactinfo" className="navigation__link">Contact</Link></li>
-      <li className="navigation__item"><Link to="#" className="navigation__link navigation__link--is-active">Home</Link></li>
+      <li className="navigation__item"><Link to="/" className="navigation__link navigation__link--is-active">Home</Link></li>
       <li className="navigation__item"><Link to="#" className="navigation__link">About Us</Link></li>
-      <li className="navigation__item"><Link to="#" className="navigation__link">Work</Link></li>
-      <li className="navigation__item"><Link to="#" className="navigation__link">Clients</Link></li>
+      <li className="navigation__item"><Link to="/filecomplaint" className="navigation__link">File a Complaint</Link></li>
+      <li className="navigation__item"><Link to="/login" className="navigation__link">Login</Link></li>
     </ul>
   </nav>
 
