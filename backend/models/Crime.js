@@ -46,19 +46,19 @@ const crimeSchema = new Schema({
     }],
 });
 
-complaintSchema.pre("save", async function (next) {
+crimeSchema.pre("save", async function (next) {
     if (!this.isNew) {
       return next();
     }
   
     const latestDocument = await mongoose
-      .model("complaint", complaintSchema)
+      .model("crime", crimeSchema)
       .findOne({}, { crimeno: 1 })
       .sort({ crimeno: -1 });
   
-    const latestCrimeno = latestDocument ? parseInt(latestDocument.crimeno.slice(2)) + 1 : 1;
+    const latestCrimeno = latestDocument ? parseInt(latestDocument.crimeno.slice(5)) + 1 : 1;
   
-    this.crimeno = "CN" + latestCrimeno.toString().padStart(6, "0");
+    this.crimeno = "CRMNO" + latestCrimeno.toString().padStart(3, "0");
     next();
   });
 

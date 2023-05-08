@@ -7,13 +7,15 @@ const Officer = require('../models/Officer')
 router.post("/createcrime",
     async (req, res) => {
         try {
-            const off = await Officer.findOne(req.body.investigatedby)
-            const complaint = await Complaint.findOne(complaint)
+            const cidX = req.body.cid
+            const penX = req.body.investigatedby
+            const off = await Officer.findOne({pen: penX})
+            const complaint = await Complaint.findOne({cid: cidX})
             if(!complaint){
-                throw new Error("No such complaint found")
+                throw new Error(`No such complaint found: ${complaint}`)
             }
             if(!off){
-                throw new Error("Officer mentioned not valid")
+                throw new Error(`Officer mentioned not valid: ${off}`)
             }
             const locationX = complaint.location
             const timeX = complaint.time
@@ -22,6 +24,7 @@ router.post("/createcrime",
             const investigatedbyX = off.fname + " " + off.lname
 
             await Crime.create({
+                cid: cidX,
                 location: locationX,
                 time: timeX,
                 type: typeX,
