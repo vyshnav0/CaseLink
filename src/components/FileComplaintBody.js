@@ -32,9 +32,9 @@ export default function FileComplaint() {
 
     const [credentials, setcredentials] = useState({reportedby:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idType:"",idno:"",type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
 
-    if(userOrOfficer == 'user'){
-        [credentials, setcredentials] = useState({reportedby:"",fname:data.fname,lname:data.lname,age:data.age,sex:data.sex,contactno:data.contactno,email:data.email,address:data.address,fathersName:data.fathersName,mothersName:data.mothersName,idType:data.idType,idNo:data.idno,type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
-    }
+    // if(userOrOfficer == 'user'){
+    //     [credentials, setcredentials] = useState({reportedby:"",fname:data.fname,lname:data.lname,age:data.age,sex:data.sex,contactno:data.contactno,email:data.email,address:data.address,fathersName:data.fathersName,mothersName:data.mothersName,idType:data.idType,idNo:data.idno,type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
+    // }
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
