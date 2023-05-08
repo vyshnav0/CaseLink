@@ -21,6 +21,7 @@ export default function LoginBody() {
 
       const json = await response.json()
       console.log(json)
+      console.log(response.cookies);
 
       if(!json.success){
         alert("Enter valid credentials")
