@@ -3,6 +3,7 @@ import {Link,useNavigate} from 'react-router-dom'
 
 export default function FileComplaint() {
     
+    const userOrOfficer = localStorage.getItem("usertype");
     const navigate = useNavigate()
     const callComplaintPage = async() => {
         try {
@@ -29,7 +30,11 @@ export default function FileComplaint() {
         callComplaintPage()
     }, [])
 
-    const [credentials, setcredentials] = useState({reportedby:"",type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
+    const [credentials, setcredentials] = useState({reportedby:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idType:"",idno:"",type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
+
+    if(userOrOfficer == 'user'){
+        [credentials, setcredentials] = useState({reportedby:"",fname:data.fname,lname:data.lname,age:data.age,sex:data.sex,contactno:data.contactno,email:data.email,address:data.address,fathersName:data.fathersName,mothersName:data.mothersName,idType:data.idType,idNo:data.idno,type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
+    }
 
     const handleSubmit = async(e)=>{
         e.preventDefault();
@@ -38,7 +43,7 @@ export default function FileComplaint() {
         headers:{
         'Content-Type' : 'application/json'
         },
-        body:JSON.stringify({reportedby:credentials.reportedby,type:credentials.type,location:credentials.location,time:credentials.time,accused:credentials.accused,victim:credentials.victim,description:credentials.description,nearestStation:credentials.nearestStation})
+        body:JSON.stringify({reportedby:credentials.reportedby,email:credentials.email,idType:credentials.idType,idno:credentials.idno,type:credentials.type,location:credentials.location,time:credentials.time,accused:credentials.accused,victim:credentials.victim,description:credentials.description,nearestStation:credentials.nearestStation})
         })
         const json = await response.json()
         console.log(json)
@@ -51,10 +56,33 @@ export default function FileComplaint() {
         }
     }
 
+    const createComplaintee = async(e) =>{
+        e.preventDefault();
+        const complainteeResponse = await fetch("http://localhost:5000/createcomplaintee",{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({reportedby:credentials.reportedby,email:credentials.email,idType:credentials.idType,idno:credentials.idno,type:credentials.type,location:credentials.location,time:credentials.time,accused:credentials.accused,victim:credentials.victim,description:credentials.description,nearestStation:credentials.nearestStation})
+        })
+
+        const jsonComplaintee = await complainteeResponse.json()
+        console.log(jsonComplaintee);
+
+        if(!jsonComplaintee.success){
+            alert("There was an error in accepting you data. Please try again.")
+        }
+        if(jsonComplaintee.success){
+            console.log("Created complaintee succesfully");
+            //write code to alter css based on complaintee addition maybe remove create complaintee button and automatically move to complaint details page (code for what happens when you switch the tab on top for personal details/complaint details)
+        }
+    }
+
     const onChange = (event)=>{
         setcredentials({...credentials,[event.target.name] : event.target.value})
     }
     return (
+        // use variable userOrOfficer in className for the create complaintee button. className = userOrOfficer <other classnames> then in css create two designs one for .user{} and one for .officer{} and make the button display:none in .user{} and style it in .officer{}. Also use it to make other design choices like give input fields of personal data className = userOrData and if user then make fields uneditable. Only the officers have right to create new complaintee. All other logged in users will have their information autofilled IF input field is given the right name from [credentials,setCredentials](refer above code). On the create complaintee button give onClick = {createComplaintee} function given above
         <></>
   )
 }
