@@ -8,15 +8,16 @@ const Authenticate = async (req, res, next) => {
         const recToken = req.cookies.authToken
         const data = jwt.verify(recToken,jwtSecret)
         const curUser = data.user
-        if(User.findOne(curUser)){
-            req.curUser = curUser
+        const userData = await User.findOne({_id:curUser.id})
+        const officerData = await Officer.findOne({_id:curUser.id})
+        if(officerData != null){
+            req.curUser = officerData
         }
-        else if(Officer.findOne(curUser)){
-            req.curUser = curUser
+        else if(userData != null){
+            req.curUser = userData
         }
         else{
             req.curUser = "Undefined"
-            res.json({success:false})
             console.log("No such user found. Refresh and try loggin in again");
         }
         next()
