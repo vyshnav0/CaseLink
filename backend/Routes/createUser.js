@@ -31,6 +31,7 @@ router.post("/createuser",
                 address: req.body.address,
                 fathersName: req.body.fathersName,
                 mothersName: req.body.mothersName,
+                idType: req.body.idType,
                 idNo: req.body.idNo,
                 password: secPass
             })

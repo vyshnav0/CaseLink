@@ -5,7 +5,7 @@ import {Link,useNavigate} from 'react-router-dom'
 export default function SignUpBody() {
 
   const navigate = useNavigate()
-  const [credentials, setcredentials] = useState({username:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idNo:"",password:""})
+  const [credentials, setcredentials] = useState({username:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idType:"",idno:"",password:""})
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -14,7 +14,7 @@ export default function SignUpBody() {
     headers:{
       'Content-Type' : 'application/json'
     },
-    body:JSON.stringify({username:credentials.username,fname:credentials.fname,lname:credentials.lname,age:credentials.age,sex:credentials.sex,contactno:credentials.contactno,email:credentials.email,address:credentials.address,fathersName:credentials.fathersName,mothersName:credentials.mothersName,idNo:credentials.idNo,password:credentials.password})
+    body:JSON.stringify({username:credentials.username,fname:credentials.fname,lname:credentials.lname,age:credentials.age,sex:credentials.sex,contactno:credentials.contactno,email:credentials.email,address:credentials.address,fathersName:credentials.fathersName,mothersName:credentials.mothersName,idType:credentials.idType,idno:credentials.idno,password:credentials.password})
     })
     const json = await response.json()
     console.log(json)

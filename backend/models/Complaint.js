@@ -12,6 +12,19 @@ const complaintSchema = new Schema({
         type : String,
         required : true
     },
+    email: {
+        type: String,
+        default: "not provided",
+        required: false
+    },
+    idType: {
+        type: String,
+        required: true
+    },
+    idno: {
+        type: String,
+        required: true
+    },
     type:{
         type : String,
         required : true

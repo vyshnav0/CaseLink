@@ -43,6 +43,10 @@ const userSchema = new Schema({
         type : String,
         required : false
     },
+    idType: {
+        type: String,
+        required: true
+    },
     idNo:{
         type : String,
         required : true
