@@ -39,6 +39,11 @@ const complaintSchema = new Schema({
     nearestStation:{
         type : String,
         required : false
+    },
+    status: {
+        type: String,
+        default: "Pending",
+        required: false
     }
 });
 
