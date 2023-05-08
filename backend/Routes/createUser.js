@@ -73,7 +73,7 @@ router.post("/loginuser",
                 path : '/',
                 httpOnly : true,
                 sameSite : 'none',
-                secure : true,
+                // secure : true,
                 maxAge : 1000*60*60*12
             })
             .json({success:true});

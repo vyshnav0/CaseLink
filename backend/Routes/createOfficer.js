@@ -58,7 +58,9 @@ router.post("/loginofficer",
             }
             
             const data = {
-                id : userData.id
+                user: {
+                    id : userData.id
+                }
             }
 
             const authToken = jwt.sign(data,jwtSecret)
@@ -66,7 +68,7 @@ router.post("/loginofficer",
                 path : '/',
                 sameSite : 'none',
                 httpOnly : true,
-                secure : true,
+                // secure : true,
                 maxAge : 1000*60*60*12
             })
             .json({success:true});
