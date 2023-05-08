@@ -54,12 +54,12 @@ router.post("/loginuser",
             const email = req.body.email
             const userData = await User.findOne({ email })
             if (!userData) {
-                return res.status(400).json({ errors: "try loggin in with correct credentials" });
+                return res.status(400).json({ errors: "try logging in with correct credentials" });
             }
 
             const pwdCompare = await bcrypt.compare(req.body.password, userData.password)
             if (!pwdCompare) {
-                return res.status(400).json({ errors: "try loggin in with correct credentials" });
+                return res.status(400).json({ errors: "try logging in with correct credentials" });
             }
             const data = {
                 user: {
