@@ -20,7 +20,7 @@ mongoDB()
 .catch(err => console.error(err));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Welcome to backend!')
 })
 
 app.use(cookieParser())
