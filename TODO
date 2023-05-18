@@ -98,3 +98,5 @@ COMPLAINT REGISTRATION:
     3. All complaint must have a unique complaint id shared with the complainant.
     4. If the complaint is reported by a registered citizen, the complaint form details should be automatically filled including fields like "Reported by" :"Citizen Name".
        Else if it is a officer, those fields should be available for filling necessary info.
+
+*** IN THE END REMEMBER TO DELETE TEST COLLECTION AND CREATE NEW COLLECTION, CHANGE CONNECTION STRING IN db.js, CHANGE HASH VALUE, CHANGE SECRET STRING ALL OTHER SUCH VALUABLE TOKENS AND NOT TO COMMIT THESE CHANGES TO GITHUB ***
