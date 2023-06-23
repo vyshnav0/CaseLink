@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import {
   MDBContainer,
-  MDBTabs,
-  MDBTabsItem,
-  MDBTabsLink,
   MDBTabsContent,
   MDBTabsPane,
   MDBBtn,
   MDBInput,
-  MDBCheckbox
 }
 from 'mdb-react-ui-kit';
 import {Link,useNavigate} from 'react-router-dom'
