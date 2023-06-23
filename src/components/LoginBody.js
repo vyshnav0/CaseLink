@@ -1,6 +1,17 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react';
+import {
+  MDBContainer,
+  MDBTabs,
+  MDBTabsItem,
+  MDBTabsLink,
+  MDBTabsContent,
+  MDBTabsPane,
+  MDBBtn,
+  MDBInput,
+  MDBCheckbox
+}
+from 'mdb-react-ui-kit';
 import {Link,useNavigate} from 'react-router-dom'
-import '../style/LoginBody.css'
 
 export default function LoginBody() {
 
@@ -60,20 +71,41 @@ export default function LoginBody() {
   const onChange = (event)=>{
     setcredentials({...credentials,[event.target.name] : event.target.value})
   }
+
+  const [justifyActive, setJustifyActive] = useState('tab1');;
+
+  const handleJustifyClick = (value) => {
+    if (value === justifyActive) {
+      return;
+    }
+
+    setJustifyActive(value);
+  };
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email address</label>
-          <input name = "email" value = {credentials.email} onChange={onChange}></input>
-        </div>
-        <div>
-          <label>Password</label>
-          <input type = "password" name = "password" value = {credentials.password} onChange={onChange}></input>
-        </div>
-        <button>Login</button>
-      </form>
+       
+         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+
+<MDBTabsContent>
+
+  <MDBTabsPane show={justifyActive === 'tab1'}>
+
+    <MDBInput wrapperClass='mb-4' label='Email / Username' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
+    <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/>
+
+    <div className="d-flex justify-content-between mx-4 mb-4">
     </div>
-    // <></>
+    <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
+    <p className="text-center">Not a member? <a href="/signup">Register</a></p>
+
+  </MDBTabsPane>
+
+</MDBTabsContent>
+
+</MDBContainer>
+      </form>  
+    </div>
+
   )
 }
