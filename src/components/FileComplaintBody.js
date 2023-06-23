@@ -4,10 +4,13 @@ import {Link,useNavigate} from 'react-router-dom'
 export default function FileComplaint() {
     
     const userOrOfficer = localStorage.getItem("usertype");
+    const authToken = localStorage.getItem("authToken")
     const navigate = useNavigate()
     const callComplaintPage = async() => {
         try {
-            const response = await fetch("http://localhost:5000/complaintauth" , {
+            console.log("Going to fetch from complaintauth");
+            const response = await fetch(`http://localhost:5000/complaintauth?authToken=${authToken}` , 
+            {
                 method:"GET",
                 headers:{
                     Accept : "application/json",
@@ -17,11 +20,13 @@ export default function FileComplaint() {
             });
             const data = await response.json();
             console.log(data);
+            console.log("Returned from fetching comlpaintauth");
 
             if(!response.status(200)){
                 console.log("There was an error in authentication")
             }
         } catch (error) {
+            console.log("There was an error in authenticating user");
             navigate("/login");
         }
     }
