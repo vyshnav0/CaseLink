@@ -6,6 +6,7 @@ export default function Header() {
 
   function logout(){
     localStorage.removeItem("authToken")
+    localStorage.removeItem("usertype")
   }
   
   return (
