@@ -1,8 +1,36 @@
+.listitems{
+    display: relative;
+    /* background-color: rgb(38, 20, 20); */
+    align-items : center;
+}
+
+.listitems > li{
+    margin-top: 1%;
+    display : inline-block;
+    margin-right: 100px;
+    align-content: center;
+}
+
+.listitems > li > a{
+    text-decoration: none;
+    color: rgb(77, 42, 215);
+    font-size: 20px;
+}
+
+.wholeHeader{
+    display: absolute;
+    text-align: center;
+    height: 30vh;
+    max-height: 70px;
+    min-height: 50px;
+}
+
+/* 
 @use postcss-preset-env {
     stage: 0;
 }
 
-/* helpers/grid.css */
+ helpers/grid.css 
 
 .grid {
     inline-size: 90%;
@@ -10,7 +38,7 @@
     max-inline-size: 48em;
 }
 
-/* helpers/sticky.css */
+/* helpers/sticky.css 
 
 .sticky {
     position: sticky;
@@ -21,7 +49,7 @@
     top: 0;
 }
 
-/* layout/base.css */
+/* layout/base.css 
 
 * {
     box-sizing: inherit;
@@ -38,7 +66,7 @@ body {
     min-block-size: 100vh;
 }
 
-/* layout/header.css */
+/* layout/header.css 
 
 .header {
     background-color: #fff;
@@ -63,19 +91,19 @@ body {
     opacity: 1;
 }
 
-/* layout/main.css */
+/* layout/main.css 
 
 .main {
     padding-block: 6em;
 }
 
-/* modules/headline.css */
+/* modules/headline.css 
 
 h1 {
     margin-block: 0 0.5em;
 }
 
-/* modules/navigation.css */
+/* modules/navigation.css 
 
 .navigation__list {
     list-style: none;
@@ -108,8 +136,8 @@ h1 {
     color: #fff;
 }
 
-/* modules/paragraph.css */
+/* modules/paragraph.css 
 
 p {
     padding-block: 1.5em;
-}
+    */

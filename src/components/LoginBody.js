@@ -61,7 +61,7 @@ export default function LoginBody() {
     setcredentials({...credentials,[event.target.name] : event.target.value})
   }
   return (
-    <div> model of how to use form and input attributes
+    <div>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email address</label>

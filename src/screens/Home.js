@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <div>
         <div><Header></Header></div>
-        <div><Sidebar></Sidebar></div>
+        {/* <div><Sidebar></Sidebar></div>
         <div><Body></Body></div>
-        <div><Footer></Footer></div>
+        <div><Footer></Footer></div> */}
     </div>
   )
 }
