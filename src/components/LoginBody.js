@@ -28,8 +28,9 @@ export default function LoginBody() {
 
       const json = await response.json()
       const authToken = json.authToken
+      const data = json.userData
       console.log(json)
-      console.log(response.headers.get('Set-Cookie'));
+      const parsedData = JSON.parse(data) //this is how you get object. Now type parsedData.{variablename} to get the users respective data
 
       if(!json.success){
         alert("Enter valid credentials")
@@ -37,6 +38,7 @@ export default function LoginBody() {
       if(json.success){
         localStorage.setItem("usertype",userOrOfficer);
         localStorage.setItem("authToken",authToken)
+        localStorage.setItem("data",data)
         console.log(localStorage.getItem("usertype"));
         navigate("/");
       }

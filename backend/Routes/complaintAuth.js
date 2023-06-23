@@ -9,7 +9,6 @@ const Officer = require('../models/Officer')
 router.get("/complaintauth",async(req, res) => {
         try {
             const recToken = req.query.authToken
-            console.log(`Rec token is: ${recToken}`);
             const data = jwt.verify(recToken,jwtSecret)
             const curUser = data.user
             const userData = await User.findOne({_id:curUser.id})
@@ -26,7 +25,6 @@ router.get("/complaintauth",async(req, res) => {
             }
         } 
         catch (error) {
-            console.error(error)
             res.json({ success: false,token: `${req.body.authToken}` });
             console.log("UNAUTHORIZED : No Token Provided");
         }
