@@ -25,6 +25,9 @@ Link vs anchor tag{
 so if data needs to be up to date we need to replace Link with a or add a refresh button near the data to be updated which will
 an <a> to the same page but it will reload data
 
+setting user and email in git:
+git config --global user.name "Arjun Vinod"
+git config --global user.email "test@gmail.com"
 
 COMMANDS TO RUN FIRST TIME
     npm init
