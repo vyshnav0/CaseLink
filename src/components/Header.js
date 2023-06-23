@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../style/Header.css'
-import throttle from 'lodash/throttle';
 import {Link} from 'react-router-dom'
 
 export default function Header() {
