@@ -20,6 +20,7 @@ export default function LoginBody() {
       })
 
       const json = await response.json()
+      const authToken = json.authToken
       console.log(json)
       console.log(response.headers.get('Set-Cookie'));
 
@@ -28,6 +29,7 @@ export default function LoginBody() {
       }
       if(json.success){
         localStorage.setItem("usertype",userOrOfficer);
+        localStorage.setItem("authToken",authToken)
         console.log(localStorage.getItem("usertype"));
         navigate("/");
       }

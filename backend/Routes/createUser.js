@@ -69,14 +69,14 @@ router.post("/loginuser",
             }
 
             const authToken = jwt.sign(data, jwtSecret)
-            res.cookie("authToken",authToken,{
-                path : '/',
-                httpOnly : true,
-                sameSite : 'none',
-                // secure : true,
-                maxAge : 1000*60*60*12
-            })
-            .json({success:true});
+            // res.cookie("authToken",authToken,{
+            //     path : '/',
+            //     httpOnly : true,
+            //     sameSite : 'none',
+            //     // secure : true,
+            //     maxAge : 1000*60*60*12
+            // })
+            res.json({success:true,authToken:authToken});
         } catch (error) {
             console.error(error)
             res.json({ success: false });

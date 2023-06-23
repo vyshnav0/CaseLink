@@ -6,7 +6,7 @@ export default function FileComplaint() {
   return (
     <div>
         <Sidebar></Sidebar>
-        <FileComplaintBody>NOT TO BE ACCESSED WITHOUT LOGIN</FileComplaintBody>
+        <FileComplaintBody></FileComplaintBody>
     </div>
   )
 }
