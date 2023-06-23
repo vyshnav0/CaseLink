@@ -13,7 +13,7 @@ from 'mdb-react-ui-kit';
 
 import {Link,useNavigate} from 'react-router-dom'
 
-export default function SignUpBody() {
+export default function SignUpCitizen() {
 
   const navigate = useNavigate()
   const [credentials, setcredentials] = useState({username:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idType:"",idno:"",password:""})
@@ -50,6 +50,10 @@ export default function SignUpBody() {
     }
 
     setJustifyActive(value);
+
+    if (value === 'tab2') {
+      navigate('/signupofficer'); 
+    }
   };
 
   return (
@@ -81,45 +85,27 @@ export default function SignUpBody() {
   {/* <MDBInput wrapperClass='mb-4' label='Email / Username' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
   <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/> */}
 
-
-
-      <MDBInput wrapperClass='mb-4' label='First Name' id='fname' type='text' required />
-      <MDBInput wrapperClass='mb-4' label='Last Name' id='lname' type='text' required />
-  <MDBInput wrapperClass='mb-4' label='Username' id='username' type='text' required />
-      <MDBInput wrapperClass='mb-4' label='Password' id='password' type='password' required />
-      <MDBInput wrapperClass='mb-4' label='Age' id='age' type='text' required />
-      <MDBInput wrapperClass='mb-4' label='Sex' id='sex' type='text' required />
-      <MDBInput wrapperClass='mb-4' label='Contact No' id='contactno' type='text' required />
-      <MDBInput wrapperClass='mb-4' label='Email' id='email' type='email' required />
-      <MDBInput wrapperClass='mb-4' label='Address' id='address' type='text' required />
-      <MDBInput wrapperClass='mb-4' label="Father's Name" id='fathersName' type='text' required={false} />
-      <MDBInput wrapperClass='mb-4' label="Mother's Name" id='mothersName' type='text' required={false} />
-      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' id='adNo' type='text' required />
+      <MDBInput wrapperClass='mb-4' label='First Name' name='fname' type='text' value = {credentials.fname} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Last Name' name='lname' type='text' value = {credentials.lname} onChange={onChange} required />
+  <MDBInput wrapperClass='mb-4' label='Username' name='username' type='text' value = {credentials.username} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Password' name='password' type='password' value = {credentials.password} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Age' name='age' type='number' value = {credentials.age} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Sex' name='sex' type='text' value = {credentials.sex} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Contact No' name='contactno' type='text' value = {credentials.contactno} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Email' name='email' type='email' value = {credentials.email} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Address' name='address' type='text' value = {credentials.address} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label="Father's Name" name='fathersName' type='text' value = {credentials.fathersName} onChange={onChange} required={false} />
+      <MDBInput wrapperClass='mb-4' label="Mother's Name" name='mothersName' type='text' value = {credentials.mothersName} onChange={onChange} required={false} />
+      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idType' type='text' value = {credentials.idType} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idno' type='text' value = {credentials.idno} onChange={onChange} required />
 
 <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
 
 </MDBTabsPane>
 
-<MDBTabsPane show={justifyActive === 'tab2'}>
+{/* <MDBTabsPane show={justifyActive === 'tab2'}>
 
-{/*   <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text'/>
-  <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
- */}
-
-  <MDBInput wrapperClass='mb-4' label='PEN Number' id='pen' type='text'/>
-  <MDBInput wrapperClass='mb-4' label='First Name' id='fname' type='text' required />
-<MDBInput wrapperClass='mb-4' label='Last Name' id='lname' type='text' required />
-<MDBInput wrapperClass='mb-4' label='Password' id='password' type='password' required />
-<MDBInput wrapperClass='mb-4' label='Age' id='age' type='text' required />
-<MDBInput wrapperClass='mb-4' label='Sex' id='sex' type='text' required />
-<MDBInput wrapperClass='mb-4' label='Rank' id='rank' type='text' required />
-<MDBInput wrapperClass='mb-4' label='Contact Number' id='contactno' type='text' required />
-<MDBInput wrapperClass='mb-4' label='Station' id='station' type='text' required />
-
-
-  <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
-
-</MDBTabsPane>
+</MDBTabsPane> */}
 
 </MDBTabsContent>
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   MDBContainer,
   MDBTabsContent,
-  MDBTabsPane,
   MDBBtn,
   MDBInput,
 }
@@ -70,15 +69,15 @@ export default function LoginBody() {
     setcredentials({...credentials,[event.target.name] : event.target.value})
   }
 
-  const [justifyActive, setJustifyActive] = useState('tab1');;
+  // const [justifyActive, setJustifyActive] = useState('tab1');;
 
-  const handleJustifyClick = (value) => {
-    if (value === justifyActive) {
-      return;
-    }
+  // const handleJustifyClick = (value) => {
+  //   if (value === justifyActive) {
+  //     return;
+  //   }
 
-    setJustifyActive(value);
-  };
+  //   setJustifyActive(value);
+  // };
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -87,7 +86,7 @@ export default function LoginBody() {
 
 <MDBTabsContent>
 
-  <MDBTabsPane show={justifyActive === 'tab1'}>
+  {/* <MDBTabsPane show={justifyActive === 'tab1'}> */}
 
     <MDBInput wrapperClass='mb-4' label='Email / Username' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
     <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/>
@@ -95,9 +94,9 @@ export default function LoginBody() {
     <div className="d-flex justify-content-between mx-4 mb-4">
     </div>
     <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
-    <p className="text-center">Not a member? <a href="/signup">Register</a></p>
+    <p className="text-center">Not a member? <a href="/signupcitizen">Register</a></p>
 
-  </MDBTabsPane>
+  {/* </MDBTabsPane> */}
 
 </MDBTabsContent>
 

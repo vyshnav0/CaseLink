@@ -1,13 +1,13 @@
 import React from 'react'
 import Footer from '../components/Footer';
 import Header from '../components/Header'
-import SignUpBody from '../components/SignUpBody'
+import SignUpCitizen from '../components/SignUpCitizen'
 
-export default function Signup() {
+export default function SignupC() {
   return (
     <div>
         <div><Header></Header></div>
-        <SignUpBody></SignUpBody>
+        <SignUpCitizen></SignUpCitizen>
         <Footer></Footer>
     </div>
   )
