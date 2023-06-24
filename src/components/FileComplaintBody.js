@@ -10,11 +10,15 @@ import {
 
 export default function FileComplaint() {
     
+    let repby,mail,idt,idn = null
     const userOrOfficer = localStorage.getItem("usertype");
+    const data = localStorage.getItem("data")
+    const parsedData = JSON.parse(data)
     const navigate = useNavigate()
     const callComplaintPage = async() => {
         try {
             console.log("Going to fetch from complaintauth");
+            console.log(`User logged in is: ${userOrOfficer}`);
             const response = await fetch(`http://localhost:5000/complaintauth?authToken=${localStorage.getItem("authToken")}` , 
             {
                 method:"GET",
@@ -28,6 +32,7 @@ export default function FileComplaint() {
             console.log(data);
             console.log("Returned from fetching comlpaintauth");
 
+
             if(!response.status(200)){
                 console.log("There was an error in authentication")
             }
@@ -36,12 +41,34 @@ export default function FileComplaint() {
             navigate("/login");
         }
     }
+    
+    if(userOrOfficer == 'user'){
+        console.log("User detected");
+        repby = parsedData.fname + " " + parsedData.lname
+        mail = parsedData.email
+        idt = parsedData.idType
+        idn = parsedData.idNo
+        console.log(`${repby}\n${mail}\n${idt}\n${idn}`);
+    }
 
     useEffect(() => {
         callComplaintPage()
     }, [])
 
-    const [credentials, setcredentials] = useState({reportedby:"",email:"",idType:"",idno:"",type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
+    const initialcreds = {
+        reportedby:repby,
+        email:mail,
+        idType:idt,
+        idno:idn,
+        type:"",
+        location:"",
+        time:"",
+        accused:"",
+        victim:"",
+        description:"",
+        nearestStation:""
+    }
+    const [credentials, setcredentials] = useState(initialcreds)
 
     // if(userOrOfficer == 'user'){
     //     [credentials, setcredentials] = useState({reportedby:"",fname:data.fname,lname:data.lname,age:data.age,sex:data.sex,contactno:data.contactno,email:data.email,address:data.address,fathersName:data.fathersName,mothersName:data.mothersName,idType:data.idType,idNo:data.idno,type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
