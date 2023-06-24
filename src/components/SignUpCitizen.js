@@ -97,7 +97,7 @@ export default function SignUpCitizen() {
       <MDBInput wrapperClass='mb-4' label="Father's Name" name='fathersName' type='text' value = {credentials.fathersName} onChange={onChange} required={false} />
       <MDBInput wrapperClass='mb-4' label="Mother's Name" name='mothersName' type='text' value = {credentials.mothersName} onChange={onChange} required={false} />
       <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idType' type='text' value = {credentials.idType} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idno' type='text' value = {credentials.idno} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idno' type='number' value = {credentials.idno} onChange={onChange} required />
 
 <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
 

@@ -1,5 +1,12 @@
 import React,{useState,useEffect} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
+import {
+    MDBContainer,
+    MDBBtn,
+    MDBInput,
+    MDBTextArea,
+  }
+  from 'mdb-react-ui-kit';
 
 export default function FileComplaint() {
     
@@ -34,7 +41,7 @@ export default function FileComplaint() {
         callComplaintPage()
     }, [])
 
-    const [credentials, setcredentials] = useState({reportedby:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idType:"",idno:"",type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
+    const [credentials, setcredentials] = useState({reportedby:"",email:"",idType:"",idno:"",type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
 
     // if(userOrOfficer == 'user'){
     //     [credentials, setcredentials] = useState({reportedby:"",fname:data.fname,lname:data.lname,age:data.age,sex:data.sex,contactno:data.contactno,email:data.email,address:data.address,fathersName:data.fathersName,mothersName:data.mothersName,idType:data.idType,idNo:data.idno,type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
@@ -86,7 +93,41 @@ export default function FileComplaint() {
         setcredentials({...credentials,[event.target.name] : event.target.value})
     }
     return (
-        // use variable userOrOfficer in className for the create complaintee button. className = userOrOfficer <other classnames> then in css create two designs one for .user{} and one for .officer{} and make the button display:none in .user{} and style it in .officer{}. Also use it to make other design choices like give input fields of personal data className = userOrData and if user then make fields uneditable. Only the officers have right to create new complaintee. All other logged in users will have their information autofilled IF input field is given the right name from [credentials,setCredentials](refer above code). On the create complaintee button give onClick = {createComplaintee} function given above
-        <>File Complaint Body</>
+        // use variable userOrOfficer in className for the create complaintee button. className = userOrOfficer <other classnames> 
+        // then in css create two designs one for .user{} and one for .officer{} and make the button display:none in .user{} and style 
+        // it in .officer{}. Also use it to make other design choices like give input fields of personal data className = userOrData and 
+        // if user then make fields uneditable. Only the officers have right to create new complaintee. All other logged in users will 
+        // have their information autofilled IF input field is given the right name from [credentials,setCredentials](refer above code).
+        //  On the create complaintee button give onClick = {createComplaintee} function given above
+        <>
+            <form onSubmit={handleSubmit}>
+       
+       <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+
+  <MDBInput wrapperClass='mb-4' label='Reported By' name='reportedby' type='text' value = {credentials.reportedby} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Email' name='email' type='email' value = {credentials.email} onChange={onChange} required />
+      <div className="d-flex justify-content-between">
+        <MDBInput wrapperClass='mb-4' label='ID Type' name='idType' type='text' value = {credentials.idType} onChange={onChange} required />
+        <MDBInput wrapperClass='mb-4' label='ID Number' name='idno' type='number' value = {credentials.idno} onChange={onChange} required />
+      </div>
+  <MDBInput wrapperClass="mb-4" label="Complaint Type" name="type" type="text" value={credentials.type} onChange={onChange} required />
+  
+
+      <div className="d-flex justify-content-between">
+      <MDBInput wrapperClass='mb-4' label='Location' name='location' type='text' value = {credentials.location} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Date' name='time' type='date' value = {credentials.time} onChange={onChange} required />
+  </div>
+
+      <MDBInput wrapperClass='mb-4' label='Accused' name='accused' type='text' value = {credentials.accused} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Victim' name='victim' type='text' value = {credentials.victim} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Nearest Station' name='nearestStation' type='text' value = {credentials.nearestStation} onChange={onChange} required />
+      {/* <MDBInput wrapperClass='mb-4' label='Description' name='description' type='text'  /> */}
+      <MDBTextArea label='Complaint Description' name= 'description' id='textAreaExample' rows={4}  value = {credentials.description} onChange={onChange} required/>
+
+  <MDBBtn className="mb-4 w-50 btn-success">Submit</MDBBtn>
+       </MDBContainer>
+    </form>
+
+        </>
   )
 }
