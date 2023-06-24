@@ -76,7 +76,7 @@ router.post("/loginuser",
             //     // secure : true,
             //     maxAge : 1000*60*60*12
             // })
-            res.json({success:true,authToken:authToken});
+            res.json({success:true,authToken:authToken,userData:JSON.stringify(userData)});
         } catch (error) {
             console.error(error)
             res.json({ success: false });
