@@ -2,13 +2,14 @@
     display: relative;
     /* background-color: rgb(38, 20, 20); */
     align-items : center;
+    width: 100vw;
 }
 
 .listitems > li{
-    margin-top: 1%;
+    /* margin-top: 1%; */
     display : inline-block;
-    margin-right: 100px;
-    align-content: center;
+    /* margin-right: 100px; */
+    /* align-content: center; */
 }
 
 .listitems > li > a{
@@ -18,9 +19,17 @@
 }
 
 .wholeHeader{
-    display: absolute;
-    text-align: center;
-    height: 30vh;
-    max-height: 70px;
-    min-height: 50px;
+    /* display: absolute; */
+    /* text-align: center; */
+    height: 40vh;
+    max-height: 100px;
+    min-height: 70px;
+}
+
+.logo{
+    margin-left: 0%;
+}
+
+.headerOptions{
+    margin-right: 0%;
 }
