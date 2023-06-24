@@ -3,6 +3,8 @@ import '../style/Header.css'
 import {Link} from 'react-router-dom'
 
 export default function Header() {
+  const logged = localStorage.getItem("usertype");
+  const status = logged === "user" || logged === "officer";
 
   function logout(){
     localStorage.removeItem("authToken")
@@ -16,8 +18,7 @@ export default function Header() {
         <div className='listitems'>
           <li><Link to='/'>About Us</Link></li>
           <li><Link to='/contactinfo'>Contact Us</Link></li>
-          <li><Link to='/login'>Login</Link></li>
-          <li><Link to='/' onClick={logout}>Sign out</Link></li>
+          <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li>
           <li><Link to='/filecomplaint'>File a complaint</Link></li>
         </div>
       </div>
