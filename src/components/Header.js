@@ -16,7 +16,7 @@ export default function Header() {
     <>
       <div className='wholeHeader'>
         <div className='listitems'>
-          <li><Link to='/'>About Us</Link></li>
+          <li><Link to='/'>Home</Link></li>
           <li><Link to='/contactinfo'>Contact Us</Link></li>
           <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li>
           <li><Link to='/filecomplaint'>File a complaint</Link></li>
