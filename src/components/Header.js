@@ -16,10 +16,15 @@ export default function Header() {
     <>
       <div className='wholeHeader'>
         <div className='listitems'>
-          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/'>SiteLogo</Link></li>
+          <img src={"."} width="10" height="5" alt='mkd'/>
+          <li><Link to='/filecomplaint'>Register Complaint</Link></li>
+          <li><Link to='/#'>Complaint Status</Link></li>
           <li><Link to='/contactinfo'>Contact Us</Link></li>
-          <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li>
-          <li><Link to='/filecomplaint'>File a complaint</Link></li>
+          <li><Link to='/#'>ProfileIcon</Link></li>
+
+
+          {/* <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li> */}
         </div>
       </div>
     </>
