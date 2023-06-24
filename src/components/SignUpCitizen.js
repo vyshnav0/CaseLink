@@ -16,7 +16,7 @@ import {Link,useNavigate} from 'react-router-dom'
 export default function SignUpCitizen() {
 
   const navigate = useNavigate()
-  const [credentials, setcredentials] = useState({username:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idType:"",idno:"",password:""})
+  const [credentials, setcredentials] = useState({username:"",fname:"",lname:"",age:"",sex:"",contactno:"",email:"",address:"",fathersName:"",mothersName:"",idType:"",idNo:"",password:""})
 
   const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -25,13 +25,13 @@ export default function SignUpCitizen() {
     headers:{
       'Content-Type' : 'application/json'
     },
-    body:JSON.stringify({username:credentials.username,fname:credentials.fname,lname:credentials.lname,age:credentials.age,sex:credentials.sex,contactno:credentials.contactno,email:credentials.email,address:credentials.address,fathersName:credentials.fathersName,mothersName:credentials.mothersName,idType:credentials.idType,idno:credentials.idno,password:credentials.password})
+    body:JSON.stringify({username:credentials.username,fname:credentials.fname,lname:credentials.lname,age:credentials.age,sex:credentials.sex,contactno:credentials.contactno,email:credentials.email,address:credentials.address,fathersName:credentials.fathersName,mothersName:credentials.mothersName,idType:credentials.idType,idNo:credentials.idNo,password:credentials.password})
     })
     const json = await response.json()
     console.log(json)
 
     if(!json.success){
-      alert("Enter valid credentials")
+      alert("There was an error in creating User profile")
     }
     if(json.success){
       navigate("/login");
@@ -57,9 +57,6 @@ export default function SignUpCitizen() {
   };
 
   return (
-    // points to note:
-    // outer <form onSubmit = {handleSubmit}> needed just after the outermost div & in each input element,
-    //  add attributes {name="(from line 6)" value={credentials.(respective name) onChange = {onChange}}}
     <div>
       <form onSubmit={handleSubmit}>
        
@@ -87,17 +84,17 @@ export default function SignUpCitizen() {
 
       <MDBInput wrapperClass='mb-4' label='First Name' name='fname' type='text' value = {credentials.fname} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Last Name' name='lname' type='text' value = {credentials.lname} onChange={onChange} required />
-  <MDBInput wrapperClass='mb-4' label='Username' name='username' type='text' value = {credentials.username} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Username' name='username' type='text' value = {credentials.username} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Password' name='password' type='password' value = {credentials.password} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Age' name='age' type='number' value = {credentials.age} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Age' name='age' type='text' value = {credentials.age} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Sex' name='sex' type='text' value = {credentials.sex} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Contact No' name='contactno' type='text' value = {credentials.contactno} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Email' name='email' type='email' value = {credentials.email} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Address' name='address' type='text' value = {credentials.address} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label="Father's Name" name='fathersName' type='text' value = {credentials.fathersName} onChange={onChange} required={false} />
       <MDBInput wrapperClass='mb-4' label="Mother's Name" name='mothersName' type='text' value = {credentials.mothersName} onChange={onChange} required={false} />
-      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idType' type='text' value = {credentials.idType} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idno' type='number' value = {credentials.idno} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Card Type' name='idType' type='text' value = {credentials.idType} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idNo' type='text' value = {credentials.idNo} onChange={onChange} required />
 
 <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
 

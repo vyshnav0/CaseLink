@@ -39,9 +39,10 @@ export default function LoginBody() {
         localStorage.setItem("authToken",authToken)
         localStorage.setItem("data",data)
         console.log(localStorage.getItem("usertype"));
+        alert("Login Succesfull!")
+        console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
         navigate("/");
       }
-      console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
     }
     else{
       const response = await fetch("http://localhost:5000/loginofficer",{
@@ -53,17 +54,23 @@ export default function LoginBody() {
       })
 
       const json = await response.json()
+      const authToken = json.authToken
+      const data = json.userData
       console.log(json)
+      const parsedData = JSON.parse(data) //this is how you get object. Now type parsedData.{variablename} to get the users respective data
 
       if(!json.success){
         alert("Enter valid credentials")
       }
       if(json.success){
-        localStorage.setItem("usertype",userOrOfficer);
-        console.log(localStorage.getItem("usertype"));
-        navigate("/");
+        localStorage.setItem("usertype",userOrOfficer)
+        localStorage.setItem("authToken",authToken)
+        localStorage.setItem("data",data)
+        console.log(localStorage.getItem("usertype"))
+        alert("Login Succesfull!")
+        console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
+        navigate("/")
       }
-      console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
     }
   }
 
@@ -90,7 +97,7 @@ export default function LoginBody() {
 
   {/* <MDBTabsPane show={justifyActive === 'tab1'}> */}
 
-    <MDBInput wrapperClass='mb-4' label='Email / Username' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
+    <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
     <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/>
 
     <div className="d-flex justify-content-between mx-4 mb-4">
