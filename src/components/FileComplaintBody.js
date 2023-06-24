@@ -43,12 +43,10 @@ export default function FileComplaint() {
     }
     
     if(userOrOfficer == 'user'){
-        console.log("User detected");
         repby = parsedData.fname + " " + parsedData.lname
         mail = parsedData.email
         idt = parsedData.idType
         idn = parsedData.idNo
-        console.log(`${repby}\n${mail}\n${idt}\n${idn}`);
     }
 
     useEffect(() => {
