@@ -124,7 +124,7 @@ export default function FileComplaint() {
       {/* <MDBInput wrapperClass='mb-4' label='Description' name='description' type='text'  /> */}
       <MDBTextArea label='Complaint Description' name= 'description' id='textAreaExample' rows={4}  value = {credentials.description} onChange={onChange} required/>
 
-  <MDBBtn className="mb-4 w-50 btn-success">Submit</MDBBtn>
+  <MDBBtn className="mb-4 w-100 btn-success">Submit</MDBBtn>
        </MDBContainer>
     </form>
 
