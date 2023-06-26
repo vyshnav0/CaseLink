@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import {
     MDBContainer,
@@ -9,8 +9,9 @@ import {
   from 'mdb-react-ui-kit';
 
 export default function FileComplaint() {
+    const effectRan = useRef(false)
     
-    let repby,mail,idt,idn = null
+    let repby,mail,idt,idn = "";
     const userOrOfficer = localStorage.getItem("usertype");
     const data = localStorage.getItem("data")
     const parsedData = JSON.parse(data)
@@ -50,7 +51,10 @@ export default function FileComplaint() {
     }
 
     useEffect(() => {
-        callComplaintPage()
+        if(effectRan.current === false){
+            callComplaintPage()
+            effectRan.current = true
+        }
     }, [])
 
     const initialcreds = {
