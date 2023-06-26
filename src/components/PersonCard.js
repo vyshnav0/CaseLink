@@ -12,7 +12,7 @@ const PersonCard = props => {
             </div>
             <Card.Body className="text-center">
                  <Card.Title>{title}</Card.Title>
-                 <Card.Title classNAme = "display-6">{age}</Card.Title>
+                 <Card.Title className = "display-9">{age}</Card.Title>
             </Card.Body>
           </Card>
         </>

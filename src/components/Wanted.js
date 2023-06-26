@@ -40,7 +40,7 @@ export default function Wanted(){
                 freeMode = {true}
                 grabCursor = {true}
                 autoplay={{
-                    delay: 900,
+                    delay: 400,
                     disableOnInteraction: false,
                 }}
                 loop={true}
@@ -53,7 +53,7 @@ export default function Wanted(){
                 >
                     {/* CHANGE THE BELOW TO TAKE THE RECENT 7 INPUTS FROM THE WANTED DB.*/} 
                     
-                    {[...Array(7)].map((_, index) => (
+                    {[...Array(8)].map((_, index) => (
                         <SwiperSlide key={index}>
                             <PersonCard data={{ imgSrc: 'https://via.placeholder.com/150', title: `Wanted person${index + 1}`, age: '25' }} />
                         </SwiperSlide>
