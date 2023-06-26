@@ -25,7 +25,8 @@ export default function Missing() {
       const data = await response.json();
       const updatedFullname = data.fname.map((fname, index) => {
         const lname = data.lname[index].lname;
-        return `${fname.fname} ${lname}`;
+        const age = data.age[index].age;
+        return {fullName: `${fname.fname} ${lname}` , age:age};
       });
       setFullname(updatedFullname);
     } catch (err) {
@@ -41,8 +42,8 @@ export default function Missing() {
   useEffect(() => {
     const missingPersons = fullname.map((name, index) => ({
       imgSrc: 'https://via.placeholder.com/150',
-      title: name,
-      age: '25', // Update the age as needed
+      title: name.fullName,
+      age: name.age // Update the age as needed
     }));
     setMissingPersons(missingPersons);
   }, [fullname]);
