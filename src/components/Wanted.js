@@ -8,13 +8,15 @@ import "swiper/css/navigation";
 import 'swiper/css/free-mode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PersonCard from './PersonCard'
-import '../style/Wanted.css'
+import '../style/Swiper.css'
 
 
 export default function Wanted(){
     return (
         <>
-            <div className= "container py-4 px-4 justify-content-center bg-secondary" style={{ maxWidth: '70' }}>
+            <div >
+                <h2>Most Wanted</h2>
+            <div className= "container py-4 px-4 justify-content-center" >
                 <Swiper
                 breakpoints = {{
                     0:{
@@ -41,7 +43,7 @@ export default function Wanted(){
                 freeMode = {true}
                 grabCursor = {true}
                 autoplay={{
-                    delay: 2000,
+                    delay: 1000,
                     disableOnInteraction: false,
                 }}
                 loop={true}
@@ -61,6 +63,7 @@ export default function Wanted(){
                     ))}
                     
                 </Swiper>
+            </div>
             </div>
         </>
     )

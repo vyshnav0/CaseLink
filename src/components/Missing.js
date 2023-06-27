@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, FreeMode } from 'swiper';
+import { Pagination, Navigation, FreeMode, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PersonCard from './PersonCard';
+import '../style/Swiper.css'
 
 export default function Missing() {
   const [fullname, setFullname] = useState([]);
@@ -52,7 +53,9 @@ export default function Missing() {
 
   return (
     <>
-      <div className="container py-4 px-4 justify-content-center bg-secondary" style={{ maxWidth: '70%' }}>
+    <div >
+      <h2>Missing Person</h2>
+      <div className="container py-4 px-4 justify-content-center " >
         <Swiper
           breakpoints={{
             0: {
@@ -79,20 +82,30 @@ export default function Missing() {
           freeMode={true}
           grabCursor={true}
           loop={true}
+          autoplay={{
+            delay:1000,
+            disableonInteraction:false
+          }}
           pagination={{
             clickable: true,
           }}
           navigation={true}
-          modules={[Pagination, FreeMode, Navigation]}
+          modules={[Autoplay,Pagination, FreeMode, Navigation]}
           className="mySwiper"
         >
-          {missingPersons.map((person, index) => (
+          {/*{missingPersons.map((person, index) => (
             <SwiperSlide key={index}>
               <PersonCard data={person} />
             </SwiperSlide>
-          ))}
+          ))}*/}
+          {[...Array(8)].map((_, index) => (
+                        <SwiperSlide key={index}>
+                            <PersonCard data={{ imgSrc: 'https://via.placeholder.com/150', title: `missing${index + 1}`, age: '25' }} />
+                        </SwiperSlide>
+                    ))}
         </Swiper>
       </div>
+    </div>
     </>
   );
 }
