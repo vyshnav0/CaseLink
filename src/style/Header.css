@@ -10,14 +10,13 @@
     display: block;
     font-weight: 500;
     padding: 4px 12px;
-    border-radius: 30px;
+    border-radius: 1.5px;
     letter-spacing: 1px;
 }
-.listitems > li > a:active{
+.active{
     color: rgba(20, 74, 185, 1);
     border-bottom: 3px solid rgba(20, 74, 185, 1);
     width: 100%;
-    border-radius: 1px;
     transition: 0.5s ease;
 }
 /*.listitems > li > a::after{

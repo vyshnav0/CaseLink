@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Pagination, Navigation, FreeMode } from "swiper";
 import 'swiper/css';
@@ -15,7 +15,9 @@ export default function Wanted(){
     return (
         <>
             <div >
-                <h2>Most Wanted</h2>
+                <h2 className='mw'>Most Wanted</h2>
+                <p className='desc'>Please be adviced that the individuals on Most Wanted list are considered dangereous and should not 
+                be approached or confronted;or instead if you have any information on thier whereabouts,please contact appropriate authorities immediately</p>
             <div className= "container py-4 px-4 justify-content-center" >
                 <Swiper
                 breakpoints = {{
@@ -44,7 +46,7 @@ export default function Wanted(){
                 grabCursor = {true}
                 autoplay={{
                     delay: 1000,
-                    disableOnInteraction: false,
+                    disableOnInteraction: true,
                 }}
                 loop={true}
                 pagination={{

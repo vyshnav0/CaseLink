@@ -55,6 +55,7 @@ export default function Missing() {
     <>
     <div >
       <h2>Missing Person</h2>
+      <p className='desc'>In case you have any information regarding Missing Persons given below please call up the City Police Control Room or call 100</p>
       <div className="container py-4 px-4 justify-content-center " >
         <Swiper
           breakpoints={{
@@ -84,7 +85,7 @@ export default function Missing() {
           loop={true}
           autoplay={{
             delay:1000,
-            disableonInteraction:false
+            disableonInteraction:false,
           }}
           pagination={{
             clickable: true,
@@ -100,7 +101,7 @@ export default function Missing() {
           ))}*/}
           {[...Array(8)].map((_, index) => (
                         <SwiperSlide key={index}>
-                            <PersonCard data={{ imgSrc: 'https://via.placeholder.com/150', title: `missing${index + 1}`, age: '25' }} />
+                            <PersonCard data={{ imgSrc: 'https://via.placeholder.com/150', title: `Missing Person${index + 1}`, age: '25' }} />
                         </SwiperSlide>
                     ))}
         </Swiper>

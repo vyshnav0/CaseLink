@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap");
 body{
   background-color:#dceefa;
 }
+h2{
+  font-family: Questrial;
+  text-align: center;
+}
+.mw{
+  margin-top: 60px;
+}
+.desc{
+  font-family: Questrial;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 50px;
+  padding: 0px 100px;
 
+}
 .container py-4 px-4 justify-content-center{
   background-color: #dceefa;
 }
