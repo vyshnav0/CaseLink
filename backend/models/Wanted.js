@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const {Schema} = mongoose;
 
-const missingSchema = new Schema({
+const wantedSchema = new Schema({
     fname:{
         type : String,
         required : true
@@ -21,4 +21,4 @@ const missingSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('missing',missingSchema,'missingData')
+module.exports = mongoose.model('wanted',wantedSchema,'wantedData')
