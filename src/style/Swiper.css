@@ -1,0 +1,47 @@
+body{
+  background-color:#dceefa;
+}
+
+.container py-4 px-4 justify-content-center{
+  background-color: #dceefa;
+}
+.swiper-navBtn{
+  color: #6E93f7;
+  transition: color 0.3s ease;
+  opacity: 1;
+}
+.swiper-navBtn:hover{
+  color: #4070F4;
+}
+.swiper-navBtn::before,
+.swiper-navBtn::after{
+  font-size: 35px;
+}
+.swiper-button-next{
+  right: 0;
+  position: absolute;
+  background-color: white;
+  height: 30px;
+  width:30px;
+  border-radius: 50%;
+}
+.swiper-button-prev{
+  left: 0;
+  position: absolute;
+  background-color: white;
+  height: 30px;
+  width:30px;
+  border-radius: 50%;
+}
+.swiper-button-prev::after,.swiper-button-next::after{
+  font-size: 18px;
+}
+
+.swiper-pagination-bullet{
+  background-color: #6E93f7;
+  opacity: 0.5;
+}
+.swiper-pagination-bullet-active{
+  background-color: #1d55f0;
+  opacity: 1;
+}
