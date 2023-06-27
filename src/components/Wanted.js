@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import 'swiper/css/free-mode';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PersonCard from './PersonCard'
+import '../style/Wanted.css'
 
 
 export default function Wanted(){
