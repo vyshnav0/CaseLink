@@ -13,7 +13,7 @@ import PersonCard from './PersonCard'
 export default function Wanted(){
     return (
         <>
-            <div className= "container py-4 px-4 justify-content-center bg-secondary" style={{ maxWidth: '70%' }}>
+            <div className= "container py-4 px-4 justify-content-center bg-secondary" style={{ maxWidth: '70' }}>
                 <Swiper
                 breakpoints = {{
                     0:{
@@ -40,7 +40,7 @@ export default function Wanted(){
                 freeMode = {true}
                 grabCursor = {true}
                 autoplay={{
-                    delay: 400,
+                    delay: 2000,
                     disableOnInteraction: false,
                 }}
                 loop={true}

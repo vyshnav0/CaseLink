@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card} from 'react-bootstrap'
+import '../style/PersonCard.css'
 
 const PersonCard = props => {
     let {imgSrc, age, title} = props.data;

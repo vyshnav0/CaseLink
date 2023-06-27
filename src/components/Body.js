@@ -1,10 +1,27 @@
 import React from 'react'
 import '../style/Body.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 export default function Body() {
   return (
-    <div>
-      THIS IS THE HOME PAGE
+    <div className="homepage">
+      <div className="reportingCrimesMade">
+        Reporting Crimes made easy
+      </div>
+      <img className="homepageChild" alt="" src="/Justice.png" />
+      <Button
+        className="homepageItem"
+        variant="outline-dark"
+        name="button"
+        id="fileacomplaint"
+      >
+        File a Complaint
+      </Button>
+      <div className="enjoyTheConvenience">
+        Enjoy the convenience of accessing police station services from the
+        comfort of your  home!
+      </div>
     </div>
   )
 }

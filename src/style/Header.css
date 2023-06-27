@@ -1,35 +1,70 @@
-.listitems{
-    display: relative;
-    /* background-color: rgb(38, 20, 20); */
-    align-items : center;
-    width: 100vw;
-}
+@import url("https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap");
 
-.listitems > li{
-    /* margin-top: 1%; */
-    display : inline-block;
-    /* margin-right: 100px; */
-    /* align-content: center; */
-}
 
 .listitems > li > a{
     text-decoration: none;
-    color: rgb(77, 42, 215);
-    font-size: 20px;
+    color:#161617;
+    font-size: 15px;
+    font-family: Questrial;
+    transition: all.50s ease;
+    display: block;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 30px;
+    letter-spacing: 1px;
+}
+.listitems > li > a:active{
+    color: rgba(20, 74, 185, 1);
+    border-bottom: 3px solid rgba(20, 74, 185, 1);
+    width: 100%;
+    border-radius: 1px;
+    transition: 0.5s ease;
+}
+/*.listitems > li > a::after{
+    content: '';
+    height:2px;
+    width:100%;
+    background: #000000c8;
+    border-radius: 30px;
+    display: block;
+    left:0;
+    bottom: -4;
+    opacity: 0;
+    transition: all 0.3s;
 }
 
-.wholeHeader{
-    /* display: absolute; */
-    /* text-align: center; */
+
+.listitems > li > a:hover::after{
+    opacity: 0.9;
+}*/
+.listitems > li > a:hover{
+    color: rgba(20, 74, 185, 1);
+    transition: 0.5s ease;
+}
+
+
+.listitems{
+    list-style: none;
+}
+
+.listitems > li{
+    display: inline-block;
+    padding: 0px 2vw;
+
+    
+}
+
+.header{
     height: 40vh;
     max-height: 100px;
     min-height: 70px;
+    background-color: #dceefa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3% 8%;
+}
+.log{
+    width:6%;
 }
 
-.logo{
-    margin-left: 0%;
-}
-
-.headerOptions{
-    margin-right: 0%;
-}

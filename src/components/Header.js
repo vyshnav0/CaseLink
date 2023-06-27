@@ -1,6 +1,8 @@
 import React from 'react'
 import '../style/Header.css'
 import {Link} from 'react-router-dom'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 export default function Header() {
   const logged = localStorage.getItem("usertype");
@@ -14,15 +16,20 @@ export default function Header() {
   
   return (
     <>
-      <div className='wholeHeader'>
+      <div className='header'>
+        <div className='logo'>logo</div>
         <div className='listitems'>
-          <li className='logo'><Link to="/"><img src='/images/siteLogo.jpg' width="100" height="80" alt='logo'/></Link></li>
-          <li className='headerOptions'><Link to='/filecomplaint'>Register Complaint</Link></li>
+          <li className='headerOptions'><Link to='/'>Home</Link></li>
+          <li className='headerOptions'><Link to='/'>Profile</Link></li>
+          <li className='headerOptions'><Link to='/filecomplaint'>File a Complaint</Link></li>
           <li className='headerOptions'><Link to='/'>Complaint Status</Link></li>
           {/* <li><Link to='/contactinfo'>Contact Us</Link></li> */}
-          <li className='headerOptions'><Link to='/'>ProfileIcon</Link></li>
           {/* <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li> */}
         </div>
+        <Button 
+        className='log'
+        variant='dark'
+        >Log in</Button>
       </div>
     </>
   );
