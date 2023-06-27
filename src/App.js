@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import SignupC from './screens/SignupC';
 import SignupO from './screens/SignupO';
+import OfficerWork from './screens/OfficerWork';
 
   
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path = "/login" element = {<Login></Login>} ></Route>
           <Route exact path = "/signupcitizen" element = {<SignupC></SignupC>} ></Route>
           <Route exact path = "/signupofficer" element = {<SignupO></SignupO>} ></Route>
+          <Route exact path = "/officer" element = {<OfficerWork></OfficerWork>} ></Route>
           <Route exact path = '/contactinfo' element = {<ContactUs></ContactUs>} ></Route>
           <Route exact path = '/filecomplaint' element = {<FileComplaint></FileComplaint>} ></Route>
         </Routes>
