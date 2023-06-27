@@ -67,7 +67,7 @@ export default function LoginBody() {
         localStorage.setItem("data",data)
         console.log(localStorage.getItem("usertype"))
         console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
-        navigate("/")
+        navigate("/officer")
       }
     }
   }
