@@ -39,7 +39,6 @@ export default function LoginBody() {
         localStorage.setItem("authToken",authToken)
         localStorage.setItem("data",data)
         console.log(localStorage.getItem("usertype"));
-        alert("Login Succesfull!")
         console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
         navigate("/");
       }
@@ -67,7 +66,6 @@ export default function LoginBody() {
         localStorage.setItem("authToken",authToken)
         localStorage.setItem("data",data)
         console.log(localStorage.getItem("usertype"))
-        alert("Login Succesfull!")
         console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
         navigate("/")
       }
