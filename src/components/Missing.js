@@ -54,7 +54,7 @@ export default function Missing() {
   return (
     <>
     <div className='page' >
-      <h2 class='mw' >Missing Person</h2>
+      <h2 className='mw' >Missing Person</h2>
       <p className='desc'>In case you have any information regarding Missing Persons given below please call up the City Police Control Room or call 100</p>
       <div className="container py-4 px-4 justify-content-center " >
         <Swiper
