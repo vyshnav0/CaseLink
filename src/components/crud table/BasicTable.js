@@ -3,7 +3,7 @@ import {useTable, useGlobalFilter} from 'react-table'
 import MOCK_DATA from './MOCK_DATA.json'
 import { Columns } from "./Columns";
 import './table.css'
-import { Seacrh } from './Search';
+import { Search } from './Search';
 // import "...../node_modules/bootstrap/dist";
 
 export const BasicTable = () =>{
@@ -28,7 +28,7 @@ export const BasicTable = () =>{
 
     return (
         <>
-        <Seacrh filter={globalFilter} setFilter={setGlobalFilter}/>
+        <Search filter={globalFilter} setFilter={setGlobalFilter}/>
             <table id="table" {...getTableProps()}>
                 <thead>
                     {
