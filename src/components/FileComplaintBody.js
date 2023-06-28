@@ -44,7 +44,7 @@ export default function FileComplaint() {
         }
     }
     
-    if(userOrOfficer == 'user'){
+    if(userOrOfficer == 'user'){        //to autofill data
         repby = parsedData.fname + " " + parsedData.lname
         mail = parsedData.email
         idt = parsedData.idType
