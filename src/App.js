@@ -6,15 +6,16 @@ import ContactUs from './screens/ContactUs'
 import FileComplaint from './screens/FileComplaint'
 import ComplaintStatus from './screens/ComplaintStatus';
 import Profile from './screens/Profile';
+import SignupC from './screens/SignupC';
+import SignupO from './screens/SignupO';
+import OfficerWork from './screens/OfficerWork';
+import ManageMissing from './screens/ManageMissing';
 
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
-import SignupC from './screens/SignupC';
-import SignupO from './screens/SignupO';
-import OfficerWork from './screens/OfficerWork';
 
   
 function App() {
@@ -31,6 +32,8 @@ function App() {
           <Route exact path = '/filecomplaint' element = {<FileComplaint></FileComplaint>} ></Route>
           <Route exact path = '/complaintstatus' element = {<ComplaintStatus></ComplaintStatus>} ></Route>
           <Route exact path = '/profile' element = {<Profile></Profile>} ></Route>
+          <Route exact path = '/missingdb' element = {<ManageMissing></ManageMissing>} ></Route>
+          
         </Routes>
       </div>
     </Router>
