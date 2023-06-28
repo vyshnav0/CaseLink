@@ -79,8 +79,39 @@ export default function FileComplaint() {
     //     [credentials, setcredentials] = useState({reportedby:"",fname:data.fname,lname:data.lname,age:data.age,sex:data.sex,contactno:data.contactno,email:data.email,address:data.address,fathersName:data.fathersName,mothersName:data.mothersName,idType:data.idType,idNo:data.idno,type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
     // }
 
+    
+    const createComplaintee = async() =>{
+        try{
+            const complainteeResponse = await fetch("http://localhost:5000/createcomplaintee",{
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({reportedby:credentials.reportedby,email:credentials.email,contactno:credentials.contactno,idType:credentials.idType,idno:credentials.idno,type:credentials.type,location:credentials.location,time:credentials.time,accused:credentials.accused,victim:credentials.victim,description:credentials.description,nearestStation:credentials.nearestStation})
+            })
+
+            const jsonComplaintee = await complainteeResponse.json()
+            console.log(jsonComplaintee);
+
+            if(!jsonComplaintee.success){
+                alert("There was an error in accepting you data. Please try again.")
+            }
+            if(jsonComplaintee.success){
+                console.log("Created complaintee succesfully");
+                //write code to alter css based on complaintee addition maybe remove create complaintee button and automatically move to complaint details page (code for what happens when you switch the tab on top for personal details/complaint details)
+            }
+        }
+        catch(err){
+            console.error(err);
+        }
+    }
+    
     const handleSubmit = async(e)=>{
         e.preventDefault();
+        if(userOrOfficer === 'officer'){
+            console.log("Since officer, going to createcomplaintee");
+            createComplaintee()
+        }
         const response = await fetch("http://localhost:5000/createcomplaint",{
         method:'POST',
         headers:{
@@ -96,28 +127,6 @@ export default function FileComplaint() {
         }
         if(json.success){
             navigate("/");
-        }
-    }
-
-    const createComplaintee = async(e) =>{
-        e.preventDefault();
-        const complainteeResponse = await fetch("http://localhost:5000/createcomplaintee",{
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify({reportedby:credentials.reportedby,email:credentials.email,contactno:credentials.contactno,idType:credentials.idType,idno:credentials.idno,type:credentials.type,location:credentials.location,time:credentials.time,accused:credentials.accused,victim:credentials.victim,description:credentials.description,nearestStation:credentials.nearestStation})
-        })
-
-        const jsonComplaintee = await complainteeResponse.json()
-        console.log(jsonComplaintee);
-
-        if(!jsonComplaintee.success){
-            alert("There was an error in accepting you data. Please try again.")
-        }
-        if(jsonComplaintee.success){
-            console.log("Created complaintee succesfully");
-            //write code to alter css based on complaintee addition maybe remove create complaintee button and automatically move to complaint details page (code for what happens when you switch the tab on top for personal details/complaint details)
         }
     }
 
@@ -157,7 +166,7 @@ export default function FileComplaint() {
       {/* <MDBInput wrapperClass='mb-4' label='Description' name='description' type='text'  /> */}
       <MDBTextArea label='Complaint Description' name= 'description' id='textAreaExample' rows={4}  value = {credentials.description} onChange={onChange} required/>
 
-  <MDBBtn className="mb-4 w-100 btn-success">Submit</MDBBtn>
+  <MDBBtn className="mb-4 w-100 btn-success">{userOrOfficer === 'user' ? "Submit" : "Create Complaintee and submit"}</MDBBtn>
        </MDBContainer>
     </form>
 
