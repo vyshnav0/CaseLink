@@ -8,7 +8,12 @@ router.post("/addmissing", async (req,res) => {
             fname : req.body.fname,
             lname : req.body.lname,
             age : req.body.age,
-            img : req.body.img
+            img : req.body.img,
+            height: req.body.height,
+            weight: req.body.weight,
+            location: req.body.location,
+            date: req.body.date,
+            contactno: req.body.contactno
         })
         res.json({success:true})
     }
