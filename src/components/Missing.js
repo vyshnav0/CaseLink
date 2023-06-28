@@ -94,16 +94,16 @@ export default function Missing() {
           modules={[Autoplay,Pagination, FreeMode, Navigation]}
           className="mySwiper"
         >
-          {/*{missingPersons.map((person, index) => (
+          {missingPersons.map((person, index) => (
             <SwiperSlide key={index}>
               <PersonCard data={person} />
             </SwiperSlide>
-          ))}*/}
-          {[...Array(8)].map((_, index) => (
+          ))}
+          {/* {[...Array(8)].map((_, index) => (
                         <SwiperSlide key={index}>
                             <PersonCard data={{ imgSrc: 'https://via.placeholder.com/150', title: `Missing Person${index + 1}`, age: '25' }} />
                         </SwiperSlide>
-                    ))}
+                    ))} */}
         </Swiper>
       </div>
     </div>

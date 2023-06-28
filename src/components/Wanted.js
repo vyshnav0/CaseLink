@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import {NavLink} from 'react-router-dom';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Autoplay, Pagination, Navigation, FreeMode } from "swiper";
@@ -12,6 +12,45 @@ import '../style/Swiper.css'
 
 
 export default function Wanted(){
+    const [fullname, setFullname] = useState([]);
+  
+    const callWantedPage = async () => {
+        try {
+        const response = await fetch('http://localhost:5000/obtainwanted', {
+            method: 'GET',
+            headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        });
+        const data = await response.json();
+        const updatedFullname = data.fname.map((fname, index) => {
+            const lname = data.lname[index].lname;
+            const age = data.age[index].age;
+            return {fullName: `${fname.fname} ${lname}` , age:age};
+        });
+        setFullname(updatedFullname);
+        } catch (err) {
+        console.log(err);
+        console.log('There was an error during fetching missing persons details');
+        }
+    };
+
+    useEffect(() => {
+        callWantedPage();
+    }, []);
+
+    useEffect(() => {
+        const missingPersons = fullname.map((name, index) => ({
+        imgSrc: 'https://via.placeholder.com/150',
+        title: name.fullName,
+        age: name.age // Update the age as needed
+        }));
+        setMissingPersons(missingPersons);
+    }, [fullname]);
+
+  const [missingPersons, setMissingPersons] = useState([]);
     return (
         <>
             <div className='page' >
@@ -57,12 +96,14 @@ export default function Wanted(){
                 className = "mySwiper"
                 >
                     {/* CHANGE THE BELOW TO TAKE THE RECENT 7 INPUTS FROM THE WANTED DB.*/} 
-                    
-                    {[...Array(8)].map((_, index) => (
+                    {missingPersons.map((person, index) => (
+                        <SwiperSlide key={index}><PersonCard data={person} /></SwiperSlide>
+                    ))}
+                    {/* {[...Array(8)].map((_, index) => (
                         <SwiperSlide key={index}>
                             <PersonCard data={{ imgSrc: 'https://via.placeholder.com/150', title: `Wanted person${index + 1}`, age: '25' }} />
                         </SwiperSlide>
-                    ))}
+                    ))} */}
                     
                 </Swiper>
             </div>
