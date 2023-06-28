@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useRef} from 'react'
-import {NavLink,useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import {
     MDBContainer,
     MDBBtn,
@@ -44,7 +44,7 @@ export default function FileComplaint() {
         }
     }
     
-    if(userOrOfficer == 'user'){        //to autofill data
+    if(userOrOfficer === 'user'){        //to autofill data
         repby = parsedData.fname + " " + parsedData.lname
         mail = parsedData.email
         phone = parsedData.contactno
