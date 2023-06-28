@@ -7,6 +7,7 @@ import {
     MDBTextArea,
   }
   from 'mdb-react-ui-kit';
+  import '../style/FileComplaint.css'
 
 export default function FileComplaint() {
     const effectRan = useRef(false)

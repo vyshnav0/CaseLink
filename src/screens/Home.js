@@ -4,11 +4,12 @@ import Body from '../components/Body'
 import Header from '../components/Header'
 import Missing from '../components/Missing'
 import Wanted from '../components/Wanted'
+import '../style/Swiper.css'
 
 
 export default function Home() {
   return (
-    <div>
+    <div className='home'>
         <div><Header></Header></div>
         <div><Body></Body></div>
         <div><Missing></Missing></div>

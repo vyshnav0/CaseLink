@@ -14,7 +14,7 @@ import '../style/Swiper.css'
 export default function Wanted(){
     return (
         <>
-            <div >
+            <div className='page' >
                 <h2 className='mw'>Most Wanted</h2>
                 <p className='desc'>Please be adviced that the individuals on Most Wanted list are considered dangereous and should not 
                 be approached or confronted;or instead if you have any information on thier whereabouts,please contact appropriate authorities immediately</p>
@@ -46,7 +46,7 @@ export default function Wanted(){
                 grabCursor = {true}
                 autoplay={{
                     delay: 1000,
-                    disableOnInteraction: true,
+                    disableOnInteraction: false,
                 }}
                 loop={true}
                 pagination={{

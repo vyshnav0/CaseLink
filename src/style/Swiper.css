@@ -1,13 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap");
-body{
+.home{
   background-color:#dceefa;
-}
-h2{
-  font-family: Questrial;
-  text-align: center;
 }
 .mw{
   margin-top: 60px;
+  font-family: Questrial;
+  text-align: center;
 }
 .desc{
   font-family: Questrial;

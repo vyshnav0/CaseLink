@@ -7,6 +7,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 import {NavLink,useNavigate} from 'react-router-dom'
+import '../style/LoginBody.css'
 
 export default function LoginBody() {
 
@@ -86,7 +87,7 @@ export default function LoginBody() {
   //   setJustifyActive(value);
   // };
   return (
-    <div>
+    <div className='login'>
       <form onSubmit={handleSubmit}>
        
          <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
