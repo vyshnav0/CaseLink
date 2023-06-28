@@ -8,7 +8,6 @@ import {
 from 'mdb-react-ui-kit';
 import {NavLink,useNavigate} from 'react-router-dom'
 import '../style/LoginBody.css'
-import { Toaster } from 'react-hot-toast';
 
 export default function LoginBody() {
 
@@ -90,8 +89,8 @@ export default function LoginBody() {
   return (
     <div className='login'>
       <form onSubmit={handleSubmit}>
-       <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
-           <Toaster position='top-center' reverseOrder={false}></Toaster>
+       
+         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
 
 <MDBTabsContent>
 
