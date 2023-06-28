@@ -8,6 +8,7 @@ router.post("/createcomplaint",
             await Complaint.create({
                 reportedby: req.body.reportedby,
                 email: req.body.email,
+                contactno: req.body.contactno,
                 idType: req.body.idType,
                 idno: req.body.idno,
                 type: req.body.type,
