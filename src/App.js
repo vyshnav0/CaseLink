@@ -7,7 +7,6 @@ import FileComplaint from './screens/FileComplaint'
 import ComplaintStatus from './screens/ComplaintStatus';
 import Profile from './screens/Profile';
 import SignupC from './screens/SignupC';
-import SignupO from './screens/SignupO';
 import OfficerWork from './screens/OfficerWork';
 import ManageMissing from './screens/ManageMissing';
 
@@ -26,7 +25,6 @@ function App() {
           <Route exact path = "/" element = {<Home></Home>} ></Route>
           <Route exact path = "/login" element = {<Login></Login>} ></Route>
           <Route exact path = "/signupcitizen" element = {<SignupC></SignupC>} ></Route>
-          <Route exact path = "/signupofficer" element = {<SignupO></SignupO>} ></Route>
           <Route exact path = "/officer" element = {<OfficerWork></OfficerWork>} ></Route>
           <Route exact path = '/contactinfo' element = {<ContactUs></ContactUs>} ></Route>
           <Route exact path = '/filecomplaint' element = {<FileComplaint></FileComplaint>} ></Route>
