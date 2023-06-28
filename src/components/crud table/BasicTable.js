@@ -122,7 +122,7 @@ export const BasicTable = () => {
       console.log(data);
       const updatedFullname = data.fname.map((fname, index) => {
         const lname = data.lname[index].lname;
-        const fullname = data.fname[index] + " " + lname
+        const fullname = fname.fname + " " + lname
         const age = data.age[index].age;
         const gender = data.gender[index].gender;
         const height = data.height[index].height;
@@ -130,8 +130,9 @@ export const BasicTable = () => {
         const location = data.location[index].location;
         const date = data.date[index].date;
         const contactno = data.contactno[index].contactno;
+        console.log(`This is the fullname ${fullname}`);
         return {
-          fullName: fullname,
+          full_name: fullname,
           age: age,
           gender: gender,
           height: height,
@@ -149,7 +150,7 @@ export const BasicTable = () => {
 
   useEffect(() => {
     const missingPersons = fullname.map((name) => ({
-      fullName: name.fullName,
+      full_name: name.full_name,
       age: name.age,
       gender: name.gender,
       height: name.height,
@@ -162,7 +163,7 @@ export const BasicTable = () => {
   }, [fullname]);
 
   missingPersons.map((person,index) => {
-    const full_name = person.fullName;
+    const full_name = person.full_name;
     const age = person.age;
     const gender = person.gender;
     const height = person.height;
