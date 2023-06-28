@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Seacrh = ({filter, setFilter}) => {
+export const Search = ({filter, setFilter}) => {
     return (
         <>
             <span>
