@@ -162,29 +162,6 @@ export const BasicTable = () => {
     setMissingPersons(missingPersons);
   }, [fullname]);
 
-  missingPersons.map((person,index) => {
-    const full_name = person.full_name;
-    const age = person.age;
-    const gender = person.gender;
-    const height = person.height;
-    const weight = person.weight;
-    const lastSeenLocation = person.last_seen_location;
-    const lastSeenDate = person.last_seen_date;
-    const contactNumber = person.contact_number;
-
-    let personData = {
-      full_name: full_name,
-      age: age,
-      gender: gender,
-      height: height,
-      weight: weight,
-      last_seen_location: lastSeenLocation,
-      last_seen_date: lastSeenDate,
-      contact_number: contactNumber,
-    }
-    return personData
-  })
-
   useEffect(() => {
     if (effectRan.current === false) {
       callMissingPage();
