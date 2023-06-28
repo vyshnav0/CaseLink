@@ -3,19 +3,7 @@ const mongoose = require("mongoose")
 const {Schema} = mongoose;
 
 const complainteeSchema = new Schema({
-    fname:{
-        type : String,
-        required : true
-    },
-    lname:{
-        type : String,
-        required : true
-    },
-    age:{
-        type : String,
-        required : true
-    },
-    sex:{
+    name:{
         type : String,
         required : true
     },
@@ -27,23 +15,11 @@ const complainteeSchema = new Schema({
         type : String,
         required : false
     },
-    address:{
-        type : String,
-        required : true
-    },
-    fathersName:{
-        type : String,
-        required : false
-    },
-    mothersName:{
-        type : String,
-        required : false
-    },
     idType: {
         type: String,
         required: true
     },
-    idNo:{
+    idno:{
         type : String,
         required : true
     }
