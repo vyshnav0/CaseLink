@@ -4,6 +4,9 @@ import Home from './screens/Home';
 import Login from './screens/Login';
 import ContactUs from './screens/ContactUs'
 import FileComplaint from './screens/FileComplaint'
+import ComplaintStatus from './screens/ComplaintStatus';
+import Profile from './screens/Profile';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -26,6 +29,8 @@ function App() {
           <Route exact path = "/officer" element = {<OfficerWork></OfficerWork>} ></Route>
           <Route exact path = '/contactinfo' element = {<ContactUs></ContactUs>} ></Route>
           <Route exact path = '/filecomplaint' element = {<FileComplaint></FileComplaint>} ></Route>
+          <Route exact path = '/complaintstatus' element = {<ComplaintStatus></ComplaintStatus>} ></Route>
+          <Route exact path = '/profile' element = {<Profile></Profile>} ></Route>
         </Routes>
       </div>
     </Router>
