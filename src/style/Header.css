@@ -13,7 +13,7 @@
     border-radius: 1.5px;
     letter-spacing: 1px;
 }
-.active{
+.listitems > li > a.active{
     color: rgba(20, 74, 185, 1);
     border-bottom: 3px solid rgba(20, 74, 185, 1);
     width: 100%;

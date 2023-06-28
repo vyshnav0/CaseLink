@@ -11,7 +11,7 @@ import {
 }
 from 'mdb-react-ui-kit';
 
-import {NavLink,useNavigate} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 
 export default function SignUpCitizen() {
 
