@@ -8,7 +8,12 @@ router.post("/addmissing", async (req,res) => {
             fname : req.body.fname,
             lname : req.body.lname,
             age : req.body.age,
-            img : req.body.img
+            img : req.body.img,
+            height: req.body.height,
+            weight: req.body.weight,
+            location: req.body.location,
+            date: req.body.date,
+            contactno: req.body.contactno
         })
         res.json({success:true})
     }
@@ -23,7 +28,13 @@ router.get("/obtainmissing", async (req, res) => {
         const lname = await Missing.find({},{lname:1,_id:0}).sort({_id: -1}).limit(8)
         const age = await Missing.find({},{age:1,_id:0}).sort({_id: -1}).limit(8)
         const img = await Missing.find({},{img:1,_id:0}).sort({_id: -1}).limit(8)
-        res.json({success:true,fname:fname,lname:lname,age:age,img:img})
+        const height = await Missing.find({},{height:1,_id:0}).sort({_id:-1}).limit(8);
+        const weight = await Missing.find({},{weight:1,_id:0}).sort({_id:-1}).limit(8);
+        const location = await Missing.find({},{location:1,_id:0}).sort({_id:-1}).limit(8);
+        const date = await Missing.find({},{date:1,_id:0}).sort({_id:-1}).limit(8);
+        const contactno = await Missing.find({},{contactno:1,_id:0}).sort({_id:-1}).limit(8);
+
+        res.json({success:true,fname:fname,lname:lname,age:age,img:img,height:height,weight:weight,location:location,date:date,contactno:contactno})
     }
     catch(err){
         res.json({success:false})
