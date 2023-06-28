@@ -10,7 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PersonCard from './PersonCard'
 import '../style/Swiper.css'
 
-
 export default function Wanted(){
     const [fullname, setFullname] = useState([]);
   
@@ -33,7 +32,7 @@ export default function Wanted(){
         setFullname(updatedFullname);
         } catch (err) {
         console.log(err);
-        console.log('There was an error during fetching missing persons details');
+        console.log('There was an error during fetching wanted persons details');
         }
     };
 
@@ -42,15 +41,15 @@ export default function Wanted(){
     }, []);
 
     useEffect(() => {
-        const missingPersons = fullname.map((name, index) => ({
+        const wantedPersons = fullname.map((name, index) => ({
         imgSrc: 'https://via.placeholder.com/150',
         title: name.fullName,
         age: name.age // Update the age as needed
         }));
-        setMissingPersons(missingPersons);
+        setWantedPersons(wantedPersons);
     }, [fullname]);
 
-  const [missingPersons, setMissingPersons] = useState([]);
+  const [wantedPersons, setWantedPersons] = useState([]);
     return (
         <>
             <div className='page' >
@@ -95,9 +94,10 @@ export default function Wanted(){
                 modules={[Autoplay, Pagination, FreeMode, Navigation]}
                 className = "mySwiper"
                 >
-                    {/* CHANGE THE BELOW TO TAKE THE RECENT 7 INPUTS FROM THE WANTED DB.*/} 
-                    {missingPersons.map((person, index) => (
-                        <SwiperSlide key={index}><PersonCard data={person} /></SwiperSlide>
+                    {wantedPersons.map((person, index) => (
+                        <SwiperSlide key={index}>
+                            <PersonCard data={person} />
+                        </SwiperSlide>
                     ))}
                     {/* {[...Array(8)].map((_, index) => (
                         <SwiperSlide key={index}>
