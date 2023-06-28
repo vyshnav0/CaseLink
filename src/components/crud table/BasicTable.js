@@ -4,7 +4,7 @@ import MOCK_DATA from './MOCK_DATA.json'
 import { Columns } from "./Columns";
 import './table.css'
 import { Search } from './Search';
-// import "...../node_modules/bootstrap/dist";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export const BasicTable = () =>{
 
