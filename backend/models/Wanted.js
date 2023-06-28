@@ -18,6 +18,26 @@ const wantedSchema = new Schema({
     img: {
         type: Buffer,
         required: true,
+    },
+    height: {
+        type: String,
+        required: false
+    },
+    weight: {
+        type: String,
+        required: false
+    },
+    location: {
+        type: String,
+        required: false
+    },
+    date: {
+        type: String,
+        required: false
+    },
+    contactno: {
+        type: String,
+        required: false
     }
 });
 
