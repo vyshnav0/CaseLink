@@ -1,6 +1,12 @@
 import React,{useState,useEffect,useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
-
+import {
+    MDBContainer,
+    MDBBtn,
+    MDBInput,
+    MDBTextArea,
+  }
+  from 'mdb-react-ui-kit';
 export default function WantedAddingBody() {
 
   const effectRan = useRef(false)
@@ -88,7 +94,33 @@ export default function WantedAddingBody() {
 
   return (
     <>
+    <form onSubmit={handleSubmit}>
+            <h2 className='head'>Add a Wanted Person</h2>
+       <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+        
+      <label for="imageUpload" class="form-label">Upload Image</label>
+      <input class="form-control form-control-sm" id="imageUpload" type="file" accept="image/*" />
 
+  <MDBInput wrapperClass='mb-4' label='First name' name='fname' type='text' value = {credentials.fname} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Last name' name='lname' type='text' value = {credentials.lname} onChange={onChange} required />
+      <div className="d-flex justify-content-between">
+        <MDBInput wrapperClass='mb-4' label='Age' name='age' type='number' value = {credentials.age} onChange={onChange} required />
+        <MDBInput wrapperClass='mb-4' label='Gender' name='gender' type='text' value = {credentials.gender} onChange={onChange} required />
+        <MDBInput wrapperClass='mb-4' label='Contact no' name='contactno' type='number' value = {credentials.contactno} onChange={onChange} required />
+      </div>
+
+      <div className="d-flex justify-content-between">
+      <MDBInput wrapperClass='mb-4' label='Height' name='height' type='number' value = {credentials.height} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Weight' name='weight' type='number' value = {credentials.weight} onChange={onChange} required />
+      </div>
+      <div className="d-flex justify-content-between">
+      <MDBInput wrapperClass='mb-4' label='Location' name='location' type='text' value = {credentials.location} onChange={onChange} required />
+      <MDBInput wrapperClass='mb-4' label='Date' name='time' type='date' value = {credentials.time} onChange={onChange} required />
+      </div>
+
+  <MDBBtn className="mb-4 w-100 ">Submit</MDBBtn>
+       </MDBContainer>
+    </form>
 
 
     </>
