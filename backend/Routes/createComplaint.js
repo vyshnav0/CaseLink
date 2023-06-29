@@ -26,4 +26,14 @@ router.post("/createcomplaint",
         }
     })
 
+router.get("/obtaincomplaint",async(req,res) => {
+    try {
+        const complaintdata = await Complaint.find({})
+        res.json({success:true , complaintdata:complaintdata})
+    }
+    catch (error) {
+        console.error(error);
+    }
+})
+
 module.exports = router;
