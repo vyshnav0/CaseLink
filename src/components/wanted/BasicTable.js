@@ -117,7 +117,7 @@ export const BasicTable = () => {
 
   const callMissingPage = async () => {
     try {
-      const response = await fetch('http://localhost:5000/obtainmissing', {
+      const response = await fetch('http://localhost:5000/obtainwanted', {
         method: "GET",
         headers: {
           Accept: "application/json",

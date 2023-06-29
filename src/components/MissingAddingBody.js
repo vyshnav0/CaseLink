@@ -3,6 +3,29 @@ import {useNavigate} from 'react-router-dom'
 
 export default function WantedAddingBody() {
 
+    let base64 = ''
+    const UplaodImage = async(e) => {
+        const file = e.target.files[0]
+        base64 = await convertBase64(file)
+        console.log(base64);
+        console.log();
+    }
+
+    const convertBase64 = (file) => {
+        return new Promise((resolve,reject) => {
+            const filereader = new FileReader();
+            filereader.readAsDataURL(file);
+
+            filereader.onload = () => {
+                resolve(filereader.result)
+            };
+
+            filereader.onerror((error) => {
+                reject(error)
+            })
+        })
+    }
+
   const effectRan = useRef(false)
     
     const userOrOfficer = localStorage.getItem("usertype");
@@ -46,14 +69,14 @@ export default function WantedAddingBody() {
     const initialcreds = {fname: "",lname: "",age: "",gender: "",height: "",weight: "",location: "",date: "",contactno: ""}
     const [credentials, setcredentials] = useState(initialcreds)
     
-    const createMissing = async() =>{
+    const createMissing = async(image64) =>{
         try{
             const MissingResponse = await fetch("http://localhost:5000/addmissing",{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({fname: credentials.fname,lname: credentials.lname,age: credentials.age,gender: credentials.gender,height: credentials.height,weight: credentials.weight,location: credentials.location,date: credentials.date,contactno: credentials.contactno})
+            body: JSON.stringify({fname: credentials.fname,lname: credentials.lname,age: credentials.age,img: image64,gender: credentials.gender,height: credentials.height,weight: credentials.weight,location: credentials.location,date: credentials.date,contactno: credentials.contactno})
             })
 
             const jsonMissing = await MissingResponse.json()
@@ -76,7 +99,7 @@ export default function WantedAddingBody() {
         e.preventDefault();
         if(userOrOfficer === 'officer'){
             console.log("Since officer, going to createmissing");
-            createMissing()
+            createMissing(base64)
         }
     }
 
