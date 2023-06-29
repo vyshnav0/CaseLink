@@ -16,7 +16,7 @@
     border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
-    font-size: 32px;
+    font-size: 16px;
   }
   
   th {
@@ -30,7 +30,7 @@
   .formtab {
     display: flex;
     gap: 5px;
-    font-size: 20px;
+    font-size: 16px;
     font-family: Questrial;
   }
   
