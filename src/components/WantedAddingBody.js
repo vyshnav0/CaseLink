@@ -23,7 +23,6 @@ export default function WantedAddingBody() {
             console.log(data);
             console.log("Returned from fetching comlpaintauth");
 
-
             if(!response.status(200)){
                 console.log("There was an error in authentication")
             }
@@ -33,7 +32,7 @@ export default function WantedAddingBody() {
         }
     }
     
-    if(userOrOfficer === 'user'){        //to autofill data
+    if(userOrOfficer === 'user'){
         navigate("/")
     }
 
@@ -77,7 +76,7 @@ export default function WantedAddingBody() {
     const handleSubmit = async(e)=>{
         e.preventDefault();
         if(userOrOfficer === 'officer'){
-            console.log("Since officer, going to createcomplaintee");
+            console.log("Since officer, going to createwanted");
             createWanted()
         }
     }
