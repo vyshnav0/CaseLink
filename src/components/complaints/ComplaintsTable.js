@@ -43,18 +43,7 @@ const ComplaintsTable = () => {
     setContacts(newContacts);
   };
 
-  const dataPassed = {
-    complainant_name: data[0].reportedby,
-    complainant_phone: data[0].contactno,
-    incident_location: data[0].location,
-    complainant_email: data[0].email,
-    complaint_type: data[0].type,
-    complaint_date: data[0].date,
-    complaint_description: data[0].description,
-    complaint_status: data[0].status,
-  };
-
-  console.log(`Data parsed: ${JSON.stringify(dataPassed)}`);
+  
   const [contacts, setContacts] = useState([]);
 
   const [addFormData, setAddFormData] = useState({

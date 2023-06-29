@@ -19,7 +19,8 @@ router.post("/createcomplaint",
                 description: req.body.description,
                 nearestStation: req.body.nearestStation
             })
-            res.json({ success: true });
+            const latestDocument = await Complaint.findOne({}, { cid: 1 , _id:0 }).sort({ cid: -1 }).limit(1);
+            res.json({ success: true ,msg:"Fetched cid successfully",cid:latestDocument});
         } catch (error) {
             console.error(error)
             res.json({ success: false });

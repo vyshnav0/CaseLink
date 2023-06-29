@@ -70,11 +70,6 @@ export default function FileComplaint() {
         nearestStation:""
     }
     const [credentials, setcredentials] = useState(initialcreds)
-
-    // if(userOrOfficer == 'user'){
-    //     [credentials, setcredentials] = useState({reportedby:"",fname:data.fname,lname:data.lname,age:data.age,sex:data.sex,contactno:data.contactno,email:data.email,address:data.address,fathersName:data.fathersName,mothersName:data.mothersName,idType:data.idType,idNo:data.idno,type:"",location:"",time:"",accused:"",victim:"",description:"",nearestStation:""})
-    // }
-
     
     const createComplaintee = async() =>{
         try{
@@ -122,6 +117,7 @@ export default function FileComplaint() {
             alert("There was an error in accepting you data. Please try again.")
         }
         if(json.success){
+            alert(`Please Note your Complaint ID: ${json.cid.cid}`)
             navigate("/");
         }
     }
