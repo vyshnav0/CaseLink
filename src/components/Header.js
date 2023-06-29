@@ -23,7 +23,7 @@ export default function Header() {
         <div className='logo'>logo</div>
         <div className='listitems'>
           <li className='header_options'><NavLink  to='/'>Home</NavLink></li>
-          <li className='header_options'><NavLink  to='/profile'>Profile</NavLink></li>
+          {status && <li className='header_options'><NavLink  to='/profile'>Profile</NavLink></li>}
           <li className='header_options'><NavLink  to='/filecomplaint'>File a Complaint</NavLink></li>
           <li className='header_options'><NavLink  to='/complaintstatus'>Complaint Status</NavLink></li>
           {/* <li><Link to='/contactinfo'>Contact Us</Link></li> */}
