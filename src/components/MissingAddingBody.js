@@ -82,7 +82,18 @@ export default function WantedAddingBody() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({fname: credentials.fname,lname: credentials.lname,age: credentials.age,img: image64,gender: credentials.gender,height: credentials.height,weight: credentials.weight,location: credentials.location,date: credentials.date,contactno: credentials.contactno})
+            body: JSON.stringify({
+                fname: credentials.fname,
+                lname: credentials.lname,
+                age: credentials.age,
+                img: "image64",
+                gender: credentials.gender,
+                height: credentials.height,
+                weight: credentials.weight,
+                location: credentials.location,
+                date: credentials.date.toString().slice(0,10),
+                contactno: credentials.contactno,
+              }),
             })
 
             const jsonMissing = await MissingResponse.json()
@@ -120,8 +131,8 @@ export default function WantedAddingBody() {
             <h2 className='head'>Add a Missing Person</h2>
        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
         
-      <label for="imageUpload" class="form-label">Upload Image</label>
-      <input class="form-control form-control-sm" id="imageUpload" type="file" accept="image/*" />
+      {/* <label for="imageUpload" class="form-label">Upload Image</label>
+      <input class="form-control form-control-sm" id="imageUpload" type="file" accept="image/*" /> */}
 
   <MDBInput wrapperClass='mb-4' label='First name' name='fname' type='text' value = {credentials.fname} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Last name' name='lname' type='text' value = {credentials.lname} onChange={onChange} required />
