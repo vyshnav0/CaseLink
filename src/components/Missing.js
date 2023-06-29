@@ -27,7 +27,8 @@ export default function Missing() {
       const updatedFullname = data.fname.map((fname, index) => {
         const lname = data.lname[index].lname;
         const age = data.age[index].age;
-        return {fullName: `${fname.fname} ${lname}` , age:age};
+        const contactno = data.contactno[index].contactno;
+        return {fullName: `${fname.fname} ${lname}` , age:age, contactno:contactno};
       });
       setFullname(updatedFullname);
     } catch (err) {
@@ -44,7 +45,8 @@ export default function Missing() {
     const missingPersons = fullname.map((name, index) => ({
       imgSrc: 'https://via.placeholder.com/150',
       title: name.fullName,
-      age: name.age // Update the age as needed
+      age: name.age, // Update the age as needed
+      contactno: name.contactno
     }));
     setMissingPersons(missingPersons);
   }, [fullname]);
