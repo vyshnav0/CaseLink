@@ -14,17 +14,17 @@ export default function OfficerWork(){
 Complaints
 </div>
 
-<div className="bd-element" onClick={() => window.location.href = '#'}>
+<div className="bd-element" onClick={() => window.location.href = '/MissingTable'}>
         <img src="/images/search.png"/>
     Missing
 </div>
 
-<div className="bd-element" onClick={() => window.location.href = '#'}>
+<div className="bd-element" onClick={() => window.location.href = '/WantedTable'}>
     <img src="/images/wanted.png"/>
     Wanted
 </div>
 
-<div className="bd-element" onClick={() => window.location.href = '#'}>
+<div className="bd-element" onClick={() => window.location.href = '/Analysis'}>
 
     <img src="/images/monitoring.png"/>
     Crime Analysis
