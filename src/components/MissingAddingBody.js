@@ -51,7 +51,7 @@ export default function WantedAddingBody() {
             console.log(data);
             console.log("Returned from fetching comlpaintauth");
 
-            if(!data.success){
+            if(!data.success || userOrOfficer === 'user'){
                 navigate("/")
               }
 

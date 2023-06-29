@@ -46,7 +46,7 @@ export default function WantedAddingBody() {
       const data = await response.json();
       console.log(data);
       console.log('Returned from fetching comlpaintauth');
-      if(!data.success){
+      if(!data.success || userOrOfficer === 'user'){
         navigate("/")
       }
     } catch (error) {
@@ -64,7 +64,7 @@ export default function WantedAddingBody() {
 
   const createWanted = async (image64) => {
     try {
-      const WantedResponse = await fetch('http://localhost:5000/addmissing', {
+      const WantedResponse = await fetch('http://localhost:5000/addwanted', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export default function WantedAddingBody() {
       }
       if (jsonWanted.success) {
         console.log('Created Wanted successfully');
-        navigate('/missingtable');
+        navigate('/wantedtable');
       }
     } catch (err) {
       console.error(err);
@@ -131,7 +131,7 @@ export default function WantedAddingBody() {
             type="file"
             onChange={(e) => {
               UplaodImage(e);
-            }}
+            }} 
             accept="image/*"
           />
 

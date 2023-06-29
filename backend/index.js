@@ -3,7 +3,10 @@ const app = express()
 const port = 5000
 const mongoDB = require("./db")
 const cookieParser = require('cookie-parser')
+const bodyparser = require('body-parser')
 
+app.use(bodyparser.json({ limit: '10mb' }));
+app.use(bodyparser.urlencoded({extended:true,parameterLimit:100000,limit:"500mb"}))
 app.use((req,res,next)=>{
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin","http://localhost:3000");
