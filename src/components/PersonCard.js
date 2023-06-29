@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style/PersonCard.css'
 
 const PersonCard = props => {
-    let {imgSrc, age, title} = props.data;
+    let {imgSrc, age,contactno, title} = props.data;
     return(
          <div className="slide-container swiper">
             <div className="slide-content">
@@ -21,6 +21,7 @@ const PersonCard = props => {
                         <div className="card-content">
                             <h2 className="name">{title}</h2>
                             <p className="age">{age}</p>
+                            <p className="contactno">{contactno}</p>
                         </div>
                     </div>
                    
