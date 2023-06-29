@@ -34,7 +34,7 @@ export default function SearchComplaintBody() {
     }
     catch(err){
       console.error(err);
-      alert("There was an error retreiving complaint data!")
+      alert("Enter a valid complaint id!")
     }
   }
 
