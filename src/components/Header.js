@@ -31,7 +31,7 @@ export default function Header() {
           {/* <li><Link to='/contactinfo'>Contact Us</Link></li> */}
           {/* <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li> */}
         </div>
-        <Link to='/login' onClick={logout}><Button className='log' variant='dark'>{status ?'Log out' : 'Log in'}</Button></Link>
+        <Link to='/' onClick={logout}><Button className='log' variant='dark'>{status ?'Log out' : 'Log in'}</Button></Link>
       </div>
     </>
   );

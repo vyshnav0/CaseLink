@@ -3,10 +3,10 @@ import {useNavigate} from 'react-router-dom'
 import {
   MDBContainer,
   MDBTabsContent,
-  MDBBtn,
   MDBInput,
 }
 from 'mdb-react-ui-kit';
+import { Button } from 'react-bootstrap';
 
 export default function SearchComplaintBody() {
   
@@ -26,7 +26,7 @@ export default function SearchComplaintBody() {
 
       const json = await response.json()
       if(json.cdata[0].email === null){
-        alert("Enter a valic complaint id")
+        alert("Enter a valid complaint id!")
       }
       const jsonString = JSON.stringify(json);
       localStorage.setItem('cdata', jsonString);
@@ -34,7 +34,7 @@ export default function SearchComplaintBody() {
     }
     catch(err){
       console.error(err);
-      alert("Enter a valic complaint id")
+      alert("Enter a valid complaint id!")
     }
   }
 
@@ -53,10 +53,10 @@ export default function SearchComplaintBody() {
        
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
         <MDBTabsContent>
-        <MDBInput className='input' wrapperClass='mb-4' label='Please Enter the CID of he complaint you want to retreive' id='form1' type='text'/>
+        <MDBInput className='input' wrapperClass='mb-4' label='Please Enter the CID of the complaint you want to retreive' id='form1' type='text'/>
         <div className="d-flex justify-content-between mx-4 mb-4">
         </div>
-        <MDBBtn className="mb-4 w-100">Get Complaint</MDBBtn>
+        <Button className="mb-4 w-100" type='submit'>Get Complaint</Button>
         </MDBTabsContent>
 
         </MDBContainer>

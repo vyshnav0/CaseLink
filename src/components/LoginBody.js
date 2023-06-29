@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import {
   MDBContainer,
   MDBTabsContent,
-  MDBBtn,
   MDBInput,
 }
 from 'mdb-react-ui-kit';
+import { Button } from 'react-bootstrap';
 import {NavLink,useNavigate} from 'react-router-dom'
 import '../style/LoginBody.css'
 
@@ -91,7 +91,8 @@ export default function LoginBody() {
 
     <div className="d-flex justify-content-between mx-4 mb-4">
     </div>
-    <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
+    <Button className="mb-4 w-100" type='submit'>Sign in</Button>
+
     <p className="text-center">Not a member? <a href="/signupcitizen">Register</a></p>
 
     {/* </MDBTabsPane> */}

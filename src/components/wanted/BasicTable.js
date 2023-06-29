@@ -219,14 +219,14 @@ export const BasicTable = () => {
             <th>Date</th>
             <th>Contact Info</th>
             <th>
-              <button className="btn btn-danger" onClick={addRowTable}>
+              <button className="btn btn-danger" onClick={addRowTable} >
                 Add Entry
               </button>
             </th>
           </tr>
         </thead>
         <tbody>
-          <TableRows
+          <TableRows 
             rows={rows}
             tableRowRemove={tableRowRemove}
             onValUpdate={onValUpdate}
