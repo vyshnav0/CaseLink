@@ -142,8 +142,9 @@ export default function FileComplaint() {
         //  On the create complaintee button give onClick = {createComplaintee} function given above
         <>
             <form onSubmit={handleSubmit}>
-       
+            <h2 className='head'>File a Complaint</h2>
        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+        
 
   <MDBInput wrapperClass='mb-4' label='Reported By' name='reportedby' type='text' value = {credentials.reportedby} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Email' name='email' type='email' value = {credentials.email} onChange={onChange} required />
