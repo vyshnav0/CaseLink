@@ -90,26 +90,25 @@ export default function LoginBody() {
     <div className='login'>
       <form onSubmit={handleSubmit}>
        
-         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+        <MDBTabsContent>
 
-<MDBTabsContent>
+    {/* <MDBTabsPane show={justifyActive === 'tab1'}> */}
 
-  {/* <MDBTabsPane show={justifyActive === 'tab1'}> */}
-
-    <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
-    <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/>
+    <MDBInput className='input' wrapperClass='mb-4' label='Email' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
+    <MDBInput className='input' wrapperClass='mb-4' label='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/>
 
     <div className="d-flex justify-content-between mx-4 mb-4">
     </div>
     <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
     <p className="text-center">Not a member? <a href="/signupcitizen">Register</a></p>
 
-  {/* </MDBTabsPane> */}
+    {/* </MDBTabsPane> */}
 
-</MDBTabsContent>
+    </MDBTabsContent>
 
-</MDBContainer>
-      </form>  
+    </MDBContainer>
+    </form>  
     </div>
 
   )

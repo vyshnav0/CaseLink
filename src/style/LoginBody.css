@@ -1,21 +1,14 @@
-{/*.login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem;
-    margin: 5rem auto;
-    width: 50%;
-  }
 
   .input {
     margin-bottom: 1rem;
+    width: 100%;
+    border-radius:0px ;
   }
 
-  .button {
-    margin-bottom: 1rem;
+  .mb-4 w-100 {
     width: 100%;
   }
 
   .text-center {
     text-align: center;
-  }*/}
+  }

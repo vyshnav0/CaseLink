@@ -90,7 +90,7 @@ export default function SignUpOfficer() {
 <MDBInput wrapperClass='mb-4' label='Station' name='station' type='text' value = {credentials.station} onChange={onChange} required />
 
 
-  <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
+  <MDBBtn className="mb-4 w-100 ">Sign up</MDBBtn>
 
 
   </MDBTabsPane>
