@@ -1,5 +1,5 @@
 import React from 'react'
-import { BasicTable } from '../components/crud table/BasicTable'
+import { BasicTable } from './missing/BasicTable'
 
 export default function MissingTableBody() {
   return (
