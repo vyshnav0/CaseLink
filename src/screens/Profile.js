@@ -44,7 +44,7 @@ const divStyle = {
 }
 
   return (
-    <div style={divStyle}>
+    <div >
       <Header></Header>
       {userOrOfficer === "user"? <ProfileBodyUser></ProfileBodyUser> : <ProfileBodyOfficer></ProfileBodyOfficer>}
     </div>
