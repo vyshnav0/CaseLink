@@ -15,26 +15,25 @@ Complaints
 </div>
 
 <div className="bd-element" onClick={() => window.location.href = '#'}>
-        <img src="https://cdn.vectorstock.com/i/1000x1000/95/35/wanted-man-paper-poster-missing-announce-vector-11219535.webp"/>
+        <img src="/images/search.png"/>
     Missing
 </div>
 
 <div className="bd-element" onClick={() => window.location.href = '#'}>
-    <img src="https://cdn.vectorstock.com/i/1000x1000/34/58/most-wanted-man-in-hat-poster-concept-grunge-vector-8103458.webp"/>
+    <img src="/images/wanted.png"/>
     Wanted
 </div>
 
 <div className="bd-element" onClick={() => window.location.href = '#'}>
 
-    <img src="https://1.bp.blogspot.com/-L-Af0_RcWws/X7pjGpAscYI/AAAAAAAAJWg/VjKu6kQngTY3YSl-tjEtVyDNT6fNE-LYwCLcBGAsYHQ/s320/file.png"/>
-    Question Papers
+    <img src="/images/monitoring.png"/>
+    Crime Analysis
  </div>
 </div>
 
 
 
-
- <div className="bd-out">
+{/* <div className="bd-out">
  <div className="bd-element">
     <div className="bd-element-item" onClick={() => window.location.href = '#'}>
         <img src="https://1.bp.blogspot.com/-CVRuBkTMQTs/X7pjGnuGgaI/AAAAAAAAJWo/o7ffBZqlwG8LD00ZT51-IG_hCsVYefy_ACLcBGAsYHQ/s320/facebook.png"/>
@@ -71,7 +70,7 @@ Complaints
  </div>
 
 
-</div>
+    </div>*/}
 </div>
 
 
