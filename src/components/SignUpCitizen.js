@@ -6,11 +6,10 @@ import {
   MDBTabsLink,
   MDBTabsContent,
   MDBTabsPane,
-  MDBBtn,
   MDBInput,
 }
 from 'mdb-react-ui-kit';
-
+import { Button } from 'react-bootstrap';
 import {Link,useNavigate} from 'react-router-dom'
 
 export default function SignUpCitizen() {
@@ -62,7 +61,7 @@ export default function SignUpCitizen() {
        
        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
 
-<MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
+{/* <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
 <MDBTabsItem>
   <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
     Register as Citizen
@@ -73,7 +72,7 @@ export default function SignUpCitizen() {
     Register as Officer
   </MDBTabsLink>
 </MDBTabsItem> */}
-</MDBTabs>
+{/* </MDBTabs> */}
 
 <MDBTabsContent>
 
@@ -96,7 +95,8 @@ export default function SignUpCitizen() {
       <MDBInput wrapperClass='mb-4' label='Card Type' name='idType' type='text' value = {credentials.idType} onChange={onChange} required />
       <MDBInput wrapperClass='mb-4' label='Aadhaar Number' name='idNo' type='text' value = {credentials.idNo} onChange={onChange} required />
 
-<MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
+<Button className="mb-4 w-100" type='submit'>Sign up</Button>
+
 
 </MDBTabsPane>
 

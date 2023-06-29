@@ -2,12 +2,12 @@ import React,{useState,useEffect,useRef} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {
     MDBContainer,
-    MDBBtn,
     MDBInput,
     MDBTextArea,
   }
   from 'mdb-react-ui-kit';
   import '../style/FileComplaint.css'
+  import { Button } from 'react-bootstrap';
 
 export default function FileComplaint() {
     const effectRan = useRef(false)
@@ -159,7 +159,7 @@ export default function FileComplaint() {
       {/* <MDBInput wrapperClass='mb-4' label='Description' name='description' type='text'  /> */}
       <MDBTextArea label='Complaint Description' name= 'description' id='textAreaExample' rows={4}  value = {credentials.description} onChange={onChange} required/>
 
-  <MDBBtn className="mb-4 w-100 ">{userOrOfficer === 'user' ? "Submit" : "Create Complaintee and submit"}</MDBBtn>
+  <Button className="mb-4 w-100" type='submit'>{userOrOfficer === 'user' ? "Submit" : "Create Complaintee and submit"}</Button>
        </MDBContainer>
     </form>
 

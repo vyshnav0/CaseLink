@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MDBContainer, MDBBtn, MDBInput } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBInput } from 'mdb-react-ui-kit';
+import { Button } from 'react-bootstrap';
 
 export default function WantedAddingBody() {
   const [base64, setBase64] = useState('');
@@ -224,7 +225,7 @@ export default function WantedAddingBody() {
             />
           </div>
 
-          <MDBBtn className="mb-4 w-100">Submit</MDBBtn>
+          <Button className="mb-4 w-100" type='submit'>Submit</Button>
         </MDBContainer>
       </form>
     </>
