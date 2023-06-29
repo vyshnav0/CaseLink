@@ -8,7 +8,10 @@ import ComplaintStatus from './screens/ComplaintStatus';
 import Profile from './screens/Profile';
 import SignupC from './screens/SignupC';
 import OfficerWork from './screens/OfficerWork';
-import ManageMissing from './screens/ManageMissing';
+import MissingTable from './screens/MissingTable';
+import MissingAdding from './screens/MissingAdding'
+import WantedTable from './screens/WantedTable';
+import WantedAdding from './screens/WantedAdding';
 
 import {
   BrowserRouter as Router,
@@ -30,7 +33,10 @@ function App() {
           <Route exact path = '/filecomplaint' element = {<FileComplaint></FileComplaint>} ></Route>
           <Route exact path = '/complaintstatus' element = {<ComplaintStatus></ComplaintStatus>} ></Route>
           <Route exact path = '/profile' element = {<Profile></Profile>} ></Route>
-          <Route exact path = '/missingdb' element = {<ManageMissing></ManageMissing>} ></Route>
+          <Route exact path = '/missingtable' element = {<MissingTable></MissingTable>} ></Route>
+          <Route exact path = '/wantedtable' element = {<WantedTable></WantedTable>} ></Route>
+          <Route exact path = '/missingadd' element = {<MissingAdding></MissingAdding>} ></Route>
+          <Route exact path = '/wantedadd' element = {<WantedAdding></WantedAdding>} ></Route>
           
         </Routes>
       </div>
