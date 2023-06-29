@@ -37,4 +37,16 @@ router.get("/obtaincomplaint",async(req,res) => {
     }
 })
 
+router.get("/searchcomplaint",async(req,res) => {
+    try{
+        const cid = req.query.cid
+        const cdata = await Complaint.find({cid : cid})
+        res.json({success:true,cdata:cdata})
+    }
+    catch(err){
+        console.error(err);
+        res.json({success:false})
+    }
+})
+
 module.exports = router;
