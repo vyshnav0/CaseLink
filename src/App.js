@@ -13,6 +13,8 @@ import MissingAdding from './screens/MissingAdding'
 import WantedTable from './screens/WantedTable';
 import WantedAdding from './screens/WantedAdding';
 import Analysis from './screens/Analysis';
+import SearchComplaint from './screens/SearchComplaint'
+import ComplaintDetail from './screens/ComplaintDetail';
 
 import {
   BrowserRouter as Router,
@@ -39,7 +41,8 @@ function App() {
           <Route exact path = '/missingadd' element = {<MissingAdding></MissingAdding>} ></Route>
           <Route exact path = '/wantedadd' element = {<WantedAdding></WantedAdding>} ></Route>
           <Route exact path = '/analysis' element = {<Analysis></Analysis>} ></Route>
-          
+          <Route exact path = '/searchcomplaint' element = {<SearchComplaint></SearchComplaint>}></Route>
+          <Route exact path = '/complaintdetails' element = {<ComplaintDetail></ComplaintDetail>}></Route>
         </Routes>
       </div>
     </Router>

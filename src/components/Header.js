@@ -13,6 +13,8 @@ export default function Header() {
     localStorage.removeItem("authToken")
     localStorage.removeItem("usertype")
     localStorage.removeItem("data")
+    localStorage.removeItem("cdata")
+    localStorage.removeItem("complaintstatus")
   }
 
 
