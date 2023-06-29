@@ -42,9 +42,13 @@ export default function Profile() {
         effectRan.current = true
     }
 }, [])
+const divStyle = {
+  backgroundColor: '#dceefa',
+  // Add more styles as needed
+}
 
   return (
-    <div>
+    <div style={divStyle}>
       <Header></Header>
       {userOrOfficer === "user"? <ProfileBodyUser></ProfileBodyUser> : <ProfileBodyOfficer></ProfileBodyOfficer>}
     </div>
