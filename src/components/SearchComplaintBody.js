@@ -26,7 +26,7 @@ export default function SearchComplaintBody() {
 
       const json = await response.json()
       if(json.cdata[0].email === null){
-        alert("Enter a valic complaint id")
+        alert("Enter a valid complaint id!")
       }
       const jsonString = JSON.stringify(json);
       localStorage.setItem('cdata', jsonString);
@@ -34,7 +34,7 @@ export default function SearchComplaintBody() {
     }
     catch(err){
       console.error(err);
-      alert("Enter a valic complaint id")
+      alert("There was an error retreiving complaint data!")
     }
   }
 
