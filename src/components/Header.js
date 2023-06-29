@@ -24,13 +24,13 @@ export default function Header() {
   return (
     <>
       <div className='header'>
-        <div className='logo'>logo</div>
+        <div className='header_options'><h1>CaseLink</h1></div>
         <div className='listitems'>
           <li className='header_options'><NavLink  to='/'>Home</NavLink></li>
-          {status && <li className='header_options'><NavLink  to='/profile'>Profile</NavLink></li>}
           {officer && <li className='header_options'><NavLink  to='/officer'>Dashboard</NavLink></li>}
           <li className='header_options'><NavLink  to='/filecomplaint'>File a Complaint</NavLink></li>
           <li className='header_options'><NavLink  to='/complaintstatus'>Complaint Status</NavLink></li>
+          {status && <li className='header_options'><NavLink  to='/profile'>Profile</NavLink></li>}
           {/* <li><Link to='/contactinfo'>Contact Us</Link></li> */}
           {/* <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li> */}
         </div>

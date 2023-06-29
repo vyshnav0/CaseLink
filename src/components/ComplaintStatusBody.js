@@ -27,7 +27,7 @@ export default function ComplaintStatusBody() {
                 navigate("/searchcomplaint")
               }
               else{
-                navigate("/")
+                navigate("/login")
               }
             }
 
