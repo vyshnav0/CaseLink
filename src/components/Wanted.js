@@ -55,7 +55,7 @@ export default function Wanted(){
             <div className='page' >
                 <h2 className='mw'>Most Wanted</h2>
                 <p className='desc'>Please be adviced that the individuals on Most Wanted list are considered dangereous and should not 
-                be approached or confronted;or instead if you have any information on thier whereabouts,please contact appropriate authorities immediately</p>
+                be approached or confronted;or instead if you have any information on thier whereabouts,please contact up the City Police Control Room or call 100</p>
             <div className= "container py-4 px-4 justify-content-center" >
                 <Swiper
                 breakpoints = {{
