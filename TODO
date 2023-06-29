@@ -2,8 +2,10 @@ Software is used by a primary police station. So all the different levels of pol
 
 A) VERIFY AADHAAR
 B) MISSING AND WANTED REPORTING
-C) COMPLAINTT STATUS
-D) USER PROFILE
+<!-- C) COMPLAINTT STATUS -->
+<!-- D) USER PROFILE -->
+E) HOME PAGE SIGN UP BUTTON
+F) 
 
 mongosh connection link: mongosh "mongodb+srv://web4.twsr1jr.mongodb.net/" --apiVersion 1 --username arjun
 https://www.freeprojectz.com/project-source-code-database-download/crime-record-management-system
