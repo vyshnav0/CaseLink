@@ -9,26 +9,34 @@ export default function OfficerWork(){
 <div className="bd">
 <div className="bd-out">
 
-<div className="bd-element" onClick={() => window.location.href = '/complaintstatus'}>
-    <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
-Complaints
-</div>
+    <div className="bd-element" onClick={() => window.location.href = '/complaintstatus'}>
+        <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
+    Complaints
+    </div>
 
-<div className="bd-element" onClick={() => window.location.href = '/MissingTable'}>
-        <img src="/images/search.png"/>
-    Missing
-</div>
+    <div className="bd-element" onClick={() => window.location.href = '/missingadd'}>
+            <img src="/images/search.png"/>
+            Add-Missing
+    </div>
 
-<div className="bd-element" onClick={() => window.location.href = '/WantedTable'}>
-    <img src="/images/wanted.png"/>
-    Wanted
-</div>
+    <div className="bd-element" onClick={() => window.location.href = '/wantedadd'}>
+        <img src="/images/wanted.png"/>
+        Add-Wanted
+    </div>
 
-<div className="bd-element" onClick={() => window.location.href = '/Analysis'}>
+    <div className="bd-element" onClick={() => window.location.href = '/Analysis'}>
 
-    <img src="/images/monitoring.png"/>
-    Crime Analysis
- </div>
+        <img src="/images/monitoring.png"/>
+        Crime Analysis
+    </div>
+    <div className="bd-element" onClick={() => window.location.href = '/missingtable'}>
+        <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
+    Missing Data
+    </div>
+    <div className="bd-element" onClick={() => window.location.href = '/wantedtable'}>
+        <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
+    Wanted Data
+    </div>
 </div>
 
 
@@ -72,7 +80,6 @@ Complaints
 
     </div>*/}
 </div>
-
 
         </>
     )

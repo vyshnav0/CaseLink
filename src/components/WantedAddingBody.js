@@ -74,12 +74,12 @@ export default function WantedAddingBody() {
           fname: credentials.fname,
           lname: credentials.lname,
           age: credentials.age,
-          img: image64,
+          img: "image64",
           gender: credentials.gender,
           height: credentials.height,
           weight: credentials.weight,
           location: credentials.location,
-          date: credentials.date,
+          date: credentials.date.toString().slice(0,10),
           contactno: credentials.contactno,
         }),
       });
@@ -108,6 +108,7 @@ export default function WantedAddingBody() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    createWanted("dump")
     if (userOrOfficer === 'officer') {
       // base64 value will be handled by the useEffect above
       // if it has changed, the createWanted function will be called
@@ -123,7 +124,7 @@ export default function WantedAddingBody() {
       <form onSubmit={handleSubmit}>
         <h2 className="head">Add a Wanted Person</h2>
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
-          <label htmlFor="imageUpload" className="form-label">
+          {/* <label htmlFor="imageUpload" className="form-label">
             Upload Image
           </label>
           <input
@@ -134,7 +135,7 @@ export default function WantedAddingBody() {
               UplaodImage(e);
             }} 
             accept="image/*"
-          />
+          /> */}
 
           <MDBInput
             wrapperClass="mb-4"

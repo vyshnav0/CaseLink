@@ -16,8 +16,8 @@ const wantedSchema = new Schema({
         required : true
     },
     img: {
-        type: Buffer,
-        required: true,
+        type: String,
+        required: false,
     },
     gender: {
         type: String,
