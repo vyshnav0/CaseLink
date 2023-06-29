@@ -71,7 +71,6 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             value={last_seen_location}
             onChange={(event) => onValUpdate(index, event)}
             readOnly
-            readOnly
             name="last_seen_location"
             className="form-control"
           />
