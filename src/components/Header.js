@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <>
       <div className='header'>
-        <div className='header_options'><h1>CaseLink</h1></div>
+        <div className='logo'><p>CaseLink</p></div>
         <div className='listitems'>
           <li className='header_options'><NavLink  to='/'>Home</NavLink></li>
           <li className='header_options'><NavLink  to='/filecomplaint'>File a Complaint</NavLink></li>

@@ -65,7 +65,8 @@
 }
 .logo{
     /* width:6vw; */
-    width: 50px;   
-  height: auto; 
+    width: 20px;   
+  height: auto;
+  font-size: 20px; 
 }
 
