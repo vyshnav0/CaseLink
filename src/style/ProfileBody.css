@@ -3,14 +3,14 @@
     width: 70%;
     position:relative;
     right:20%;
-    top:10%;
+    top:25px;
     
   }
   .car{
     width: 100%;
     position:relative;
     left:27%;
-    top:10%;
+    top:25px;
 
   }
   .custom-height {
