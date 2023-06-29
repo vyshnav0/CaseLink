@@ -23,6 +23,7 @@ router.get("/complaintauth",async(req, res) => {
                 req.curUser = "Undefined"
                 console.log("No such user found. Refresh and try loggin in again");
             }
+            res.json({success:true})
         } 
         catch (error) {
             res.json({ success: false,token: `${req.body.authToken}` });
