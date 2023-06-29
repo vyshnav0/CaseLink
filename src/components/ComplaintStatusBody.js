@@ -24,7 +24,7 @@ export default function ComplaintStatusBody() {
 
             if(!data.success || userOrOfficer === 'user'){
               if(userOrOfficer === 'user'){
-                navigate("/profile")
+                navigate("/searchcomplaint")
               }
               else{
                 navigate("/")
