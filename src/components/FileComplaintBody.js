@@ -34,10 +34,6 @@ export default function FileComplaint() {
             console.log(data);
             console.log("Returned from fetching comlpaintauth");
 
-
-            if(!response.status(200)){
-                console.log("There was an error in authentication")
-            }
         } catch (error) {
             console.log("There was an error in authenticating user");
             navigate("/login");
