@@ -4,7 +4,6 @@ import {
     MDBContainer,
     MDBBtn,
     MDBInput,
-    MDBTextArea,
   }
   from 'mdb-react-ui-kit';
 export default function WantedAddingBody() {
