@@ -3,10 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function TableRows({ rows, tableRowRemove, onValUpdate }) {
   return rows.map((rowData, index) => {
-    const { id, full_name, age, gender, height, weight, last_seen_location, last_seen_date, contact_number } = rowData;
+    const {  full_name, age, gender, height, weight, last_seen_location, last_seen_date, contact_number } = rowData;
     return (
       <tr key={index}>
-        <td>
+        {/* <td>
           <input
             type="text"
             value={id}
@@ -14,13 +14,14 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             name="id"
             className="form-control"
           />
-        </td>
+        </td> */}
         <td>
           <input
             type="text"
             value={full_name}
             onChange={(event) => onValUpdate(index, event)}
             name="full_name"
+            readOnly
             className="form-control"
           />
         </td>
@@ -30,6 +31,7 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             value={age}
             onChange={(event) => onValUpdate(index, event)}
             name="age"
+            readOnly
             className="form-control"
           />
         </td>
@@ -39,6 +41,7 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             value={gender}
             onChange={(event) => onValUpdate(index, event)}
             name="gender"
+            readOnly
             className="form-control"
           />
         </td>
@@ -48,6 +51,7 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             value={height}
             onChange={(event) => onValUpdate(index, event)}
             name="height"
+            readOnly
             className="form-control"
           />
         </td>
@@ -57,6 +61,7 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             value={weight}
             onChange={(event) => onValUpdate(index, event)}
             name="weight"
+            readOnly
             className="form-control"
           />
         </td>
@@ -65,6 +70,8 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             type="text"
             value={last_seen_location}
             onChange={(event) => onValUpdate(index, event)}
+            readOnly
+            readOnly
             name="last_seen_location"
             className="form-control"
           />
@@ -75,6 +82,7 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             value={last_seen_date}
             onChange={(event) => onValUpdate(index, event)}
             name="last_seen_date"
+            readOnly
             className="form-control"
           />
         </td>
@@ -84,6 +92,7 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
             value={contact_number}
             onChange={(event) => onValUpdate(index, event)}
             name="contact_number"
+            readOnly
             className="form-control"
           />
         </td>
@@ -205,7 +214,7 @@ export const BasicTable = () => {
       <table className="table table-striped">
         <thead>
           <tr>
-            <th>Id</th>
+            {/* <th>Id</th> */}
             <th>Full Name</th>
             <th>Age</th>
             <th>Gender</th>
