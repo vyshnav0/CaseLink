@@ -19,6 +19,10 @@ const wantedSchema = new Schema({
         type: Buffer,
         required: true,
     },
+    gender: {
+        type: String,
+        required : true
+    },
     height: {
         type: String,
         required: false

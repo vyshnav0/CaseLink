@@ -76,16 +76,7 @@ export default function LoginBody() {
   const onChange = (event)=>{
     setcredentials({...credentials,[event.target.name] : event.target.value})
   }
-
-  // const [justifyActive, setJustifyActive] = useState('tab1');;
-
-  // const handleJustifyClick = (value) => {
-  //   if (value === justifyActive) {
-  //     return;
-  //   }
-
-  //   setJustifyActive(value);
-  // };
+  
   return (
     <div className='login'>
       <form onSubmit={handleSubmit}>

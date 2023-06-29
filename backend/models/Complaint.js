@@ -17,6 +17,10 @@ const complaintSchema = new Schema({
         default: "not provided",
         required: false
     },
+    contactno: {
+        type:String,
+        required: true
+    },
     idType: {
         type: String,
         required: true
@@ -55,7 +59,7 @@ const complaintSchema = new Schema({
     },
     status: {
         type: String,
-        default: "Pending",
+        default: "Open",
         required: false
     }
 });

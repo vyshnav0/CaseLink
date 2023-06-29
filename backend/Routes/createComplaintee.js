@@ -13,17 +13,11 @@ router.post("/createcomplaintee",
         try {
             
             await complaintee.create({
-                fname: req.body.fname,
-                lname: req.body.lname,
-                age: req.body.age,
-                sex: req.body.sex,
-                contactno: req.body.contactno,
+                name: req.body.reportedby,
                 email: req.body.email,
-                address: req.body.address,
-                fathersName: req.body.fathersName,
-                mothersName: req.body.mothersName,
+                contactno: req.body.contactno,
                 idType: req.body.idType,
-                idNo: req.body.idNo,
+                idno: req.body.idno
             })
             res.json({ success: true });
         } catch (error) {

@@ -51,9 +51,9 @@ export default function SignUpCitizen() {
 
     setJustifyActive(value);
 
-    if (value === 'tab2') {
-      navigate('/signupofficer'); 
-    }
+    // if (value === 'tab2') {
+    //   navigate('/signupofficer'); 
+    // }
   };
 
   return (
@@ -68,11 +68,11 @@ export default function SignUpCitizen() {
     Register as Citizen
   </MDBTabsLink>
 </MDBTabsItem>
-<MDBTabsItem>
+{/* <MDBTabsItem>
   <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
     Register as Officer
   </MDBTabsLink>
-</MDBTabsItem>
+</MDBTabsItem> */}
 </MDBTabs>
 
 <MDBTabsContent>
