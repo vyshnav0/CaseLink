@@ -1,17 +1,68 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useRef } from "react";
 import { nanoid } from "nanoid";
 import "./table.css";
-import data from "./DBcomplaint.json";
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
 
+let data = [{}];
+
+
 const ComplaintsTable = () => {
-  const [contacts, setContacts] = useState(data);
+  const effectRan = useRef(false);
+  useEffect(() => {
+    if(effectRan.current === false){
+      callComplaintPage()
+      effectRan.current = true
+  }
+  }, []);
+
+  const callComplaintPage = async () => {
+    const response = await fetch("http://localhost:5000/obtaincomplaint", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+  
+    const json = await response.json();
+    data = json.complaintdata;
+
+    const newContacts = data.map((item) => ({
+      id: nanoid(),
+      complainant_name: item.reportedby,
+      complainant_phone: item.contactno,
+      incident_location: item.location,
+      complainant_email: item.email,
+      complaint_type: item.type,
+      complaint_date: item.date,
+      complaint_description: item.description,
+      complaint_status: item.status,
+    }));
+
+    setContacts(newContacts);
+  };
+
+  const dataPassed = {
+    complainant_name: data[0].reportedby,
+    complainant_phone: data[0].contactno,
+    incident_location: data[0].location,
+    complainant_email: data[0].email,
+    complaint_type: data[0].type,
+    complaint_date: data[0].date,
+    complaint_description: data[0].description,
+    complaint_status: data[0].status,
+  };
+
+  console.log(`Data parsed: ${JSON.stringify(dataPassed)}`);
+  const [contacts, setContacts] = useState([]);
+
   const [addFormData, setAddFormData] = useState({
     complainant_name: "",
     complainant_phone: "",
-    complainant_email: "",
     incident_location: "",
+    complainant_email: "",
     complaint_type: "",
     complaint_date: "",
     complaint_description: "",
@@ -21,8 +72,8 @@ const ComplaintsTable = () => {
   const [editFormData, setEditFormData] = useState({
     complainant_name: "",
     complainant_phone: "",
-    complainant_email: "",
     incident_location: "",
+    complainant_email: "",
     complaint_type: "",
     complaint_date: "",
     complaint_description: "",
@@ -106,8 +157,8 @@ const ComplaintsTable = () => {
     const formValues = {
       complainant_name: contact.complainant_name,
       complainant_phone: contact.complainant_phone,
-      complainant_email: contact.complainant_email,
       incident_location: contact.incident_location,
+      complainant_email: contact.complainant_email,
       complaint_type: contact.complaint_type,
       complaint_date: contact.complaint_date,
       complaint_description: contact.complaint_description,
@@ -133,7 +184,7 @@ const ComplaintsTable = () => {
 
   return (
     <div className="app-container">
-      <form className='formtab' onSubmit={handleEditFormSubmit}>
+      <form className="formtab" onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
@@ -146,7 +197,6 @@ const ComplaintsTable = () => {
               <th>Description</th>
               <th>Status</th>
               <th>Actions</th>
-
             </tr>
           </thead>
           <tbody>
@@ -157,7 +207,7 @@ const ComplaintsTable = () => {
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
-                   />
+                  />
                 ) : (
                   <ReadOnlyRow
                     contact={contact}
@@ -170,39 +220,6 @@ const ComplaintsTable = () => {
           </tbody>
         </table>
       </form>
-
-      {/* <h2>Add an Entry</h2>
-      <form onSubmit={handleAddFormSubmit}>
-        <input
-          type="text"
-          name="complainant_name"
-          required="required"
-          placeholder="Enter a name..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="complainant_phone"
-          required="required"
-          placeholder="Enter an location..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="incident_location"
-          required="required"
-          placeholder="Enter a phone number..."
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="email"
-          name="complainant_email"
-          required="required"
-          placeholder="Enter an email..."
-          onChange={handleAddFormChange}
-        />
-        <button type="submit">Add</button>
-      </form> */}
     </div>
   );
 };
