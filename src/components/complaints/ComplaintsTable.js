@@ -30,13 +30,12 @@ const ComplaintsTable = () => {
     data = json.complaintdata;
 
     const newContacts = data.map((item) => ({
-      id: nanoid(),
       complainant_name: item.reportedby,
       complainant_phone: item.contactno,
       incident_location: item.location,
       complainant_email: item.email,
       complaint_type: item.type,
-      complaint_date: item.date,
+      complaint_date: item.time.toString().slice(0,10),
       complaint_description: item.description,
       complaint_status: item.status,
     }));
