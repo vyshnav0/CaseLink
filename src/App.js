@@ -12,7 +12,6 @@ import MissingTable from './screens/MissingTable';
 import MissingAdding from './screens/MissingAdding'
 import WantedTable from './screens/WantedTable';
 import WantedAdding from './screens/WantedAdding';
-import ManageMissing from './screens/ManageMissing';
 
 import {
   BrowserRouter as Router,
