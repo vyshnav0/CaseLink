@@ -53,7 +53,7 @@ export default function SearchComplaintBody() {
        
         <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
         <MDBTabsContent>
-        <MDBInput className='input' wrapperClass='mb-4' label='Please Enter the CID of he complaint you want to retreive' id='form1' type='text'/>
+        <MDBInput className='input' wrapperClass='mb-4' label='Please Enter the CID of the complaint you want to retreive' id='form1' type='text'/>
         <div className="d-flex justify-content-between mx-4 mb-4">
         </div>
         <MDBBtn className="mb-4 w-100">Get Complaint</MDBBtn>
