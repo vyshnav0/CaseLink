@@ -133,7 +133,7 @@ const ComplaintsTable = () => {
 
   return (
     <div className="app-container">
-      <form onSubmit={handleEditFormSubmit}>
+      <form className='formtab' onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
