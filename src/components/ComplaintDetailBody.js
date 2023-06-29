@@ -13,7 +13,7 @@ export default function ComplaintDetailBody() {
   // const idno = json.idno;
   const type = json.type;
   const location = json.location;
-  const time = json.time;
+  const time = json.time.toString().slice(0,10);
   const accused = json.accused;
   const victim = json.victim;
   const description = json.description;
@@ -88,7 +88,7 @@ export default function ComplaintDetailBody() {
             <hr/>
             <div class="row">
               <div class="col-sm-6">
-                <p class="mb-0">Time</p>
+                <p class="mb-0">Date</p>
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">{time}</p>
