@@ -1,15 +1,80 @@
 import React, { useState } from 'react';
 import {Link,useNavigate} from 'react-router-dom'
+import '../style/OfficerWork.css'
 
 
 export default function OfficerWork(){
     return(
         <>
+<div className="bd">
+<div className="bd-out">
 
-        <h1>officer duties</h1>
-        <h2>managing databases</h2>
-        <h2>complaints to FIR</h2>
-        <h3>baki nala noka</h3>
+<div className="bd-element" onClick={() => window.location.href = '/complaintstatus'}>
+    <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
+Complaints
+</div>
+
+<div className="bd-element" onClick={() => window.location.href = '#'}>
+        <img src="https://cdn.vectorstock.com/i/1000x1000/95/35/wanted-man-paper-poster-missing-announce-vector-11219535.webp"/>
+    Missing
+</div>
+
+<div className="bd-element" onClick={() => window.location.href = '#'}>
+    <img src="https://cdn.vectorstock.com/i/1000x1000/34/58/most-wanted-man-in-hat-poster-concept-grunge-vector-8103458.webp"/>
+    Wanted
+</div>
+
+<div className="bd-element" onClick={() => window.location.href = '#'}>
+
+    <img src="https://1.bp.blogspot.com/-L-Af0_RcWws/X7pjGpAscYI/AAAAAAAAJWg/VjKu6kQngTY3YSl-tjEtVyDNT6fNE-LYwCLcBGAsYHQ/s320/file.png"/>
+    Question Papers
+ </div>
+</div>
+
+
+
+
+ <div className="bd-out">
+ <div className="bd-element">
+    <div className="bd-element-item" onClick={() => window.location.href = '#'}>
+        <img src="https://1.bp.blogspot.com/-CVRuBkTMQTs/X7pjGnuGgaI/AAAAAAAAJWo/o7ffBZqlwG8LD00ZT51-IG_hCsVYefy_ACLcBGAsYHQ/s320/facebook.png"/>
+        
+    </div>
+    <div className="bd-element-item" onClick={() => window.location.href = '#'}>
+        <img src="https://1.bp.blogspot.com/-jGqJucyV7cA/X7pjJMXoeeI/AAAAAAAAJXI/bpt-Jw53epQcfsD2OICe6ZY3McAO4yLngCLcBGAsYHQ/s320/whatsapp.png"/>
+    </div>
+    <div className="bd-element-item" onClick={() => window.location.href = '#'}>
+        <img src="https://1.bp.blogspot.com/-FIp_xu0xVWM/X7pjHaKNbbI/AAAAAAAAJWs/q3Xpzq2eNxcY9HhEjafLxPabRZES8HVPACLcBGAsYHQ/s320/instagram.png"/>
+    </div>
+    <div className="bd-element-item" onClick={() => window.location.href = '#'}>
+        <img src="https://1.bp.blogspot.com/-FnbTrQiiJ2A/X7pjImKjfpI/AAAAAAAAJXE/n7v66-2rcNEdPaIJNd_Q8y6nVWL_LxK2QCLcBGAsYHQ/s320/telegram.png"/>
+    </div>
+   Connect with us
+ </div>
+
+
+ <div className="bd-element" onClick={() => window.location.href = '#'}>
+
+    <img src="https://1.bp.blogspot.com/-UrB0rc_amAA/X7pjIfFMTBI/AAAAAAAAJW8/pEAt1qL-m3IJymGZd1w0Kmz68Yjqa1tTQCLcBGAsYHQ/s320/solution.png"/>
+    Solved Question Papers
+ </div>
+ <div className="bd-element" onClick={() => window.location.href = '#'}>
+
+    <img src="https://1.bp.blogspot.com/-V3Q446p8Ioo/X7pjH3jAv4I/AAAAAAAAJW0/U1n9axShNFgRWQVvpxnq9ne5BQ9CNNgkwCLcBGAsYHQ/s320/online-course.png"/>
+    Courses
+ </div>
+
+ <div className="bd-element" onClick={() => window.location.href = '#'}>
+
+    <img src="https://1.bp.blogspot.com/-Zl8lCQMgopw/X7pjHidK90I/AAAAAAAAJWw/RKIz_SlLAqYRct4RXNSJPrWZOTEQ-xrJACLcBGAsYHQ/s320/notification.png"/>
+    Notifications
+ </div>
+
+
+</div>
+</div>
+
+
         </>
     )
 }
