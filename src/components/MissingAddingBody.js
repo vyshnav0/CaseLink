@@ -14,7 +14,6 @@ export default function WantedAddingBody() {
         const file = e.target.files[0]
         base64 = await convertBase64(file)
         console.log(base64);
-        console.log();
     }
 
     const convertBase64 = (file) => {
@@ -52,9 +51,10 @@ export default function WantedAddingBody() {
             console.log(data);
             console.log("Returned from fetching comlpaintauth");
 
-            if(!response.status(200)){
-                console.log("There was an error in authentication")
-            }
+            if(!data.success){
+                navigate("/")
+              }
+
         } catch (error) {
             console.log("There was an error in authenticating user");
             navigate("/login");
