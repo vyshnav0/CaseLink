@@ -219,9 +219,9 @@ export const BasicTable = () => {
             <th>Date</th>
             <th>Contact Info</th>
             <th>
-              <button className="btn btn-danger" onClick={addRowTable} >
+              {/* <button className="btn btn-danger" onClick={addRowTable} >
                 Add Entry
-              </button>
+              </button> */}
             </th>
           </tr>
         </thead>

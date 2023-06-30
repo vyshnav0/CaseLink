@@ -8,6 +8,7 @@ E) HOME PAGE SIGN UP BUTTON
 F) 
 
 mongosh connection link: mongosh "mongodb+srv://web4.twsr1jr.mongodb.net/" --apiVersion 1 --username arjun
+mongosh "mongodb+srv://clusterdeploy.xtrgodc.mongodb.net/" --apiVersion 1 --username arjunvinod09
 https://www.freeprojectz.com/project-source-code-database-download/crime-record-management-system
 Reference : https://www.youtube.com/watch?v=k6cNm_gHV-M&t=63s
             https://www.youtube.com/watch?v=cSJWqdw78wE
