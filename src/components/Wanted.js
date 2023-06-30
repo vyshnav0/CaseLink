@@ -12,22 +12,25 @@ import '../style/Swiper.css'
 
 export default function Wanted(){
     const [fullname, setFullname] = useState([]);
-  
+    
     const callWantedPage = async () => {
         try {
-        const response = await fetch('http://localhost:5000/obtainwanted', {
-            method: 'GET',
-            headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        });
-        const data = await response.json();
+            const response = await fetch('http://localhost:5000/obtainwanted', {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+            });
+            const data = await response.json();
+        const imageArr = ["https://i.insider.com/61fa954fef63e10018101fb5?width=1000&format=jpeg&auto=webp","https://images.foxtv.com/static.fox10phoenix.com/www.fox10phoenix.com/content/uploads/2019/10/764/432/f169cce2-Ricky-Deeley-mug.jpg?ve=1&tl=1","https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Jeremy_Meeks_Mug_Shot.jpg/330px-Jeremy_Meeks_Mug_Shot.jpg","http://hollywoodlife.com/wp-content/uploads/2009/12/kyle-chrisley-5-things-to-know-about-todde28099s-oldest-son-after-his-latest-arrest-01.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/DaniLeigh-Arrested-Mugshot-MEGA.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/ryan-edwards-mugshots-spl.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/ezra-miller-arrested-in-hawaii-mega-1.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/shutterstock_editorial_12844652a.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/bug-hall-mug-shot.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/jen-hartley-mugshot-embed.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/ynw-melly.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/ynw-melly.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/jussie-smollett-mugshot-gallery.jpg?w=680"]
         const updatedFullname = data.fname.map((fname, index) => {
             const lname = data.lname[index].lname;
             const age = data.age[index].age;
-            return {fullName: `${fname.fname} ${lname}` , age:age};
+            const img = imageArr[index]
+            console.log(`Image being processed: ${img}`);
+            return {fullName: `${fname.fname} ${lname}` , age:age ,img : img};
         });
         setFullname(updatedFullname);
         } catch (err) {
@@ -42,9 +45,9 @@ export default function Wanted(){
 
     useEffect(() => {
         const wantedPersons = fullname.map((name, index) => ({
-        imgSrc: 'https://via.placeholder.com/150',
+        imgSrc: name.img,
         title: name.fullName,
-        age: name.age // Update the age as needed
+        age: name.age, // Update the age as needed
         }));
         setWantedPersons(wantedPersons);
     }, [fullname]);
