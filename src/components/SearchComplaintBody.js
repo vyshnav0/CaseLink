@@ -48,7 +48,11 @@ useEffect(() => {
 
   const takeCID = async() => {
     try{
-      const response = await fetch(`http://localhost:5000/searchcomplaint?cid=${cid}`,{
+      const userdata = JSON.parse(localStorage.getItem("data"))
+      const username = userdata.fname + " " + userdata.lname
+      console.log(`This is a complaint fetch request made by: ${username}`);
+
+      const response = await fetch(`http://localhost:5000/searchcomplaint?cid=${cid}&name=${username}`,{
         method : "GET",
         headers : {
           Accept : "application/json",
@@ -58,12 +62,17 @@ useEffect(() => {
       });
 
       const json = await response.json()
-      if(json.cdata[0].email === null){
+      if(!json.success){
+        alert("You have no such complaint.")
+      }
+      else if(json.cdata[0].email === null){
         alert("Enter a valid complaint id!")
       }
-      const jsonString = JSON.stringify(json);
-      localStorage.setItem('cdata', jsonString);
-      navigate("/complaintdetails")
+      else{
+        const jsonString = JSON.stringify(json);
+        localStorage.setItem('cdata', jsonString);
+        navigate("/complaintdetails")
+      }
     }
     catch(err){
       console.error(err);

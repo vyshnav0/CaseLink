@@ -39,9 +39,15 @@ router.get("/obtaincomplaint",async(req,res) => {
 
 router.get("/searchcomplaint",async(req,res) => {
     try{
+        const fullname = req.query.name
         const cid = req.query.cid
         const cdata = await Complaint.find({cid : cid})
-        res.json({success:true,cdata:cdata})
+        if(fullname == cdata[0].reportedby){
+            res.json({success:true,cdata:cdata})
+        }
+        else{
+            res.json({success:false})
+        }
     }
     catch(err){
         console.error(err);
