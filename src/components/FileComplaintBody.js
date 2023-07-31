@@ -31,6 +31,9 @@ export default function FileComplaint() {
                 credentials : "include"
             });
             const data = await response.json();
+            if(!data.success){
+                navigate("/")
+            }
             console.log(data);
             console.log("Returned from fetching comlpaintauth");
 
@@ -89,7 +92,6 @@ export default function FileComplaint() {
             }
             if(jsonComplaintee.success){
                 console.log("Created complaintee succesfully");
-                //write code to alter css based on complaintee addition maybe remove create complaintee button and automatically move to complaint details page (code for what happens when you switch the tab on top for personal details/complaint details)
             }
         }
         catch(err){

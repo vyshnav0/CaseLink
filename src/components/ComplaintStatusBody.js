@@ -22,14 +22,9 @@ export default function ComplaintStatusBody() {
             console.log(data);
             console.log("Returned from fetching comlpaintauth");
 
-            if(!data.success || userOrOfficer === 'user'){
-              if(userOrOfficer === 'user'){
-                navigate("/searchcomplaint")
-              }
-              else{
-                navigate("/login")
-              }
-            }
+            if(!data.success){
+              navigate("/")
+          }
 
         } catch (error) {
             console.log("There was an error in authenticating user");
@@ -43,10 +38,7 @@ export default function ComplaintStatusBody() {
           effectRan.current = true
       }
   }, [])
-    
-    if(userOrOfficer === 'user'){
-        navigate("/")
-    }
+
 
   return (
     <>
