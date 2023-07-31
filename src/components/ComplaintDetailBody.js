@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom'
 
 export default function ComplaintDetailBody() {
 
+  let officer = false
   const navigate = useNavigate()
+  let user = localStorage.getItem("usertype")
+  if(user == 'officer'){
+    officer = true
+  }
   let cdata = localStorage.getItem("cdata")
   const parsedData = JSON.parse(cdata)
   const json = parsedData.cdata[0]
@@ -183,7 +188,7 @@ export default function ComplaintDetailBody() {
         </div>
       </div>
     </div>
-  <button onClick = {takeCase} style={{ backgroundColor: 'red', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>
+  {officer && <button onClick = {takeCase} style={{ backgroundColor: 'red', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
   </div>
   </div>
   </div>
