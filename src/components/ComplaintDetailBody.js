@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 export default function ComplaintDetailBody() {
 
@@ -19,12 +19,6 @@ export default function ComplaintDetailBody() {
   const description = json.description;
   const nearestStation = json.nearestStation;
   const status = json.status;  
-  
-  useEffect(() => {
-    return () =>{
-      localStorage.removeItem("cdata")
-    }
-  },[])
 
   return (
     <div>

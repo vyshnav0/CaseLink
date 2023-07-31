@@ -59,7 +59,7 @@ const complaintSchema = new Schema({
     },
     status: {
         type: String,
-        default: "Open",
+        default: "Idle",
         required: false
     }
 });
