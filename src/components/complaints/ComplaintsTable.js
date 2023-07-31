@@ -1,13 +1,14 @@
 import React, { useState, useEffect, Fragment, useRef } from "react";
 import { nanoid } from "nanoid";
 import "./table.css";
+import {useNavigate} from 'react-router-dom'
 import ReadOnlyRow from "./ReadOnlyRow";
 import EditableRow from "./EditableRow";
 
 let data = [{}];
 
-
 const ComplaintsTable = () => {
+  const navigate = useNavigate()
   const effectRan = useRef(false);
   useEffect(() => {
     if(effectRan.current === false){
@@ -138,22 +139,53 @@ const ComplaintsTable = () => {
     setEditContactId(null);
   };
 
-  const handleEditClick = (event, contact) => {
+  const handleEditClick = async(event, contact) => {
     event.preventDefault();
-    setEditContactId(contact.id);
+    // setEditContactId(contact.id);
 
-    const formValues = {
-      complainant_id: contact.complainant_id,
-      complainant_name: contact.complainant_name,
-      complainant_phone: contact.complainant_phone,
-      incident_location: contact.incident_location,
-      complaint_type: contact.complaint_type,
-      complaint_date: contact.complaint_date,
-      complaint_description: contact.complaint_description,
-      complaint_status: contact.complaint_status,
-    };
+    // const formValues = {
+    //   complainant_id: contact.complainant_id,
+    //   complainant_name: contact.complainant_name,
+    //   complainant_phone: contact.complainant_phone,
+    //   incident_location: contact.incident_location,
+    //   complaint_type: contact.complaint_type,
+    //   complaint_date: contact.complaint_date,
+    //   complaint_description: contact.complaint_description,
+    //   complaint_status: contact.complaint_status,
+    // };
 
-    setEditFormData(formValues);
+    // setEditFormData(formValues);
+
+    const cid = contact.complainant_id
+    console.log(`Fetching details of ${cid}`);
+    try{
+      const response = await fetch(`http://localhost:5000/searchcomplaint?cid=${cid}&name=${contact.complainant_name}`,{
+        method : "GET",
+        headers : {
+          Accept : "application/json",
+          "Content-Type" : "application/json"
+        },
+        credentials : "include"
+      });
+
+      const json = await response.json()
+      if(!json.success){
+        alert("You have no such complaint.")
+      }
+      else if(json.cdata[0].email === null){
+        alert("Enter a valid complaint id!")
+      }
+      else{
+        const jsonString = JSON.stringify(json);
+        localStorage.setItem('cdata', jsonString);
+        navigate("/complaintdetails")
+      }
+    }
+    catch(err){
+      console.error(err);
+      alert("Enter a valid complaint id!")
+    }
+    navigate('/complaintdetails')
   };
 
   const handleCancelClick = () => {
