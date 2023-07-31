@@ -1,7 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function ComplaintDetailBody() {
 
+  const navigate = useNavigate()
   let cdata = localStorage.getItem("cdata")
   const parsedData = JSON.parse(cdata)
   const json = parsedData.cdata[0]
@@ -19,6 +21,34 @@ export default function ComplaintDetailBody() {
   const description = json.description;
   const nearestStation = json.nearestStation;
   const status = json.status;  
+
+  const takeCase = async() =>{
+    // update status of complaint to open and add investigates by details to complaint database also add this complaint to officers opencases
+    try{
+      const comp = await fetch("http://localhost:5000/takecase",{
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({pen:JSON.parse(localStorage.getItem("data")).pen , cid:cid})
+      })
+      const res = await comp.json()
+      console.log(`Fetch returned with values: ${res.success} and ${res.case}`);
+      if(res.case == 1){
+        navigate("/officer")
+      }
+      else if(res.case == 0){
+        alert("There was an unexcpected error in taking up the case.")
+      }
+      else if(res.case == 2){
+        alert("This case is already being investigated.")
+        navigate("/complaintstatus")
+      }
+    }
+    catch(e){
+      console.error(e);
+    }
+  }
 
   return (
     <div>
@@ -143,6 +173,7 @@ export default function ComplaintDetailBody() {
         </div>
       </div>
     </div>
+  <button onClick = {takeCase} style={{ backgroundColor: 'red', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>
   </div>
   </div>
   </div>
