@@ -34,8 +34,8 @@ const EditableRow = ({
           type="email"
           // required="required"
           // placeholder="Enter an email..."
-          name="complainant_email"
-          value={editFormData.complainant_email}
+          name="complainant_id"
+          value={editFormData.complainant_id}
           // onChange={handleEditFormChange}
           readOnly
         ></input>

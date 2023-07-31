@@ -30,10 +30,10 @@ const ComplaintsTable = () => {
     data = json.complaintdata;
 
     const newContacts = data.map((item) => ({
+      complainant_id: item.cid,
       complainant_name: item.reportedby,
       complainant_phone: item.contactno,
       incident_location: item.location,
-      complainant_email: item.email,
       complaint_type: item.type,
       complaint_date: item.time.toString().slice(0,10),
       complaint_description: item.description,
@@ -47,10 +47,10 @@ const ComplaintsTable = () => {
   const [contacts, setContacts] = useState([]);
 
   const [addFormData, setAddFormData] = useState({
+    complainant_id: "",
     complainant_name: "",
     complainant_phone: "",
     incident_location: "",
-    complainant_email: "",
     complaint_type: "",
     complaint_date: "",
     complaint_description: "",
@@ -58,10 +58,10 @@ const ComplaintsTable = () => {
   });
 
   const [editFormData, setEditFormData] = useState({
+    complainant_id: "",
     complainant_name: "",
     complainant_phone: "",
     incident_location: "",
-    complainant_email: "",
     complaint_type: "",
     complaint_date: "",
     complaint_description: "",
@@ -99,10 +99,10 @@ const ComplaintsTable = () => {
 
     const newContact = {
       id: nanoid(),
+      complainant_id: addFormData.complainant_id,
       complainant_name: addFormData.complainant_name,
       complainant_phone: addFormData.complainant_phone,
       incident_location: addFormData.incident_location,
-      complainant_email: addFormData.complainant_email,
       complaint_type: addFormData.complaint_type,
       complaint_date: addFormData.complaint_date,
       complaint_description: addFormData.complaint_description,
@@ -118,10 +118,10 @@ const ComplaintsTable = () => {
 
     const editedContact = {
       id: editContactId,
+      complainant_id: editFormData.complainant_id,
       complainant_name: editFormData.complainant_name,
       complainant_phone: editFormData.complainant_phone,
       incident_location: editFormData.incident_location,
-      complainant_email: editFormData.complainant_email,
       complaint_type: editFormData.complaint_type,
       complaint_date: editFormData.complaint_date,
       complaint_description: editFormData.complaint_description,
@@ -143,10 +143,10 @@ const ComplaintsTable = () => {
     setEditContactId(contact.id);
 
     const formValues = {
+      complainant_id: contact.complainant_id,
       complainant_name: contact.complainant_name,
       complainant_phone: contact.complainant_phone,
       incident_location: contact.incident_location,
-      complainant_email: contact.complainant_email,
       complaint_type: contact.complaint_type,
       complaint_date: contact.complaint_date,
       complaint_description: contact.complaint_description,
@@ -176,9 +176,9 @@ const ComplaintsTable = () => {
         <table>
           <thead>
             <tr>
+              <th>Complaint ID</th>
               <th>Registered By</th>
               <th>Phone Number</th>
-              <th>Email</th>
               <th>Location</th>
               <th>Type</th>
               <th>Date</th>
