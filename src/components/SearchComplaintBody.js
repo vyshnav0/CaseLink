@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef,useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {
   MDBContainer,
@@ -10,8 +10,41 @@ import { Button } from 'react-bootstrap';
 
 export default function SearchComplaintBody() {
   
+  const effectRan = useRef(false)
   let cid = ''
   const navigate = useNavigate()
+
+  const callSearchPage = async() => {
+    try {
+        console.log("Going to fetch from complaintauth");
+        const response = await fetch(`http://localhost:5000/complaintauth?authToken=${localStorage.getItem("authToken")}` , 
+        {
+            method:"GET",
+            headers:{
+                Accept : "application/json",
+                "Content-Type" : "application/json"
+            },
+            credentials : "include"
+        });
+        const data = await response.json();
+        if(!data.success){
+          navigate("/login")
+        }
+        console.log(data);
+        console.log("Returned from fetching comlpaintauth");
+
+    } catch (error) {
+        console.log("There was an error in authenticating user");
+        navigate("/login");
+    }
+}
+
+useEffect(() => {
+  if(effectRan.current === false){
+      callSearchPage()
+      effectRan.current = true
+  }
+}, [])
 
   const takeCID = async() => {
     try{
