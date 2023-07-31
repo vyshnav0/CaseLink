@@ -29,7 +29,8 @@ export default function Header() {
           <li className='header_options'><NavLink  to='/'>Home</NavLink></li>
           {officer && <li className='header_options'><NavLink  to='/officer'>Dashboard</NavLink></li>}
           <li className='header_options'><NavLink  to='/filecomplaint'>File a Complaint</NavLink></li>
-          <li className='header_options'><NavLink  to='/complaintstatus'>Complaint Status</NavLink></li>
+          {officer && <li className='header_options'><NavLink  to='/complaintstatus'>Complaints</NavLink></li>}
+          {!officer && <li className='header_options'><NavLink  to='/searchcomplaint'>Complaint Status</NavLink></li>}
           {status && <li className='header_options'><NavLink  to='/profile'>Profile</NavLink></li>}
           {/* <li><Link to='/contactinfo'>Contact Us</Link></li> */}
           {/* <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li> */}
