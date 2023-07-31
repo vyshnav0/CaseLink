@@ -12,6 +12,11 @@ const complaintSchema = new Schema({
         type : String,
         required : true
     },
+    investigatedby:{
+        type : String,
+        required : false,
+        default : "Unassigned"
+    },
     email: {
         type: String,
         default: "not provided",

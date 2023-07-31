@@ -38,6 +38,11 @@ const officerSchema = new Schema({
     station:{
         type : String,
         required : true
+    },
+    opencases:{
+        type : [String],
+        required : false,
+        default : []
     }
 });
 
