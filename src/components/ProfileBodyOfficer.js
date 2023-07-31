@@ -12,6 +12,7 @@ export default function ProfileBodyOfficer() {
   const rank = data.rank;
   const contactno = data.contactno;
   const station = data.station;
+  const cases = data.opencases;
 
   return (
   <div>
@@ -25,9 +26,9 @@ export default function ProfileBodyOfficer() {
               class="rounded-circle img-fluid" width='100px'/>
             <h3 class="my-3">{name}</h3>
             <p class="text-muted mb-1">{pen}</p>
-            <div class="d-flex justify-content-center mb-2">
+            {/* <div class="d-flex justify-content-center mb-2">
               <button type="button" class="btn btn-outline-primary ">Edit Profile</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -87,6 +88,21 @@ export default function ProfileBodyOfficer() {
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">{station}</p>
+              </div>
+            </div>
+            <hr/>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">Ongoing Investigations</p>
+              </div>
+              <div class="col-sm-9">
+                {cases.map((ongoing,index) => (
+                  <div class="row">
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">{ongoing}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
