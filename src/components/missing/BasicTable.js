@@ -231,7 +231,9 @@ export const BasicTable = () => {
             const res = await del.json();
             if (res.success) {
               console.log("Successfully deleted entries");
-            } else {
+              alert("Entry deleted succesfully")
+            }
+            else {
               console.log("There was an error in deleting entries");
             }
           } catch (error) {
