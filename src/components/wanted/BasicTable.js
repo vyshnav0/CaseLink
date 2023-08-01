@@ -114,6 +114,7 @@ export const BasicTable = () => {
   const [fullname, setFullname] = useState([]);
   const [missingPersons, setMissingPersons] = useState([]);
   const [rows, setRows] = useState([]);
+  const [toDelete,settoDelete] = useState([])
 
   const callMissingPage = async () => {
     try {
@@ -191,7 +192,63 @@ export const BasicTable = () => {
     setRows([...rows, newRow]);
   };
 
+  const updateBackend = async () => {
+    try {
+      await Promise.all(
+        toDelete.map(async (i, index) => {
+          console.log(`Entry to be deleted has name ${i.fn} ${i.ln}`);
+          try {
+            const del = await fetch("http://localhost:5000/deletewanted", {
+              method: 'DELETE',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ fname: i.fn,
+                 lname: i.ln, 
+                 age: i.ag, 
+                 gender: i.g, 
+                 height: i.h, 
+                 weight: i.w })
+            });
+            const res = await del.json();
+            if (res.success) {
+              console.log("Successfully deleted entries");
+            }
+            else {
+              console.log("There was an error in deleting entries");
+            }
+          }
+          catch (error) {
+            console.error(error);
+          }
+        })
+        );
+        alert("Entry deleted succesfully")
+    }
+    catch (error) {
+      console.error(error);
+    }
+  };
+
   const tableRowRemove = (index) => {
+    const fullname = rows[index].full_name
+    const fname = fullname.trim().split(" ")[0]
+    const lname = fullname.trim().split(" ")[1]
+    const age = rows[index].age
+    const gender = rows[index].gender
+    const height = rows[index].height
+    const weight = rows[index].weight
+    const removedOBJ = {
+      fn : fname,
+      ln : lname,
+      ag : age,
+      g : gender,
+      h : height,
+      w : weight
+    }
+    settoDelete((prevstate) => [...prevstate , removedOBJ])
+
     const updatedRows = [...rows];
     updatedRows.splice(index, 1);
     setRows(updatedRows);
@@ -219,9 +276,9 @@ export const BasicTable = () => {
             <th>Date</th>
             <th>Contact Info</th>
             <th>
-              {/* <button className="btn btn-danger" onClick={addRowTable} >
-                Add Entry
-              </button> */}
+              <button className="btn btn-danger" onClick={updateBackend} >
+                Confirm Delete
+              </button>
             </th>
           </tr>
         </thead>
