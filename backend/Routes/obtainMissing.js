@@ -44,4 +44,21 @@ router.get("/obtainmissing", async (req, res) => {
     }
 })
 
+router.delete("/deletemissing", async (req,res) => {
+    try {
+        const fname = req.body.fname;
+        const lname = req.body.lname;
+        const age = req.body.age;
+        const gender = req.body.gender;
+        const height = req.body.height;
+        const weight = req.body.weight;
+
+        await Missing.deleteOne({fname:fname,lname:lname,age:age,gender:gender,height:height,weight:weight})
+        res.json({success:true})
+    } catch (error) {
+        console.error(error);
+        res.json({success:false})
+    }
+})
+
 module.exports = router;
