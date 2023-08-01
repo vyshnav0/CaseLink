@@ -24,7 +24,9 @@ export default function Header() {
   return (
     <>
       <div className='header'>
-        <div className='logo'><p>CaseLink</p></div>
+        <div className='logo'><NavLink to = '/'>
+          <img src = "./images/sitelogo.png" alt = "hope you dont see this" />
+          </NavLink></div>
         <div className='listitems'>
           <li className='header_options'><NavLink  to='/'>Home</NavLink></li>
           {officer && <li className='header_options'><NavLink  to='/officer'>Dashboard</NavLink></li>}

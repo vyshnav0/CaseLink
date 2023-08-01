@@ -63,10 +63,9 @@
     justify-content: space-between;
     padding: 3% 8%;
 }
-.logo{
-    /* width:6vw; */
-    width: 20px;   
-  height: auto;
-  font-size: 20px; 
+.logo img{
+    width:9vw;
+    mix-blend-mode: color-burn; 
+    /* cry in corner for not placing img after .logo */
 }
 
