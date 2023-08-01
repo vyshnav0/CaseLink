@@ -44,4 +44,24 @@ router.post('/addwanted' , async (req,res) => {
     }
 })
 
+router.delete('/deletewanted' , async(req,res) => {
+    try {
+        const fname = req.body.fname;
+        const lname = req.body.lname;
+        const age = req.body.age;
+        const gender = req.body.gender;
+        const height = req.body.height;
+        const weight = req.body.weight;
+
+        const a = await Wanted.deleteOne({fname:fname,lname:lname,age:age,gender:gender,height:height,weight:weight})
+        if(a.deletedCount === 1) console.log("Deleted one from backend");
+        else if(a.deletedCount === 0) console.log("No data deleted from backend");
+        res.json({success:true})
+    }
+    catch (error) {
+        console.error(error);
+        res.json({success:false})
+    }
+})
+
 module.exports = router
