@@ -41,6 +41,5 @@ COMMANDS TO RUN FIRST TIME
     and run: npm i init express mongoose nodemon
 
 NEXT todo{
-    remove take case from users view
-    display ongoing cases in officer profile
+    add complaints var for users so that all related complaints can be displayed in their profile
 }
