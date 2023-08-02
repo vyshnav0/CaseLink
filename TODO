@@ -1,11 +1,11 @@
 Software is used by a primary police station. So all the different levels of police officers are to be thoroughly studied and implemented
 
 A) VERIFY AADHAAR
-B) Heading for missing and complaibt table
-C) Anyone can get any complaint as long as they have the correct CID
-D) 
-E) HOME PAGE SIGN UP BUTTON
-F) 
+F) Files Upload 
+B) Heading for missing and complaint table
+<!-- C) Anyone can get any complaint as long as they have the correct CID -->
+D) Profile 
+E) User view complaints : change to table view
 
 mongosh connection link: mongosh "mongodb+srv://web4.twsr1jr.mongodb.net/" --apiVersion 1 --username arjun
 mongosh "mongodb+srv://clusterdeploy.xtrgodc.mongodb.net/" --apiVersion 1 --username arjunvinod09

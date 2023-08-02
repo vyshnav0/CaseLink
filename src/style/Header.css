@@ -65,7 +65,7 @@
 }
 .logo img{
     width:9vw;
-    mix-blend-mode: color-burn; 
+    /* mix-blend-mode: color-burn;  */
     /* cry in corner for not placing img after .logo */
 }
 
