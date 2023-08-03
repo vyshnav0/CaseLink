@@ -18,14 +18,26 @@ router.post("/takecase" , async(req,res) => {
         else{
             await Officer.updateOne({pen:pen},{$push:{opencases: cid}})
             await Complaint.updateOne({cid:cid},{$set : {status:"Open" , investigatedby: offname}})
-            console.log(`${cid} added to officer ${offname}'s open cases`);
-
             res.json({success:true , case:1})
         }
     }
     catch (error) {
         console.error(error);
         res.json({success:false , case:0})
+    }
+})
+
+router.post("/dropcase" , async(req,res) => {
+    try {
+        const pen = req.body.pen;
+        const cid = req.body.cid;
+        const a = await Officer.updateOne({pen:pen},{$pull : {opencases : cid}});
+        await Complaint.updateOne({cid:cid} , {$set : {investigatedby : "Unassigned" , status : "Idle"}});
+        res.json({success : true})
+    }
+    catch (error) {
+        console.error(error);
+        res.json({success : false})
     }
 })
 

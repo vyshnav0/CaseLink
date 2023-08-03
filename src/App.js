@@ -15,6 +15,7 @@ import WantedAdding from './screens/WantedAdding';
 import Analysis from './screens/Analysis';
 import SearchComplaint from './screens/SearchComplaint'
 import ComplaintDetail from './screens/ComplaintDetail';
+import CrimeDetails from './screens/CrimeDetails';
 
 import {
   BrowserRouter as Router,
@@ -43,7 +44,8 @@ function App() {
           <Route exact path = '/analysis' element = {<Analysis></Analysis>} ></Route>
           <Route exact path = '/searchcomplaint' element = {<SearchComplaint></SearchComplaint>}></Route>
           <Route exact path = '/complaintdetails' element = {<ComplaintDetail></ComplaintDetail>}></Route>
-        </Routes>
+          <Route exact path = '/crimedetails' element = {<CrimeDetails></CrimeDetails>}></Route>
+        </Routes> 
       </div>
     </Router>
   );
