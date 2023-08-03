@@ -20,7 +20,7 @@ export default function ProfileBodyOfficer() {
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-top h-100">
       <div class="col col-md-9 col-lg-7 col-xl-5">
-        <div class="card">
+        <div class="card w">
           <div class="card-body p-4">
             <div class="d-flex text-black">
               <div class="flex-shrink-0">
