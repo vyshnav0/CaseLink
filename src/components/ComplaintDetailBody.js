@@ -33,7 +33,6 @@ export default function ComplaintDetailBody() {
   const officer = user === 'officer';
 
   const takeCase = async() =>{
-    // update status of complaint to open and add investigates by details to complaint database also add this complaint to officers opencases
     try{
       const comp = await fetch("http://localhost:5000/takecase",{
         method: 'POST',
@@ -43,7 +42,6 @@ export default function ComplaintDetailBody() {
         body: JSON.stringify({pen:JSON.parse(localStorage.getItem("data")).pen , cid:cid})
       })
       const res = await comp.json()
-      console.log(`Fetch returned with values: ${res.success} and ${res.case}`);
       if(res.case == 1){
         try {
           const crime = await fetch('http://localhost:5000/createcrime',{
@@ -84,6 +82,30 @@ export default function ComplaintDetailBody() {
   const viewCrime = () => {
     
   }
+  
+  const dropCase = async() =>{
+    try{
+      const comp = await fetch("http://localhost:5000/dropcase",{
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify({pen:JSON.parse(localStorage.getItem("data")).pen , cid:cid})
+      })
+      const res = await comp.json()
+      if(res.success){
+        alert("Case dropped")
+        navigate("/officer")
+      }
+      else{
+        alert("There was an error while dropping case. Please try again later.")
+      }
+    }
+    catch(e){
+      console.error(e);
+    } 
+  }
+
 
   return (
     <div>
@@ -221,6 +243,7 @@ export default function ComplaintDetailBody() {
   {officer && !stat && <button onClick = {takeCase} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
   {officer && stat && !valid && <button onClick = {() => alert("This case is already being investigated.")} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Already Taken</button>}
   {officer && stat && valid && <button onClick = {viewCrime} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>View Crime</button>}
+  {officer && stat && valid && <button onClick = {dropCase} style={{ backgroundColor: 'red', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Drop Crime</button>}
   </div>
   </div>
   </div>
