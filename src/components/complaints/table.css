@@ -38,4 +38,9 @@
     display: flex;
     justify-content: space-evenly;
   }
-  
+  .tableheading{
+    background-color: #c8dfec !important;
+    display: flex;
+    justify-content: center;
+
+}

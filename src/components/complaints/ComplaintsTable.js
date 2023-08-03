@@ -203,20 +203,24 @@ const ComplaintsTable = () => {
   };
 
   return (
+    <>
+    <div className='tableheading'>
+    <h1>COMPLAINTS</h1>
+    </div>
     <div className="app-container">
       <form className="formtab" onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
-              <th>Complaint ID</th>
-              <th>Registered By</th>
-              <th>Phone Number</th>
-              <th>Location</th>
-              <th>Type</th>
-              <th>Date</th>
-              <th>Description</th>
-              <th>Status</th>
-              <th>Actions</th>
+              <th style={{position: 'sticky', top: 0}}>Registered By</th>
+              <th style={{position: 'sticky', top: 0}}>Complaint ID</th>
+              <th style={{position: 'sticky', top: 0}}>Phone Number</th>
+              <th style={{position: 'sticky', top: 0}}>Location</th>
+              <th style={{position: 'sticky', top: 0}}>Type</th>
+              <th style={{position: 'sticky', top: 0}}>Date</th>
+              <th style={{position: 'sticky', top: 0}}>Description</th>
+              <th style={{position: 'sticky', top: 0}}>Status</th>
+              <th style={{position: 'sticky', top: 0}}>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -241,6 +245,8 @@ const ComplaintsTable = () => {
         </table>
       </form>
     </div>
+    </>
+
   );
 };
 

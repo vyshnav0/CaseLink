@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import '../missing/basicTable.css'
 
 function TableRows({ rows, tableRowRemove, onValUpdate }) {
   return rows.map((rowData, index) => {
@@ -263,19 +264,24 @@ export const BasicTable = () => {
 
   return (
     <>
+    <div className='tableheading'>
+    <h1>WANTED LIST</h1>
+    </div>
+    {/* <p className='blah'>hell world</p> */}
+    
       <table className="table table-striped">
         <thead>
           <tr>
             {/* <th>Id</th> */}
-            <th>Full Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>Location</th>
-            <th>Date</th>
-            <th>Contact Info</th>
-            <th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Full Name</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Age</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Gender</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Height</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Weight</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Location</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Date</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Contact Info</th>
+            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>
               <button className="btn btn-danger" onClick={updateBackend} >
                 Confirm Delete
               </button>
