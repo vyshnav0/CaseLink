@@ -8,8 +8,8 @@ router.post("/createcrime",
     async (req, res) => {
         try {
             const cidX = req.body.cid
-            const penX = req.body.investigatedby
-            const off = await Officer.findOne({pen: penX})
+            const penX = req.body.pen
+            const off = await Officer.findOne({pen : penX})
             const complaint = await Complaint.findOne({cid: cidX})
             if(!complaint){
                 throw new Error(`No such complaint found: ${complaint}`)
@@ -22,6 +22,8 @@ router.post("/createcrime",
             const typeX = complaint.type
             const reportedbyX = complaint.reportedby
             const investigatedbyX = off.fname + " " + off.lname
+            const criminal = complaint.accused
+            const victim = complaint.victim
 
             await Crime.create({
                 cid: cidX,
@@ -30,9 +32,9 @@ router.post("/createcrime",
                 type: typeX,
                 reportedby: reportedbyX,
                 investigatedby: investigatedbyX,
-                status: req.body.status,
-                criminal: req.body.criminal,
-                victim: req.body.victim
+                status: "Open",
+                criminal: criminal,
+                victim: victim
             })
             res.json({ success: true });
         } catch (error) {
