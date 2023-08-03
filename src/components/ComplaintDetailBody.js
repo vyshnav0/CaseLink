@@ -1,15 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function ComplaintDetailBody() {
 
-  let officer = false
   const navigate = useNavigate()
   let user = localStorage.getItem("usertype")
-  if(user == 'officer'){
-    officer = true
-  }
   let cdata = localStorage.getItem("cdata")
+  const of = JSON.parse(localStorage.getItem("data"))
+  const ofname = of.fname + " " + of.lname
   const parsedData = JSON.parse(cdata)
   const json = parsedData.cdata[0]
   const cid = json.cid;
@@ -26,7 +24,12 @@ export default function ComplaintDetailBody() {
   const victim = json.victim;
   const description = json.description;
   const nearestStation = json.nearestStation;
-  const status = json.status;  
+  const status = json.status;
+
+  const stat = status === 'Open';
+  console.log(`Invs by ${investigatedby} and checked by ${ofname}`);
+  const valid = investigatedby == ofname;
+  const officer = user === 'officer';
 
   const takeCase = async() =>{
     // update status of complaint to open and add investigates by details to complaint database also add this complaint to officers opencases
@@ -54,6 +57,10 @@ export default function ComplaintDetailBody() {
     catch(e){
       console.error(e);
     }
+  }
+
+  const viewCrime = () => {
+    
   }
 
   return (
@@ -188,7 +195,10 @@ export default function ComplaintDetailBody() {
         </div>
       </div>
     </div>
-  {officer && <button onClick = {takeCase} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
+    {console.log(`${officer} ${stat} ${valid}`)}
+  {officer && !stat && <button onClick = {takeCase} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
+  {officer && stat && !valid && <button onClick = {() => alert("This case is already being investigated.")} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Already Taken</button>}
+  {officer && stat && valid && <button onClick = {viewCrime} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>View Crime</button>}
   </div>
   </div>
   </div>
