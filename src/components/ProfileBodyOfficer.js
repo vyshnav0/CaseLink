@@ -63,7 +63,6 @@ export default function ProfileBodyOfficer() {
                     <p class="small text-muted mb-1">Ongoing cases</p>
                     {cases.map((ongoing,i) => {
                       <p class="mb-0">{ongoing}</p>
-                      console.log(`Printing case : ${ongoing}`);
                     })}
                   </div>
                 </div>
