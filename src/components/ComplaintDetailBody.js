@@ -8,6 +8,7 @@ export default function ComplaintDetailBody() {
   let cdata = localStorage.getItem("cdata")
   const of = JSON.parse(localStorage.getItem("data"))
   const ofname = of.fname + " " + of.lname
+  const pen = of.pen
   const parsedData = JSON.parse(cdata)
   const json = parsedData.cdata[0]
   const cid = json.cid;
@@ -44,7 +45,28 @@ export default function ComplaintDetailBody() {
       const res = await comp.json()
       console.log(`Fetch returned with values: ${res.success} and ${res.case}`);
       if(res.case == 1){
-        navigate("/officer")
+        try {
+          const crime = await fetch('http://localhost:5000/createcrime',{
+            method:"POST",
+            headers:{
+              'Content-Type' : "application/json",
+              Accept : "application/json"
+            },
+            body:JSON.stringify({cid:cid,pen:pen})
+          })
+    
+          const resp = await crime.json()
+          if(resp.success){
+            console.log("Crime created succesfully");
+            navigate("/officer")
+          }
+          else{
+            console.log("There was an error in creating crimedata");
+          }
+        }
+        catch (error) {
+          console.error(error);
+        }
       }
       else if(res.case == 0){
         alert("There was an unexcpected error in taking up the case.")
@@ -56,7 +78,7 @@ export default function ComplaintDetailBody() {
     }
     catch(e){
       console.error(e);
-    }
+    } 
   }
 
   const viewCrime = () => {

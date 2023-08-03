@@ -43,4 +43,16 @@ router.post("/createcrime",
         }
     })
 
+
+router.get('/getcrime' , async(req,res) => {
+    try {
+        const cid = req.query.cid
+        const crimedata = await Crime.find({cid:cid},{_id:0})
+        res.json({success:true,crimedata:crimedata})
+    }
+    catch (error) {
+        res.json({success:false})
+        console.error(error);
+    }
+})
 module.exports = router;
