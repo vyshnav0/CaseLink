@@ -56,7 +56,7 @@ export default function ComplaintDetailBody() {
           const resp = await crime.json()
           if(resp.success){
             console.log("Crime created succesfully");
-            navigate("/officer")
+            navigate("/crimedetails")
           }
           else{
             console.log("There was an error in creating crimedata");
