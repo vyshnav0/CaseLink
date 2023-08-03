@@ -1,0 +1,11 @@
+/* .th{
+    position: -webkit-sticky !important;
+    top: 0 !important;
+} */
+
+.tableheading{
+    background-color: #c8dfec;
+    display: flex;
+    justify-content: center;
+
+}

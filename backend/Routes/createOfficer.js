@@ -78,4 +78,10 @@ router.post("/loginofficer",
         }
     })
 
+router.post('/refreshofficer' , async(req,res) => {
+    const pen = req.body.pen
+    const of = await Officer.findOne({pen:pen})
+    res.json({success:true,data:JSON.stringify(of)})
+})
+
 module.exports = router;

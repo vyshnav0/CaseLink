@@ -36,10 +36,10 @@ const crimeSchema = new Schema({
         type: String,
         required: true
     },
-    criminal: [{
-        type: String,
-        required: true
-    }],
+    criminal: {
+        type : [String],
+        required : false
+    },
     victim: [{
         type: String,
         required: true
