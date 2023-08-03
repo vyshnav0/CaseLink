@@ -58,6 +58,15 @@ export default function ProfileBodyOfficer() {
                     <p class="mb-0">{station}</p>
                   </div>
                 </div>
+                <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
+                  <div>
+                    <p class="small text-muted mb-1">Ongoing cases</p>
+                    {cases.map((ongoing,i) => {
+                      <p class="mb-0">{ongoing}</p>
+                      console.log(`Printing case : ${ongoing}`);
+                    })}
+                  </div>
+                </div>
                 <div class="d-flex pt-1">
                   <button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Edit Profile</button>
                 </div>
