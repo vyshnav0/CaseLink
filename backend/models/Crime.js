@@ -12,6 +12,10 @@ const crimeSchema = new Schema({
         type: String,
         required: true
     },
+    casetaken: {
+        type : Date,
+        require : true
+    },
     location: {
         type: String,
         required: true
