@@ -27,6 +27,7 @@ router.post("/createcrime",
 
             await Crime.create({
                 cid: cidX,
+                casetaken: new Date(),
                 location: locationX,
                 time: timeX,
                 type: typeX,
@@ -36,6 +37,7 @@ router.post("/createcrime",
                 criminal: criminal,
                 victim: victim
             })
+
             res.json({ success: true });
         } catch (error) {
             console.error(error)
@@ -47,7 +49,7 @@ router.post("/createcrime",
 router.get('/getcrime' , async(req,res) => {
     try {
         const cid = req.query.cid
-        const crimedata = await Crime.find({cid:cid},{_id:0})
+        const crimedata = await Crime.findOne({cid:cid},{_id:0}).sort({casetaken:-1})
         res.json({success:true,crimedata:crimedata})
     }
     catch (error) {
