@@ -1,21 +1,13 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap");
+.img-fluid{
+  width: 180px; 
+  border-radius: 10px;
+}
 .pro{
-    width: 70%;
-    position:relative;
-    right:20%;
-    top:25px;
-    
-  }
-  .car{
-    width: 100%;
-    position:relative;
-    left:27%;
-    top:25px;
-
-  }
-  .custom-height {
-    height: 10vh; 
-  }
-  .al{
-    display: flex;
-  }
+  background-color: #dceffa;
+  margin-top: -40px;
+}
+.card{
+  border-radius: 15px;
+  font-family: Questrial;
+}
