@@ -188,7 +188,7 @@ export default function ComplaintDetailBody() {
         </div>
       </div>
     </div>
-  {officer && <button onClick = {takeCase} style={{ backgroundColor: 'red', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
+  {officer && <button onClick = {takeCase} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
   </div>
   </div>
   </div>

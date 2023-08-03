@@ -1,14 +1,32 @@
 
-  .input {
-    margin-bottom: 1rem;
-    width: 100%;
-    border-radius:0px ;
+@import url("https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap");
+body{
+  background-color: #dceffa;
+}
+.btn-color{
+    background-color: rgba(20, 74, 185, 1);
+    color: #ffffff;
+    font-family: Questrial;
+    
   }
-
-  .mb-4 w-100 {
-    width: 100%;
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
   }
-
-  .text-center {
-    text-align: center;
+  
+  
+  
+  .cardbody-color{
+    background-color: #ffffff;
+  }
+  
+  a{
+    text-decoration: none;
+    color: rgb(80, 80, 241);
+  }
+  .card{
+    border-radius: 15px;
+    font-family: Questrial;
   }

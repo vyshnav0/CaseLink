@@ -43,6 +43,7 @@ export default function ProfileBodyOfficer() {
                 <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
                   <div>
                     <p class="small text-muted mb-1">Contact Number</p>
+
                     <p class="mb-0">{contactno}</p>
                   </div>
                 </div>
@@ -60,10 +61,12 @@ export default function ProfileBodyOfficer() {
                 </div>
                 <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
                   <div>
-                    <p class="small text-muted mb-1">Ongoing cases</p>
-                    {cases.map((ongoing,i) => {
-                      <p class="mb-0">{ongoing}</p>
-                    })}
+                    <p class="small text-muted mb-1">Ongoing Cases</p>
+                    <ul>
+                    {cases.map((ongoing, i) => (
+                    <li key={i}>{ongoing}</li>
+                     ))}
+                    </ul>
                   </div>
                 </div>
                 <div class="d-flex pt-1">
