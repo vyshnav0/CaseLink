@@ -86,7 +86,8 @@ export default function LoginBody() {
         <form onSubmit={handleSubmit} class="card-body cardbody-color p-lg-5">
 
           <div class="text-center">
-            <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3" width="200px" alt="profile"/>
+            <img src="./images/login_icon.png" class="img-fluid profile-image-pic rounded-circle my-3" width="200px" alt="profile"/>
+            {/* <img src="https://cdn.pixabay.com/photo/2016/03/31/19/56/avatar-1295397__340.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3" width="200px" alt="profile"/> */}
           </div>
           <MDBInput className='form-control' wrapperClass='mb-3' aria-describedby="emailHelp" placeholder='Email' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
           <MDBInput className='form-control' wrapperClass='mb-3' placeholder='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/>
