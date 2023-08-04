@@ -24,7 +24,7 @@ export default function OfficerWork(){
         Add-Wanted
     </div>
 
-    <div className="bd-element" onClick={() => window.location.href = '/Analysis'}>
+    <div className="bd-element" onClick={() => window.location.href = '/analysis'}>
 
         <img src="/images/monitoring.png"/>
         Crime Analysis
