@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Chart from 'react-apexcharts';
 import Header from '../components/Header'
-import CrimeData from  './CRIME_DATA .json';
+import { useEffect } from 'react';
 
 export default function Analysis() {
+
+  let [CrimeData,setCrimeData] = useState([])
+
+  useEffect(() => {
+    fetchData()
+  },(CrimeData))
+
+  const fetchData = async() => {
+    const all = "all"
+    try {
+      const crime = await fetch(`http://localhost:5000/getcrime?cid=${all}`,{
+        method: "GET",
+        headers: {
+          'Content-Type' : "application/json",
+          Accept : "application/json"
+        }
+      })
+
+      const res = await crime.json()
+      setCrimeData(res.crimedata)
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+
   function countCrimesByType(data) {
     const crimeCounts = {};
     for (const crime of data) {
@@ -17,7 +43,6 @@ export default function Analysis() {
     return crimeCounts;
   }
   const noOfCrimes = countCrimesByType(CrimeData);
-  console.log(noOfCrimes);
   const categories = ['Trespassing', 'Theft', 'Vandalism', 'Cybercrime', 'Drug Possession', 'Assault', 'Fraud', 'Murder', 'Others'];
   const data = categories.map((crimeType) => noOfCrimes[crimeType]);
     const series = [
