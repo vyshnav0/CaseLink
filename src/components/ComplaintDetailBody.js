@@ -114,13 +114,13 @@ export default function ComplaintDetailBody() {
     <div className='car'>
       <div class="col-lg-2 custom-height ">
         <div class="card mb-4">
-          <div class="card-body text-center">
+          {/* <div class="card-body text-center">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
               class="rounded-circle img-fluid" width='100px'/>
             <p class="text-muted mb-1">{reportedby}</p>
             <div class="d-flex justify-content-center mb-2">
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -128,6 +128,15 @@ export default function ComplaintDetailBody() {
     <div class="col-lg-10">
         <div class="card mb-4">
           <div class="card-body">
+          <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">Reported By</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{reportedby}</p>
+              </div>
+            </div>
+            <hr/>
             <div class="row">
               <div class="col-sm-6">
                 <p class="mb-0">Email</p>
