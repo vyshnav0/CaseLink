@@ -13,6 +13,8 @@ export default function FileComplaint() {
     idt,
     idn = "";
   const userOrOfficer = localStorage.getItem("usertype");
+  const off = userOrOfficer === 'officer'
+  const usr = userOrOfficer === 'user'
   const data = localStorage.getItem("data");
   const parsedData = JSON.parse(data);
   const navigate = useNavigate();
@@ -197,15 +199,15 @@ export default function FileComplaint() {
             required
           />
           <div className="d-flex justify-content-between">
-            <div>
+            {off && <div>
               <select id = 'selectId' class = 'form-select' label="ID Type" name="idType" value={credentials.idType} onChange={onChange}>
                 <option>Aadhaar</option>
                 <option>Drivers</option>
                 <option>Voters</option>
               </select>
               <label for="selectId">Id Type</label>
-              </div>
-            {/* <MDBInput 
+              </div>}
+            {usr && <MDBInput 
               wrapperClass="mb-4"
               label="ID Type"
               name="idType"
@@ -214,7 +216,7 @@ export default function FileComplaint() {
               
               onChange={onChange}
               required
-              /> */}
+              />}
            
             <MDBInput
               wrapperClass="mb-4"
@@ -235,7 +237,6 @@ export default function FileComplaint() {
                 <option>Cybercrime</option>
                 <option>Drug Possession</option>
                 <option>Assault</option>
-                <option>Drivers</option>
                 <option>Fraud</option>
                 <option>Murder</option>
                 <option>Others</option>
