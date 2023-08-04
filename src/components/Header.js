@@ -21,6 +21,7 @@ export default function Header() {
     localStorage.removeItem("data")
     localStorage.removeItem("cdata")
     localStorage.removeItem("complaintstatus")
+    localStorage.removeItem("crimedata")
   }
 
   const refreshofficer = async()=> {

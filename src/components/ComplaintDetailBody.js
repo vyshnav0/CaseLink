@@ -28,7 +28,6 @@ export default function ComplaintDetailBody() {
   const status = json.status;
 
   const stat = status === 'Open';
-  console.log(`Invs by ${investigatedby} and checked by ${ofname}`);
   const valid = investigatedby == ofname;
   const officer = user === 'officer';
 
@@ -54,9 +53,10 @@ export default function ComplaintDetailBody() {
           })
     
           const resp = await crime.json()
+          console.log(resp);
           if(resp.success){
             console.log("Crime created succesfully");
-            viewCrime()
+            navigate("/officer")
           }
           else{
             console.log("There was an error in creating crimedata");
@@ -79,8 +79,22 @@ export default function ComplaintDetailBody() {
     } 
   }
 
-  const viewCrime = () => {
-    
+  const viewCrime = async() => {
+    try {
+      const cr = await fetch(`http://localhost:5000/getcrime?cid=${cid}`,{
+        method:"GET",
+        headers: {
+          "Content-Type" : "application/json",
+          Accept : "application/json"
+        }
+      })
+      const crimedata = await cr.json()
+      localStorage.setItem("crimedata",JSON.stringify(crimedata.crimedata))
+      navigate("/crimedetails")
+    }
+    catch (error) {
+      console.error(error);
+    }
   }
   
   const dropCase = async() =>{
@@ -248,7 +262,6 @@ export default function ComplaintDetailBody() {
         </div>
       </div>
     </div>
-    {console.log(`${officer} ${stat} ${valid}`)}
   {officer && !stat && <button onClick = {takeCase} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
   {officer && stat && !valid && <button onClick = {() => alert("This case is already being investigated.")} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Already Taken</button>}
   {officer && stat && valid && <button onClick = {viewCrime} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>View Crime</button>}

@@ -16,9 +16,14 @@ router.post("/takecase" , async(req,res) => {
             res.json({success:false , case:2})
         }
         else{
-            await Officer.updateOne({pen:pen},{$push:{opencases: cid}})
-            await Complaint.updateOne({cid:cid},{$set : {status:"Open" , investigatedby: offname}})
-            res.json({success:true , case:1})
+            try {
+                await Officer.updateOne({pen:pen},{$push:{opencases: cid}})
+                await Complaint.updateOne({cid:cid},{$set : {status:"Open" , investigatedby: offname}})
+                res.json({success:true , case:1})
+            } catch (error) {
+                res.json({success : false, msg : "Couldnt update values"})
+                console.error(error);
+            }
         }
     }
     catch (error) {

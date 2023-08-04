@@ -57,9 +57,9 @@ crimeSchema.pre("save", async function (next) {
   
     const latestDocument = await mongoose
       .model("crime", crimeSchema)
-      .findOne({}, { crimeno: 1 })
+      .findOne({}, { crimeno: 1 , _id:0})
       .sort({ crimeno: -1 });
-  
+
     const latestCrimeno = latestDocument ? parseInt(latestDocument.crimeno.slice(5)) + 1 : 1;
   
     this.crimeno = "CRMNO" + latestCrimeno.toString().padStart(3, "0");
