@@ -56,7 +56,7 @@ export default function ComplaintDetailBody() {
           console.log(resp);
           if(resp.success){
             console.log("Crime created succesfully");
-            navigate("/officer")
+            navigate("/complaintstatus")
           }
           else{
             console.log("There was an error in creating crimedata");
@@ -263,7 +263,7 @@ export default function ComplaintDetailBody() {
       </div>
     </div>
   {officer && !stat && <button onClick = {takeCase} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
-  {officer && stat && !valid && <button onClick = {() => alert("This case is already being investigated.")} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Already Taken</button>}
+  {officer && stat && !valid && <button onClick = {() => {alert("This case is already being investigated.");navigate("/complaintstatus")}} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Already Taken</button>}
   {officer && stat && valid && <button onClick = {viewCrime} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>View Crime</button>}
   {officer && stat && valid && <button onClick = {dropCase} style={{ backgroundColor: 'red', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Drop Crime</button>}
   </div>
