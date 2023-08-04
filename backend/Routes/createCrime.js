@@ -49,7 +49,13 @@ router.post("/createcrime",
 router.get('/getcrime' , async(req,res) => {
     try {
         const cid = req.query.cid
-        const crimedata = await Crime.findOne({cid:cid},{_id:0}).sort({casetaken:-1})
+        let crimedata = null
+        if(cid == "all"){
+            crimedata = await Crime.find({},{_id:0})
+        }
+        else{
+            crimedata = await Crime.findOne({cid:cid},{_id:0}).sort({casetaken:-1})
+        }
         res.json({success:true,crimedata:crimedata})
     }
     catch (error) {
