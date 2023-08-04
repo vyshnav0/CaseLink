@@ -198,7 +198,7 @@ export default function FileComplaint() {
           />
           <div className="d-flex justify-content-between">
             <div>
-              <select id = 'selectId' class = 'form-select'>
+              <select id = 'selectId' class = 'form-select' label="ID Type" name="idType" value={credentials.idType} onChange={onChange}>
                 <option>Aadhaar</option>
                 <option>Drivers</option>
                 <option>Voters</option>
@@ -228,7 +228,7 @@ export default function FileComplaint() {
           </div>
 
           <div>
-              <select id = 'selectComplaint' class = 'form-select'>
+              <select id = 'selectComplaint' class = 'form-select' label="Complaint Type" name="type" value={credentials.type} onChange={onChange}>
                 <option>Theft</option>
                 <option>Trespassing</option>
                 <option>Vandalism</option>
@@ -240,7 +240,7 @@ export default function FileComplaint() {
                 <option>Murder</option>
                 <option>Others</option>
               </select>
-              <label for="selectComplaint">Id Type</label>
+              <label for="selectComplaint">Complaint Type</label>
               </div>
           {/* <MDBInput
             wrapperClass="mb-4"
