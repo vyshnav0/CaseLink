@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { MDBContainer, MDBInput, MDBTextArea } from "mdb-react-ui-kit";
+import { MDBContainer, MDBInput, MDBTextArea, MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from "mdb-react-ui-kit";
 import "../style/FileComplaint.css";
 import { Button } from "react-bootstrap";
 
@@ -197,15 +197,25 @@ export default function FileComplaint() {
             required
           />
           <div className="d-flex justify-content-between">
-            <MDBInput
+            <div>
+              <select id = 'selectId' class = 'form-select'>
+                <option>Aadhaar</option>
+                <option>Drivers</option>
+                <option>Voters</option>
+              </select>
+              <label for="selectId">Id Type</label>
+              </div>
+            {/* <MDBInput 
               wrapperClass="mb-4"
               label="ID Type"
               name="idType"
               type="text"
               value={credentials.idType}
+              
               onChange={onChange}
               required
-            />
+              /> */}
+           
             <MDBInput
               wrapperClass="mb-4"
               label="ID Number"
@@ -216,7 +226,23 @@ export default function FileComplaint() {
               required
             />
           </div>
-          <MDBInput
+
+          <div>
+              <select id = 'selectComplaint' class = 'form-select'>
+                <option>Theft</option>
+                <option>Trespassing</option>
+                <option>Vandalism</option>
+                <option>Cybercrime</option>
+                <option>Drug Possession</option>
+                <option>Assault</option>
+                <option>Drivers</option>
+                <option>Fraud</option>
+                <option>Murder</option>
+                <option>Others</option>
+              </select>
+              <label for="selectComplaint">Id Type</label>
+              </div>
+          {/* <MDBInput
             wrapperClass="mb-4"
             label="Complaint Type"
             name="type"
@@ -224,7 +250,7 @@ export default function FileComplaint() {
             value={credentials.type}
             onChange={onChange}
             required
-          />
+          /> */}
 
           <div className="d-flex justify-content-between">
             <MDBInput
