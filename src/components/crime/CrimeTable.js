@@ -161,21 +161,34 @@ const ComplaintsTable = () => {
 
     const cid = contact.complainant_id
     console.log(`Fetching details of ${cid}`);
-    try {
-      const cr = await fetch(`http://localhost:5000/getcrime?cid=${cid}`,{
-        method:"GET",
-        headers: {
-          "Content-Type" : "application/json",
-          Accept : "application/json"
-        }
-      })
-      const crimedata = await cr.json()
-      localStorage.setItem("crimedata",JSON.stringify(crimedata.crimedata))
-      navigate("/crimedetails")
+    try{
+      const response = await fetch(`http://localhost:5000/searchcomplaint?cid=${cid}&name=${contact.complainant_name}`,{
+        method : "GET",
+        headers : {
+          Accept : "application/json",
+          "Content-Type" : "application/json"
+        },
+        credentials : "include"
+      });
+
+      const json = await response.json()
+      if(!json.success){
+        alert("You have no such complaint.")
+      }
+      else if(json.cdata[0].email === null){
+        alert("Enter a valid complaint id!")
+      }
+      else{
+        const jsonString = JSON.stringify(json);
+        localStorage.setItem('cdata', jsonString);
+        navigate("/complaintdetails")
+      }
     }
-    catch (error) {
-      console.error(error);
+    catch(err){
+      console.error(err);
+      alert("Enter a valid complaint id!")
     }
+    navigate('/complaintdetails')
   };
 
   const handleCancelClick = () => {
