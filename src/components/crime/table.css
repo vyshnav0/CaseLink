@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap");
+.app-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  th {
+    background-color: rgb(117, 201, 250);
+  }
+  
+  td {
+    background-color: rgb(205, 235, 253);
+  }
+  
+  .formtab {
+    display: flex;
+    gap: 5px;
+    font-size: 16px;
+    font-family: Questrial;
+  }
+  
+  form td:last-child {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .tableheading{
+    background-color: #c8dfec !important;
+    display: flex;
+    justify-content: center;
+
+}
