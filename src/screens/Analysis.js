@@ -41,7 +41,7 @@ export default function Analysis() {
     return crimeCounts;
   }
   const noOfCrimes = countCrimesByType(crimedata);
-  const categories = ['Tresspassing', 'Theft', 'Vandalism', 'Cybercrime', 'Drug Possession', 'Assault', 'Fraud', 'Murder', 'Others'];
+  const categories = ['Trespassing', 'Theft', 'Vandalism', 'Cybercrime', 'Drug Possession', 'Assault', 'Fraud', 'Murder', 'Others'];
   const data = categories.map((crimeType) => noOfCrimes[crimeType]);
     const series = [
         {
