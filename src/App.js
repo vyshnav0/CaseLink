@@ -16,6 +16,7 @@ import Analysis from './screens/Analysis';
 import SearchComplaint from './screens/SearchComplaint'
 import ComplaintDetail from './screens/ComplaintDetail';
 import CrimeDetails from './screens/CrimeDetails';
+import CrimeStatus from './screens/CrimeStatus';
 
 import {
   BrowserRouter as Router,
@@ -36,6 +37,7 @@ function App() {
           <Route exact path = '/contactinfo' element = {<ContactUs></ContactUs>} ></Route>
           <Route exact path = '/filecomplaint' element = {<FileComplaint></FileComplaint>} ></Route>
           <Route exact path = '/complaintstatus' element = {<ComplaintStatus></ComplaintStatus>} ></Route>
+          <Route exact path = '/crimestatus' element = {<CrimeStatus></CrimeStatus>} ></Route>
           <Route exact path = '/profile' element = {<Profile></Profile>} ></Route>
           <Route exact path = '/missingtable' element = {<MissingTable></MissingTable>} ></Route>
           <Route exact path = '/wantedtable' element = {<WantedTable></WantedTable>} ></Route>

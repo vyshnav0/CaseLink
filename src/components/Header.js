@@ -35,6 +35,7 @@ export default function Header() {
           {officer && <li className='header_options'><NavLink  to='/officer'>Dashboard</NavLink></li>}
           <li className='header_options'><NavLink  to='/filecomplaint'>File a Complaint</NavLink></li>
           {officer && <li className='header_options'><NavLink  to='/complaintstatus'>Complaints</NavLink></li>}
+          {officer && <li className='header_options'><NavLink  to='/crimestatus'>Crime</NavLink></li>}
           {!officer && <li className='header_options'><NavLink  to='/searchcomplaint'>Complaint Status</NavLink></li>}
           {status && <li className='header_options'><NavLink  to='/profile'>Profile</NavLink></li>}
           {/* <li><Link to='/contactinfo'>Contact Us</Link></li> */}
