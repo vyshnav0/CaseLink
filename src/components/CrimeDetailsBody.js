@@ -40,11 +40,21 @@ export default function CrimeDetailsBody() {
                 </tr>
                 <tr>
                   <td class='text-muted' colspan="2">Criminal</td>
-                  <td class="text-end">{criminal}</td>
+                  {/* <td class="text-end">{criminal}</td> */}
+                  <ul>
+                    {criminal.map((ongoing, i) => (
+                    <li key={i}>{ongoing}</li>
+                     ))}
+                  </ul>
                 </tr>
                 <tr>
                   <td class='text-muted' colspan="2">Victim</td>
-                  <td class="text-end">{victim}</td>
+                  {/* <td class="text-end">{victim}</td> */}
+                  <ul>
+                    {victim.map((ongoing, i) => (
+                    <li key={i}>{ongoing}</li>
+                     ))}
+                  </ul>
                 </tr>
                 <tr>
                   <td class='text-muted' colspan="2">Case Taken</td>
