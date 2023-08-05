@@ -63,4 +63,17 @@ router.get('/getcrime' , async(req,res) => {
         console.error(error);
     }
 })
+
+router.post('/officercrime' , async(req,res) => {
+    const cidarray = req.body.cidarray
+    console.log(cidarray);
+    try {
+        const crimedata = await Complaint.find({cid : {$in : cidarray}})
+        res.json({success:true , crimedata : crimedata})
+    }
+    catch (error) {
+        console.error(error);
+        res.json({success : false})
+    }
+})
 module.exports = router;
