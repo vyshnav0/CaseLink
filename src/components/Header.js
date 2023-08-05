@@ -24,28 +24,6 @@ export default function Header() {
     localStorage.removeItem("crimedata")
   }
 
-  const refreshofficer = async()=> {
-    try {
-      const ref = await fetch('http://localhost:5000/refreshofficer',{
-        method:"POST",
-        headers:{
-          "Content-Type" : "application/json",
-          accept : "application/json"
-        },
-        body:JSON.stringify({pen:pen})
-      })
-
-      const res = await ref.json()
-      const data = res.data
-      localStorage.setItem("data",data)
-      console.log("Data refreshed succesfully");
-      navigate("/profile")
-    }
-    catch (error) {
-      console.error(error);
-    }
-  }
-
   return (
     <>
       <div className='header'>
@@ -62,7 +40,6 @@ export default function Header() {
           {/* <li><Link to='/contactinfo'>Contact Us</Link></li> */}
           {/* <li><Link to='/login' onClick={logout}>{status ? 'Sign out' : 'Login'}</Link></li> */}
         </div>
-        {officer && <li className='header_options listitems'><Button onClick={refreshofficer}>Refresh</Button></li>}
         <Link to='/login' onClick={logout}><Button className='log' variant='dark'>{status ?'Log out' : 'Log in'}</Button></Link>
       </div>
     </>

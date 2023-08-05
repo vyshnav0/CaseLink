@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import '../style/ComplaintDetailBody.css'
 
 export default function ComplaintDetailBody() {
 
@@ -123,150 +124,117 @@ export default function ComplaintDetailBody() {
 
   return (
     <div>
-  <div className='cont'>
-    <div className='al'>
-    <div className='car'>
-      <div class="col-lg-2 custom-height ">
-        <div class="card mb-4">
-          {/* <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-              class="rounded-circle img-fluid" width='100px'/>
-            <p class="text-muted mb-1">{reportedby}</p>
-            <div class="d-flex justify-content-center mb-2">
-            </div>
-          </div> */}
-        </div>
-      </div>
-    </div>
-    <div className='pro'>
-    <div class="col-lg-10">
-        <div class="card mb-4">
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-7">
+        <div className="cardcomplaint">
+        <div class="card mb-4" style={{border:'0'}}>
           <div class="card-body">
-          <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Reported By</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{reportedby}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Email</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{email}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">CID</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{cid}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Type</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{type}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Investigated By</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{investigatedby}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Mobile no</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{contactno}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Location</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{location}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Date</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{time}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Accused</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{accused}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Victim</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{victim}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Station</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{nearestStation}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Desciption</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{description}</p>
-              </div>
-            </div>
-            <hr/>
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="mb-0">Status</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{status}</p>
-              </div>
-            </div>
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <td class="text-start"><h6 class='complaint_head'>Complaint Details</h6></td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td class='text-muted' colspan="2">Complaint ID</td>
+                  <td class="text-end">{cid}</td>
+                </tr>
+                <tr>
+                  <td class='text-muted' colspan="2">Type</td>
+                  <td class="text-end">{type}</td>
+                </tr>
+                <tr>
+                  <td class='text-muted' colspan="2">Date</td>
+                  <td class="text-end">{time}</td>
+                </tr>
+                <tr>
+                  <td class='text-muted' colspan="2">Location</td>
+                  <td class="text-end">{location}</td>
+                </tr>
+                <tr>
+                  <td class='text-muted' colspan="2">Accused</td>
+                  <td class="text-end">{accused}</td>
+                </tr>
+                <tr>
+                  <td class='text-muted' colspan="2">Victim</td>
+                  <td class="text-end">{victim}</td>
+                </tr>
+                <tr>
+                  <td class='text-muted' colspan="2">Description</td>
+                  <td class="text-end">{description}</td>
+                </tr>
+                <tr>
+                  <td class='text-muted' colspan="2">Status</td>
+                  <td class="text-end">{status}</td>
+                </tr>
+              </tfoot>
+            </table>
           </div>
         </div>
       </div>
     </div>
-  {officer && !stat && <button onClick = {takeCase} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Take Case</button>}
-  {officer && stat && !valid && <button onClick = {() => {alert("This case is already being investigated.");navigate("/complaintstatus")}} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Already Taken</button>}
-  {officer && stat && valid && <button onClick = {viewCrime} style={{ backgroundColor: 'blue', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>View Crime</button>}
-  {officer && stat && valid && <button onClick = {dropCase} style={{ backgroundColor: 'red', color: 'white' , minWidth:'5vw' ,minHeight:'7vh' , maxWidth:'10vw' ,maxHeight:'7vh'}}>Drop Crime</button>}
-  </div>
+      <div class="col-lg-4">
+      <div className="cardcomplaint">
+        <div class="card mb-4" style={{border:'0'}}>
+          <div class="card-body">
+            <h6 class='complaint_head '>Reported By</h6>
+            <p>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Name</p>
+                      <p class="mb-0">{reportedby}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2 ">
+            <div class="px-1">
+                      <p class="small text-muted mb-1">Email</p>
+                      <p class="mb-0">{email}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start  mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1">Contact no:</p>
+                      <p class="mb-0">{contactno}</p>
+            </div>
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="col-lg-11">
+      <div className="cardcomplaint">
+        <div class="card mb-4" style={{border:'0'}}>
+          <div class="card-body">
+            <h6 class='complaint_head'>Investigation Details</h6>
+            <p>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Investigated by</p>
+                      <p class="mb-0">{investigatedby}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Station</p>
+                      <p class="mb-0">{nearestStation}</p>
+            </div>
+            </div>
+            </p>
+            </div>
+        </div>
+      </div>
+      </div>
+  
+    </div>
+    </div>
+  <div class="btn1">
+  {officer && !stat && <button onClick={takeCase} class="btn btn-primary me-1 ">Take Case</button> }
+  {officer && stat && !valid && <button onClick = {() => {alert("This case is already being investigated.");navigate("/complaintstatus")}} class="btn btn-primary me-1 ">Already Taken</button>}
+  {officer && stat && valid && <button onClick = {viewCrime} class="btn btn-primary me-1 ">View Crime</button>}
+  {officer && stat && valid && <button onClick = {dropCase} class="btn btn-outline-primary  me-1 " >Drop Crime</button>}
   </div>
   </div>
   )

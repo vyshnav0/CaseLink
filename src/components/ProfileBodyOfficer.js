@@ -1,11 +1,20 @@
 import React from 'react'
 import '../style/ProfileBody.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from "react-bootstrap";
+import {Link , useNavigate} from 'react-router-dom'
 
 export default function ProfileBodyOfficer() {
+  const navigate = useNavigate()
+  const logged = localStorage.getItem("usertype");
+  const status = logged === "user" || logged === "officer";
+  let [officer,pen] = [false,null]
+  officer = logged === "officer"
+  if(officer){
+    pen = JSON.parse(localStorage.getItem("data")).pen
+  }
 
   const data = JSON.parse(localStorage.getItem('data'));
-  const pen = data.pen
   const name = data.fname + " " + data.lname
   const age = data.age;
   const sex = data.sex;
@@ -13,6 +22,27 @@ export default function ProfileBodyOfficer() {
   const contactno = data.contactno;
   const station = data.station;
   const cases = data.opencases;
+  const refreshofficer = async()=> {
+    try {
+      const ref = await fetch('http://localhost:5000/refreshofficer',{
+        method:"POST",
+        headers:{
+          "Content-Type" : "application/json",
+          accept : "application/json"
+        },
+        body:JSON.stringify({pen:pen})
+      })
+
+      const res = await ref.json()
+      const data = res.data
+      localStorage.setItem("data",data)
+      console.log("Data refreshed succesfully");
+      navigate("/profile")
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
 
   return (
   <div className='pro'>
@@ -70,7 +100,7 @@ export default function ProfileBodyOfficer() {
                   </div>
                 </div>
                 <div class="d-flex pt-1">
-                  <button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Edit Profile</button>
+                  {officer && <button type="button" onClick={refreshofficer} class="btn btn-outline-primary me-1 flex-grow-1">Refresh</button> }
                 </div>
               </div>
             </div>
