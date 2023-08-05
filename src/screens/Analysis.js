@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import Header from '../components/Header'
-import { useEffect } from 'react';
 
 export default function Analysis() {
 
-  let [CrimeData,setCrimeData] = useState([])
-
+  const [crimedata,setCrimeData] = useState([])
   useEffect(() => {
     fetchData()
-  },(CrimeData))
+  },([]))
 
   const fetchData = async() => {
     const all = "all"
@@ -42,8 +40,8 @@ export default function Analysis() {
     }
     return crimeCounts;
   }
-  const noOfCrimes = countCrimesByType(CrimeData);
-  const categories = ['Trespassing', 'Theft', 'Vandalism', 'Cybercrime', 'Drug Possession', 'Assault', 'Fraud', 'Murder', 'Others'];
+  const noOfCrimes = countCrimesByType(crimedata);
+  const categories = ['Tresspassing', 'Theft', 'Vandalism', 'Cybercrime', 'Drug Possession', 'Assault', 'Fraud', 'Murder', 'Others'];
   const data = categories.map((crimeType) => noOfCrimes[crimeType]);
     const series = [
         {
