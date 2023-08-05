@@ -216,36 +216,42 @@ export const BasicTable = () => {
   };
 
   const updateBackend = async () => {
-    try {
-      await Promise.all(
-        toDelete.map(async (i, index) => {
-          console.log(`Entry to be deleted has name ${i.fn} ${i.ln}`);
-          try {
-            const del = await fetch("http://localhost:5000/deletemissing", {
-              method: 'DELETE',
-              headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({ fname: i.fn, lname: i.ln, age: i.ag, gender: i.g, height: i.h, weight: i.w })
-            });
-            const res = await del.json();
-            if (res.success) {
-              console.log("Successfully deleted entries");
+    const ans = window.confirm("Are you sure you want to delete the selected items?")
+    if(ans){
+      try {
+        await Promise.all(
+          toDelete.map(async (i, index) => {
+            console.log(`Entry to be deleted has name ${i.fn} ${i.ln}`);
+            try {
+              const del = await fetch("http://localhost:5000/deletemissing", {
+                method: 'DELETE',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ fname: i.fn, lname: i.ln, age: i.ag, gender: i.g, height: i.h, weight: i.w })
+              });
+              const res = await del.json();
+              if (res.success) {
+                console.log("Successfully deleted entries");
+              }
+              else {
+                console.log("There was an error in deleting entries");
+              }
             }
-            else {
-              console.log("There was an error in deleting entries");
+            catch (error) {
+              console.error(error);
             }
-          }
-          catch (error) {
-            console.error(error);
-          }
-        })
-        );
-        alert("Entry deleted succesfully")
+          })
+          );
+          alert("Entry deleted succesfully")
+      }
+      catch (error) {
+        console.error(error);
+      }
     }
-    catch (error) {
-      console.error(error);
+    else{
+      // do nothing
     }
   };
   

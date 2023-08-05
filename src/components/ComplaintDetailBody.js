@@ -99,26 +99,32 @@ export default function ComplaintDetailBody() {
   }
   
   const dropCase = async() =>{
-    try{
-      const comp = await fetch("http://localhost:5000/dropcase",{
-        method: 'POST',
-        headers: {
-          'Content-Type' : 'application/json'
-        },
-        body: JSON.stringify({pen:JSON.parse(localStorage.getItem("data")).pen , cid:cid})
-      })
-      const res = await comp.json()
-      if(res.success){
-        alert("Case dropped")
-        navigate("/officer")
+    const answer = window.confirm("Are you sure you want to drop the case?")
+    if(answer){
+      try{
+        const comp = await fetch("http://localhost:5000/dropcase",{
+          method: 'POST',
+          headers: {
+            'Content-Type' : 'application/json'
+          },
+          body: JSON.stringify({pen:JSON.parse(localStorage.getItem("data")).pen , cid:cid})
+        })
+        const res = await comp.json()
+        if(res.success){
+          alert("Case dropped")
+          navigate("/officer")
+        }
+        else{
+          alert("There was an error while dropping case. Please try again later.")
+        }
       }
-      else{
-        alert("There was an error while dropping case. Please try again later.")
-      }
+      catch(e){
+        console.error(e);
+      } 
     }
-    catch(e){
-      console.error(e);
-    } 
+    else{
+      // do nothing
+    }
   }
 
 
