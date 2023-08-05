@@ -212,8 +212,8 @@ const ComplaintsTable = () => {
         <table>
           <thead>
             <tr>
-              <th style={{position: 'sticky', top: 0}}>Registered By</th>
               <th style={{position: 'sticky', top: 0}}>Complaint ID</th>
+              <th style={{position: 'sticky', top: 0}}>Registered By</th>
               <th style={{position: 'sticky', top: 0}}>Phone Number</th>
               <th style={{position: 'sticky', top: 0}}>Location</th>
               <th style={{position: 'sticky', top: 0}}>Type</th>
