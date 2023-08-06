@@ -33,7 +33,7 @@ export default function CrimeDetailsBody() {
 
     const res = await attach.json()
     if(res.success){
-      navigate("/crimestatus")
+      navigate(-1)
     }
     else{
       alert("There was an error adding entries. Please try again later.")
@@ -62,7 +62,7 @@ export default function CrimeDetailsBody() {
   
         const res = await add.json()
         if(res.success){
-          navigate("/crimestatus")
+          navigate(-1)
         }
         else{
           alert("Couldnt add the new update. Please try again later.")
