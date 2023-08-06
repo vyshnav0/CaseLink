@@ -14,6 +14,7 @@ export default function ProfileBody() {
   const address = data.address;
   const fathersName = data.fathersName;
   const mothersName = data.mothersName;
+  const complaints = data.cases
 
   return (
     <div className='pro'>
@@ -63,6 +64,16 @@ export default function ProfileBody() {
                   <div>
                     <p class="small text-muted mb-1">Address</p>
                     <p class="mb-0">{address}</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
+                  <div>
+                    <p class="small text-muted mb-1">My Complaints</p>
+                    <ul>
+                    {complaints.map((ongoing, i) => (
+                    <li key={i}>{ongoing}</li>
+                     ))}
+                    </ul>
                   </div>
                 </div>
                 <div class="d-flex pt-1">
