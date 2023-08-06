@@ -29,6 +29,7 @@ export default function ComplaintDetailBody() {
   const status = json.status;
 
   const stat = status === 'Open';
+  const idle = status === 'Idle'
   const closed = status === 'Closed';
   const valid = investigatedby == ofname;
   const officer = user === 'officer';
@@ -265,7 +266,7 @@ export default function ComplaintDetailBody() {
   {officer && stat && valid && <button onClick = {viewCrime} class="btn btn-primary me-1 ">View Crime</button>}
   {officer && stat && valid && <button onClick = {dropCase} class="btn btn-outline-primary  me-1 " >Drop Crime</button>}
   {officer && closed && <button onClick = {viewCrime} class="btn btn-outline-primary  me-1 " >Show Final Report</button>}
-  {!officer && <button onClick = {viewCrime} class="btn btn-primary me-1 ">Show Report</button>}
+  {!officer && !idle && <button onClick = {viewCrime} class="btn btn-primary me-1 ">Show Report</button>}
   </div>
   </div>
   )
