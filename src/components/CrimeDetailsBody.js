@@ -142,7 +142,7 @@ export default function CrimeDetailsBody() {
     <div class="row">
       <div class="col-lg-7 ">
         <div className="cardcomplaint">
-        <div class="card mb-4">
+        <div class="card mb-4" style={{border:'0'}}>
           <div class="card-body">
             <table class="table table-borderless">
               <tbody>
@@ -205,7 +205,7 @@ export default function CrimeDetailsBody() {
     </div>
       <div class="col-lg-4">
       <div className="cardcomplaint">
-        <div class="card mb-4">
+        <div class="card mb-4" style={{border:'0'}}>
           <div class="card-body">
             <h6 class='complaint_head '>Reported By</h6>
             <p>
@@ -224,7 +224,7 @@ export default function CrimeDetailsBody() {
       <div class="col-lg-12">
       <div className="cardcomplaint">
         <div class="card mb-4">
-          <div class="card-body">
+          <div class="card-body" style={{border:'0'}}>
             <h6 class='complaint_head '>Updates</h6>
             <p>
             { !user &&
@@ -304,7 +304,7 @@ export default function CrimeDetailsBody() {
     <div class='invest'>
       <div class="col-lg-11">
       <div className="cardcomplaint">
-        <div class="card mb-4">
+        <div class="card mb-4" style={{border:'0'}}>
           <div class="card-body">
             <h6 class='complaint_head '>Investigation Details</h6>
             <p>
