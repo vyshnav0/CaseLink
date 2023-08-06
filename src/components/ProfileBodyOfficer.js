@@ -23,27 +23,27 @@ export default function ProfileBodyOfficer() {
   const station = data.station;
   const ongoingcases = data.opencases;
   const closedcases = data.closedcases;
-  const refreshofficer = async()=> {
-    try {
-      const ref = await fetch('http://localhost:5000/refreshofficer',{
-        method:"POST",
-        headers:{
-          "Content-Type" : "application/json",
-          accept : "application/json"
-        },
-        body:JSON.stringify({pen:pen})
-      })
+  // const refreshofficer = async()=> {
+  //   try {
+  //     const ref = await fetch('http://localhost:5000/refreshofficer',{
+  //       method:"POST",
+  //       headers:{
+  //         "Content-Type" : "application/json",
+  //         accept : "application/json"
+  //       },
+  //       body:JSON.stringify({pen:pen})
+  //     })
 
-      const res = await ref.json()
-      const data = res.data
-      localStorage.setItem("data",data)
-      console.log("Data refreshed succesfully");
-      navigate("/profile")
-    }
-    catch (error) {
-      console.error(error);
-    }
-  }
+  //     const res = await ref.json()
+  //     const data = res.data
+  //     localStorage.setItem("data",data)
+  //     console.log("Data refreshed succesfully");
+  //     navigate("/profile")
+  //   }
+  //   catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   return (
   <div className='pro'>
@@ -110,9 +110,9 @@ export default function ProfileBodyOfficer() {
                     </ul>
                   </div>
                 </div>
-                <div class="d-flex pt-1">
+                {/* <div class="d-flex pt-1">
                   {officer && <button type="button" onClick={refreshofficer} class="btn btn-outline-primary me-1 flex-grow-1">Refresh</button> }
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
