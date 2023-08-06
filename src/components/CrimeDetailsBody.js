@@ -235,7 +235,7 @@ export default function CrimeDetailsBody() {
             </div>
             </div>}
   
-            {!officer &&
+            {(!officer || (officer && closed)) &&
             <div>
               <tr>
                   {/* <td class="text-end">{criminal}</td> */}
