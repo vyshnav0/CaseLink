@@ -23,9 +23,6 @@ export default function Profile() {
             credentials : "include"
         });
         const data = await response.json();
-        console.log(data);
-        console.log("Returned from fetching comlpaintauth");
-
     } catch (error) {
         console.log("There was an error in authenticating user");
         navigate("/login");

@@ -18,9 +18,6 @@ export default function CrimeStatusBody() {
                 credentials : "include"
             });
             const data = await response.json();
-            console.log(data);
-            console.log("Returned from fetching comlpaintauth");
-
             if(!data.success){
               navigate("/")
           }

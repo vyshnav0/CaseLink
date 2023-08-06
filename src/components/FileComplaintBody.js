@@ -39,8 +39,6 @@ export default function FileComplaint() {
       if (!data.success) {
         navigate("/login");
       }
-      console.log(data);
-      console.log("Returned from fetching comlpaintauth");
     } catch (error) {
       console.log("There was an error in authenticating user");
       navigate("/login");
