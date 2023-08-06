@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../style/ComplaintDetailBody.css'
 import { MDBTextArea } from 'mdb-react-ui-kit'
+import { MDBInput } from 'mdb-react-ui-kit'
 import { useNavigate } from 'react-router-dom'
 
 export default function CrimeDetailsBody() {
@@ -135,7 +136,7 @@ export default function CrimeDetailsBody() {
       </div>
       <div>
       </div>
-      <div class="col-lg-11">
+      <div class="col-lg-12">
       <div className="cardcomplaint">
         <div class="card mb-4">
           <div class="card-body">
@@ -147,13 +148,43 @@ export default function CrimeDetailsBody() {
                       <p class="mb-0">{updates[updates.length - 1]}</p>
             </div>
             </div>
+            <hr/>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+            <div class="update">
+            <MDBInput
+                        wrapperClass="mb-1"
+                        label="Victim"
+                        type="text"
+                        /*value={newvictim}*/
+                        onChange={onChange}
+                        />
+                        <div class='btn2'><button onClick={addUpdate} class="btn btn-primary me-1 mt-3 col-lg-12 ">Update Victims</button></div>
+            </div>
+            </div>-
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+            <div class="update">  
+            <MDBInput
+                        wrapperClass="mb-1"
+                        label="Accused"
+                        type="text"
+                        /*value={newAccused}*/
+                        onChange={onChange}
+                        />
+                        <div class='btn2'><button onClick={addUpdate} class="btn btn-primary col-lg-12 me-1 mt-3 ">Update Accused</button></div>
+            </div>
+            </div>
+            </div>
+            <hr/>
             <div class="d-flex justify-content-start mb-2">
             <div class="px-1">
                       <p class="small text-muted mb-1 mt-3">Add update</p>
                       <div class="d-flex justify-content-start mb-2">
-                        <div class="px-1">
-                      <MDBTextArea name="description" id="textAreaExample" rows={4} value={newupdate} onChange={onChange} required />
-                      <button onClick={addUpdate} class="btn btn-primary me-1 ">Add new update</button>
+                      <div class="px-1">
+                      <MDBTextArea name="description" id="textAreaExample" rows={3} value={newupdate} onChange={onChange} required />
+                      <button onClick={addUpdate} class="btn btn-primary me-1 mt-3 ">Update</button>
                       </div>
                       </div>
             </div>
@@ -165,7 +196,8 @@ export default function CrimeDetailsBody() {
     </div>
       </div>
     </div>
-      <div class="col-lg-11">
+    <div class='invest'>
+      <div class="col-lg-7">
       <div className="cardcomplaint">
         <div class="card mb-4">
           <div class="card-body">
@@ -186,6 +218,7 @@ export default function CrimeDetailsBody() {
             </p>
             </div>
         </div>
+      </div>
       </div>
       </div>
   

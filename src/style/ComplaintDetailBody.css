@@ -15,3 +15,18 @@
 .list{
     list-style-type: none;
 }
+.invest{
+    margin-top: -150px;
+}
+.update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn2{
+
+    margin-top:-52px;
+    margin-left: 50px;
+    width: 170px;
+    
+}
