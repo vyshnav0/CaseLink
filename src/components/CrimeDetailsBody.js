@@ -14,8 +14,14 @@ export default function CrimeDetailsBody() {
   const [newupdate,setnewupdate] = useState("")
   const [newvictim,setnewvictim] = useState("")
   const [newcriminal,setnewcriminal] = useState("")
+  const [showDiv, setShowDiv] = useState(false);
   const closed = status === 'Closed'
+  const officer = localStorage.getItem("usertype") == 'officer'
   
+  const showHistory =() => {
+    setShowDiv((prev) => !prev)
+  }
+
   const newEntry = async(type) => {
     const value = type === 'v' ? newvictim : newcriminal
     const attach = await fetch("http://localhost:5000/victimorcriminal" , {
@@ -227,7 +233,23 @@ export default function CrimeDetailsBody() {
                       <p class="mb-0">{updates[updates.length - 1]}</p>
             </div>
             </div>
-            {!closed && 
+            {!officer && 
+            <button onClick={showHistory} class="btn btn-primary me-1 mt-3 ">View Update History</button>}
+            {showDiv && 
+            <div>
+              <tr>
+                  <td class='text-muted' colspan="2">Update History</td>
+                  {/* <td class="text-end">{criminal}</td> */}
+                  <p class='text-end'>                 
+                  <ul class='list'>
+                    {updates.map((ongoing, i) => (
+                    <li key={i}>{ongoing}</li>
+                     ))}
+                  </ul>
+                  </p>
+                </tr>
+            </div>}
+            {!closed && officer && 
             <div>
             <hr/>
             <div class="d-flex justify-content-start mb-2">
