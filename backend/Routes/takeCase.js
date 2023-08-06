@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const Crime = require('../models/Crime')
 const Complaint = require('../models/Complaint')
 const Officer = require('../models/Officer')
 
@@ -36,13 +37,26 @@ router.post("/dropcase" , async(req,res) => {
     try {
         const pen = req.body.pen;
         const cid = req.body.cid;
-        const a = await Officer.updateOne({pen:pen},{$pull : {opencases : cid}});
+        await Officer.updateOne({pen:pen},{$pull : {opencases : cid}});
         await Complaint.updateOne({cid:cid} , {$set : {investigatedby : "Unassigned" , status : "Idle"}});
         res.json({success : true})
     }
     catch (error) {
         console.error(error);
         res.json({success : false})
+    }
+})
+
+router.patch("/closecase" , async(req,res) => {
+    try {
+        await Crime.updateOne({crimeno : req.body.crimeno},req.body.crime)
+        await Complaint.updateOne({cid : req.body.cid},req.body.complaint)
+        await Officer.updateOne({pen : req.body.pen},req.body.officer)
+        res.json({success:true})
+    }
+    catch (error) {
+        console.error(error);
+        res.json({success:false})
     }
 })
 

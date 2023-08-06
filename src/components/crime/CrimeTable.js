@@ -18,7 +18,9 @@ const ComplaintsTable = () => {
   }, []);
 
   const callCrimePage = async () => {
-    const cidarray = JSON.parse(localStorage.getItem("data")).opencases
+    const openarray = JSON.parse(localStorage.getItem("data")).opencases
+    const closedarray = JSON.parse(localStorage.getItem("data")).closedcases
+    const cidarray = [...openarray,...closedarray]
     const response = await fetch("http://localhost:5000/officercrime", {
       method: "POST",
       headers: {

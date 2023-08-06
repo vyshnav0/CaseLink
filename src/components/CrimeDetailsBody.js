@@ -8,9 +8,11 @@ export default function CrimeDetailsBody() {
 
   const navigate = useNavigate()
   const crimedata = localStorage.getItem("crimedata")
+  const pen = JSON.parse(localStorage.getItem("data")).pen
   const json = JSON.parse(crimedata)
   let [crimeno, cid, casetaken, location, time, type, investigatedby, reportedby, status, criminal, victim , updates] = [json.crimeno,json.cid,json.casetaken.toString().slice(0,10),json.location,json.time.toString().slice(0, 10),json.type,json.investigatedby,json.reportedby,json.status,json.criminal,json.victim,json.updates];
   const [newupdate,setnewupdate] = useState("")
+  const closed = status === 'Closed'
   
   const addUpdate = async() => {
     console.log("Button clicked");
@@ -44,6 +46,58 @@ export default function CrimeDetailsBody() {
       catch (error) {
         console.error(error);
       }
+    }
+  }
+
+  const closeCase = async() => {
+    try {
+      if(window.confirm(`Are you sure you want to close this case : ${crimeno}`)){
+        const close = await fetch("http://localhost:5000/closecase",{
+          method:"PATCH",
+          headers:{
+            "Content-Type" :"application/json",
+            Accept : "application/json"
+          },
+          body:JSON.stringify({
+            crimeno : crimeno,
+            cid : cid,
+            pen : pen,
+            crime : {
+              $set : {
+                status : "Closed",
+              },
+              $push : {
+                updates : `Case closed on ${new Date().toString().slice(0,24)}`
+              }
+            },
+            complaint : {
+              $set : {
+                status : "Closed",
+              }
+            },
+            officer : {
+              $pull : {
+                opencases : `${cid}`
+              },
+              $push : {
+                closedcases : `${cid}`
+              }
+            }
+          })
+        })
+
+        const res = await close.json()
+        if(res.success){
+          alert(`Crime ${crimeno} closed!`)
+          navigate("/crimestatus")
+        }
+        else{
+          alert("There was an error in closing case. Please try again later")
+        }
+      }
+    }
+    catch (error) {
+      console.error(error);
     }
   }
 
@@ -188,7 +242,7 @@ export default function CrimeDetailsBody() {
                       </div>
                       </div>
             </div>
-            </div>
+            </div>}
             </p>
             </div>
         </div>
@@ -224,6 +278,9 @@ export default function CrimeDetailsBody() {
   
     </div>
     </div>
+    <div class="btn1">
+  {!closed && <button onClick = {closeCase} class="btn btn-primary me-1 btn-danger">Close case</button>}
+  </div>
   </div>
   )
 }

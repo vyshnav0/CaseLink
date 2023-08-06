@@ -43,6 +43,11 @@ const officerSchema = new Schema({
         type : [String],
         required : false,
         default : []
+    },
+    closedcases:{
+        type : [String],
+        required : false,
+        default : []
     }
 });
 
