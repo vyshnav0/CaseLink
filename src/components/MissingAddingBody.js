@@ -33,7 +33,7 @@ export default function WantedAddingBody() {
   const userOrOfficer = localStorage.getItem('usertype');
   const navigate = useNavigate();
 
-  const callComplaintPage = async () => {
+  const callAuthentication = async () => {
     try {
       const response = await fetch(`http://localhost:5000/complaintauth?authToken=${localStorage.getItem('authToken')}`, {
         method: 'GET',
@@ -55,7 +55,7 @@ export default function WantedAddingBody() {
 
   useEffect(() => {
     if (!effectRan.current) {
-      callComplaintPage();
+      callAuthentication();
       effectRan.current = true;
     }
   }, []);

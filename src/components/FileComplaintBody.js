@@ -18,9 +18,8 @@ export default function FileComplaint() {
   const data = localStorage.getItem("data");
   const parsedData = JSON.parse(data);
   const navigate = useNavigate();
-  const callComplaintPage = async () => {
+  const callAuthentication = async () => {
     try {
-      console.log("Going to fetch from complaintauth");
       console.log(`User logged in is: ${userOrOfficer}`);
       const response = await fetch(
         `http://localhost:5000/complaintauth?authToken=${localStorage.getItem(
@@ -56,7 +55,7 @@ export default function FileComplaint() {
 
   useEffect(() => {
     if (effectRan.current === false) {
-      callComplaintPage();
+      callAuthentication();
       effectRan.current = true;
     }
   }, []);

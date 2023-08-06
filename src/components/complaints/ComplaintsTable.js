@@ -12,12 +12,12 @@ const ComplaintsTable = () => {
   const effectRan = useRef(false);
   useEffect(() => {
     if(effectRan.current === false){
-      callComplaintPage()
+      callAuthentication()
       effectRan.current = true
   }
   }, []);
 
-  const callComplaintPage = async () => {
+  const callAuthentication = async () => {
     const response = await fetch("http://localhost:5000/obtaincomplaint", {
       method: "GET",
       headers: {

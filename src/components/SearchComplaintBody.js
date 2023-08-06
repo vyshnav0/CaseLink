@@ -16,7 +16,6 @@ export default function SearchComplaintBody() {
 
   const callSearchPage = async() => {
     try {
-        console.log("Going to fetch from complaintauth");
         const response = await fetch(`http://localhost:5000/complaintauth?authToken=${localStorage.getItem("authToken")}` , 
         {
             method:"GET",

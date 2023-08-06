@@ -9,9 +9,8 @@ export default function Profile() {
   const navigate = useNavigate()
   const userOrOfficer = localStorage.getItem("usertype");
   const effectRan = useRef(false)
-  const callComplaintPage = async() => {
+  const callAuthentication = async() => {
     try {
-        console.log("Going to fetch from complaintauth");
         console.log(`User logged in is: ${userOrOfficer}`);
         const response = await fetch(`http://localhost:5000/complaintauth?authToken=${localStorage.getItem("authToken")}` , 
         {
@@ -31,7 +30,7 @@ export default function Profile() {
 
   useEffect(() => {
     if(effectRan.current === false){
-        callComplaintPage()
+        callAuthentication()
         effectRan.current = true
     }
 }, [])
