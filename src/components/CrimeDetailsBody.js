@@ -242,7 +242,7 @@ export default function CrimeDetailsBody() {
                       </div>
                       </div>
             </div>
-            </div>}
+            </div>
             </p>
             </div>
         </div>
