@@ -134,7 +134,7 @@ export default function CrimeDetailsBody() {
   <div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-7">
+      <div class="col-lg-7 ">
         <div className="cardcomplaint">
         <div class="card mb-4">
           <div class="card-body">
@@ -279,7 +279,7 @@ export default function CrimeDetailsBody() {
       </div>
     </div>
     <div class='invest'>
-      <div class="col-lg-7">
+      <div class="col-lg-11">
       <div className="cardcomplaint">
         <div class="card mb-4">
           <div class="card-body">
