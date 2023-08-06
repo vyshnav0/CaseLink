@@ -17,7 +17,7 @@ export default function CrimeDetailsBody() {
   const [showDiv, setShowDiv] = useState(false);
   const closed = status === 'Closed'
   const officer = localStorage.getItem("usertype") == 'officer'
-  
+  const user = localStorage.getItem("usertype") == 'user'
   const showHistory =() => {
     setShowDiv((prev) => !prev)
   }
@@ -227,26 +227,27 @@ export default function CrimeDetailsBody() {
           <div class="card-body">
             <h6 class='complaint_head '>Updates</h6>
             <p>
+            { !user &&
             <div class="d-flex justify-content-start mb-2">
             <div class="px-1">
                       <p class="small text-muted mb-1 mt-3">Latest Update</p>
                       <p class="mb-0">{updates[updates.length - 1]}</p>
             </div>
-            </div>
-            {!officer && 
-            <button onClick={showHistory} class="btn btn-primary me-1 mt-3 ">View Update History</button>}
-            {showDiv && 
+            </div>}
+  
+            {!officer &&
             <div>
               <tr>
-                  <td class='text-muted' colspan="2">Update History</td>
                   {/* <td class="text-end">{criminal}</td> */}
-                  <p class='text-end'>                 
-                  <ul class='list'>
+                  <div class='timeline-container'>
+                  <div class='timeline'>                
+                  <ul>
                     {updates.map((ongoing, i) => (
-                    <li key={i}>{ongoing}</li>
+                    <li class='timeline-content' key={i}>{ongoing}</li>
                      ))}
                   </ul>
-                  </p>
+                  </div>
+                  </div>
                 </tr>
             </div>}
             {!closed && officer && 

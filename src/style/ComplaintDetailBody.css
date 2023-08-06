@@ -27,3 +27,28 @@
     width: 170px;
     
 }
+.timeline ul{
+    list-style: none;
+}
+.timeline::before{
+    content:'';
+    position: absolute;
+    height: 60%;
+    width: 2px;
+    background-color: rgb(207, 205, 205);
+    left: 5%;
+}
+.timeline ul li{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.timeline ul li::before{
+    list-style: none;
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: rgb(196, 196, 196);
+    border-radius: 50%;
+    left: 18px;
+}
