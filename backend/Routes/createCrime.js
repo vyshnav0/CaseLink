@@ -65,8 +65,8 @@ router.get('/getcrime' , async(req,res) => {
 })
 
 router.post('/officercrime' , async(req,res) => {
-    const cidarray = req.body.cidarray
     try {
+        const cidarray = req.body.cidarray
         const crimedata = await Complaint.find({cid : {$in : cidarray}})
         res.json({success:true , crimedata : crimedata})
     }
@@ -75,4 +75,16 @@ router.post('/officercrime' , async(req,res) => {
         res.json({success : false})
     }
 })
+
+router.patch('/addupdate' , async(req,res) => {
+    try {
+        await Crime.updateOne({crimeno : req.body.crmn},{$push : req.body.updates})
+        res.json({success : true})
+    }
+    catch (error) {
+        console.error(error);
+        res.json({success : false})
+    }
+})
+
 module.exports = router;

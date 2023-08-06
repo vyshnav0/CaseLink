@@ -30,7 +30,6 @@ const ComplaintsTable = () => {
     });
   
     const json = await response.json();
-    console.log(`This is the response after fetching crime: ${json}`);
     data = json.crimedata;
 
     const newContacts = data.map((item) => ({

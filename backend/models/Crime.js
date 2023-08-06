@@ -48,6 +48,11 @@ const crimeSchema = new Schema({
         type: String,
         required: true
     }],
+    updates: {
+        type: [String],
+        required : false,
+        default : ["No updates yet"]
+    }
 });
 
 crimeSchema.pre("save", async function (next) {
