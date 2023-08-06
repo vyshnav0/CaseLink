@@ -33,7 +33,7 @@
 .timeline::before{
     content:'';
     position: absolute;
-    height: 60%;
+    height: 50%;
     width: 2px;
     background-color: rgb(207, 205, 205);
     left: 5%;
