@@ -21,7 +21,8 @@ export default function ProfileBodyOfficer() {
   const rank = data.rank;
   const contactno = data.contactno;
   const station = data.station;
-  const cases = data.opencases;
+  const ongoingcases = data.opencases;
+  const closedcases = data.closedcases;
   const refreshofficer = async()=> {
     try {
       const ref = await fetch('http://localhost:5000/refreshofficer',{
@@ -93,7 +94,17 @@ export default function ProfileBodyOfficer() {
                   <div>
                     <p class="small text-muted mb-1">Ongoing Cases</p>
                     <ul>
-                    {cases.map((ongoing, i) => (
+                    {ongoingcases.map((ongoing, i) => (
+                    <li key={i}>{ongoing}</li>
+                     ))}
+                    </ul>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
+                  <div>
+                    <p class="small text-muted mb-1">Closed Cases</p>
+                    <ul>
+                    {closedcases.map((ongoing, i) => (
                     <li key={i}>{ongoing}</li>
                      ))}
                     </ul>
