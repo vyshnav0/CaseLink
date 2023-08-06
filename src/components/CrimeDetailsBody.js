@@ -77,6 +77,9 @@ export default function CrimeDetailsBody() {
             officer : {
               $pull : {
                 opencases : `${cid}`
+              },
+              $push : {
+                closedcases : `${cid}`
               }
             }
           })
