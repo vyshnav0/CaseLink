@@ -29,7 +29,8 @@ const userSchema = new Schema({
     },
     email:{
         type : String,
-        required : true
+        required : true,
+        unique : true
     },
     address:{
         type : String,
@@ -54,8 +55,12 @@ const userSchema = new Schema({
     password:{
         type : String,
         required : true
+    },
+    cases:{
+        type : [String],
+        required : false,
+        default : []
     }
-    
 });
 
 module.exports = mongoose.model('user',userSchema,'civilianData')

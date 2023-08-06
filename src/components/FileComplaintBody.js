@@ -79,8 +79,7 @@ export default function FileComplaint() {
 
   const createComplaintee = async () => {
     try {
-      const complainteeResponse = await fetch(
-        "http://localhost:5000/createcomplaintee",
+      const complainteeResponse = await fetch("http://localhost:5000/createcomplaintee",
         {
           method: "POST",
           headers: {
@@ -104,10 +103,8 @@ export default function FileComplaint() {
       );
 
       const jsonComplaintee = await complainteeResponse.json();
-      console.log(jsonComplaintee);
-
       if (!jsonComplaintee.success) {
-        alert("There was an error in accepting you data. Please try again.");
+        alert("There was an error in accepting you data. Please make sure ID Type and Complaint Type is selected from the dropdown.");
       }
       if (jsonComplaintee.success) {
         console.log("Created complaintee succesfully");
@@ -144,7 +141,10 @@ export default function FileComplaint() {
       }),
     });
     const json = await response.json();
-    console.log(json);
+    if(userOrOfficer === 'user'){
+      const data = json.userdata
+      localStorage.setItem("data",data)
+    }
 
     if (!json.success) {
       alert("There was an error in accepting you data. Please try again.");
