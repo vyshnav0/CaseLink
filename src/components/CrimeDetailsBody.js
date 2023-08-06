@@ -18,7 +18,7 @@ export default function CrimeDetailsBody() {
   
   const newEntry = async(type) => {
     const value = type === 'v' ? newvictim : newcriminal
-    const append = fetch("http://localhost:5000/victimorcriminal" , {
+    const attach = await fetch("http://localhost:5000/victimorcriminal" , {
       method : "PATCH",
       headers : {
         "Content-Type" : "application/json",
@@ -31,7 +31,7 @@ export default function CrimeDetailsBody() {
       })
     })
 
-    const res = await append.json()
+    const res = await attach.json()
     if(res.success){
       navigate("/crimestatus")
     }
@@ -41,7 +41,6 @@ export default function CrimeDetailsBody() {
     
   }
   const addUpdate = async() => {
-    console.log("Button clicked");
     if(newupdate == ''){
       alert("No data found")
     }
