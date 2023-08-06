@@ -60,4 +60,20 @@ router.patch("/closecase" , async(req,res) => {
     }
 })
 
+router.patch("/victimorcriminal" , async(req,res) => {
+    try {
+        if(req.body.type === 'v'){
+            await Crime.updateOne({crimeno:req.body.crimeno} , {$push : {victim : `${req.body.value}`}})
+        }
+        else if(req.body.type === 'c'){
+            await Crime.updateOne({crimeno:req.body.crimeno} , {$push : {criminal : `${req.body.value}`}})
+        }
+        res.json({success : true})
+    }
+    catch (error) {
+        console.error(error);
+        res.json({success : false})
+    }
+})
+
 module.exports = router

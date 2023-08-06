@@ -12,8 +12,34 @@ export default function CrimeDetailsBody() {
   const json = JSON.parse(crimedata)
   let [crimeno, cid, casetaken, location, time, type, investigatedby, reportedby, status, criminal, victim , updates] = [json.crimeno,json.cid,json.casetaken.toString().slice(0,10),json.location,json.time.toString().slice(0, 10),json.type,json.investigatedby,json.reportedby,json.status,json.criminal,json.victim,json.updates];
   const [newupdate,setnewupdate] = useState("")
+  const [newvictim,setnewvictim] = useState("")
+  const [newcriminal,setnewcriminal] = useState("")
   const closed = status === 'Closed'
   
+  const newEntry = async(type) => {
+    const value = type === 'v' ? newvictim : newcriminal
+    const append = fetch("http://localhost:5000/victimorcriminal" , {
+      method : "PATCH",
+      headers : {
+        "Content-Type" : "application/json",
+        Accept : "application/json"
+      },
+      body:JSON.stringify({
+        crimeno : crimeno,
+        type : type,
+        value : value
+      })
+    })
+
+    const res = await append.json()
+    if(res.success){
+      navigate("/crimestatus")
+    }
+    else{
+      alert("There was an error adding entries. Please try again later.")
+    }
+    
+  }
   const addUpdate = async() => {
     console.log("Button clicked");
     if(newupdate == ''){
@@ -212,10 +238,10 @@ export default function CrimeDetailsBody() {
                         wrapperClass="mb-1"
                         label="Victim"
                         type="text"
-                        /*value={newvictim}*/
-                        onChange={onChange}
+                        value={newvictim}
+                        onChange={(event) => setnewvictim(event.target.value)}
                         />
-                        <div class='btn2'><button onClick={addUpdate} class="btn btn-primary me-1 mt-3 col-lg-12 ">Update Victims</button></div>
+                        <div class='btn2'><button onClick={() => newEntry("v")} class="btn btn-primary me-1 mt-3 col-lg-12 ">Update Victims</button></div>
             </div>
             </div>-
             </div>
@@ -226,10 +252,10 @@ export default function CrimeDetailsBody() {
                         wrapperClass="mb-1"
                         label="Accused"
                         type="text"
-                        /*value={newAccused}*/
-                        onChange={onChange}
+                        value={newcriminal}
+                        onChange={(event) => setnewcriminal(event.target.value)}
                         />
-                        <div class='btn2'><button onClick={addUpdate} class="btn btn-primary col-lg-12 me-1 mt-3 ">Update Accused</button></div>
+                        <div class='btn2'><button onClick={() => newEntry("c")} class="btn btn-primary col-lg-12 me-1 mt-3 ">Update Accused</button></div>
             </div>
             </div>
             </div>
