@@ -202,6 +202,8 @@ export default function CrimeDetailsBody() {
                       <p class="mb-0">{updates[updates.length - 1]}</p>
             </div>
             </div>
+            {!closed && 
+            <div>
             <hr/>
             <div class="d-flex justify-content-start mb-2">
             <div class="px-1">
@@ -243,6 +245,7 @@ export default function CrimeDetailsBody() {
                       </div>
             </div>
             </div>
+            </div>}
             </p>
             </div>
         </div>
