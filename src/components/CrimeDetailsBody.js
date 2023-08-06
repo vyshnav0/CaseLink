@@ -253,6 +253,22 @@ export default function CrimeDetailsBody() {
             {!closed && officer && 
             <div>
             <hr/>
+            
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+            <div class="update">  
+            <MDBInput
+                        wrapperClass="mb-1"
+                        label="Criminal"
+                        type="text"
+                        value={newcriminal}
+                        onChange={(event) => setnewcriminal(event.target.value)}
+                        />
+                        <div class='btn2'><button onClick={() => newEntry("c")} class="btn btn-primary col-lg-12 me-1 mt-3 ">Update Criminal</button></div>
+            </div>
+            </div>
+            </div>
+
             <div class="d-flex justify-content-start mb-2">
             <div class="px-1">
             <div class="update">
@@ -265,22 +281,9 @@ export default function CrimeDetailsBody() {
                         />
                         <div class='btn2'><button onClick={() => newEntry("v")} class="btn btn-primary me-1 mt-3 col-lg-12 ">Update Victims</button></div>
             </div>
-            </div>-
-            </div>
-            <div class="d-flex justify-content-start mb-2">
-            <div class="px-1">
-            <div class="update">  
-            <MDBInput
-                        wrapperClass="mb-1"
-                        label="Accused"
-                        type="text"
-                        value={newcriminal}
-                        onChange={(event) => setnewcriminal(event.target.value)}
-                        />
-                        <div class='btn2'><button onClick={() => newEntry("c")} class="btn btn-primary col-lg-12 me-1 mt-3 ">Update Accused</button></div>
             </div>
             </div>
-            </div>
+            
             <hr/>
             <div class="d-flex justify-content-start mb-2">
             <div class="px-1">
