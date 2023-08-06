@@ -35,7 +35,6 @@ export default function WantedAddingBody() {
 
   const callComplaintPage = async () => {
     try {
-      console.log('Going to fetch from complaintauth');
       const response = await fetch(`http://localhost:5000/complaintauth?authToken=${localStorage.getItem('authToken')}`, {
         method: 'GET',
         headers: {
@@ -45,8 +44,6 @@ export default function WantedAddingBody() {
         credentials: 'include',
       });
       const data = await response.json();
-      console.log(data);
-      console.log('Returned from fetching comlpaintauth');
       if(!data.success || userOrOfficer === 'user'){
         navigate("/")
       }
