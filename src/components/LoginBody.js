@@ -30,10 +30,12 @@ export default function LoginBody() {
       const authToken = json.authToken
       const data = json.userData
       console.log(json)
-      const parsedData = JSON.parse(data) //this is how you get object. Now type parsedData.{variablename} to get the users respective data
 
-      if(!json.success){
-        alert("Enter valid credentials")
+      if(json.case == 1 || json.case == 3){
+        alert("Wrong password")
+      }
+      else if(json.case == 2){
+        alert("Wrong credentials")
       }
       if(json.success){
         localStorage.setItem("usertype",userOrOfficer);
@@ -57,17 +59,18 @@ export default function LoginBody() {
       const authToken = json.authToken
       const data = json.userData
       console.log(json)
-      const parsedData = JSON.parse(data) //this is how you get object. Now type parsedData.{variablename} to get the users respective data
 
-      if(!json.success){
-        alert("Enter valid credentials")
+      if(json.case == 1 || json.case == 3){
+        alert("Wrong password")
+      }
+      else if(json.case == 2){
+        alert("Wrong credentials")
       }
       if(json.success){
         localStorage.setItem("usertype",userOrOfficer)
         localStorage.setItem("authToken",authToken)
         localStorage.setItem("data",data)
         console.log(localStorage.getItem("usertype"))
-        console.log(`Welcome ${userOrOfficer} : ${credentials.email}`)
         navigate("/officer")
       }
     }

@@ -12,7 +12,7 @@ router.post("/createofficer",
     , async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            return res.json({ errors: errors.array() });
         }
 
         const salt = await bcrypt.genSalt(10)
@@ -42,19 +42,19 @@ router.post("/loginofficer",
     async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+            return res.json({case : 1 , errors: errors.array() });
         }
 
         try {
             const pen = req.body.pen
             const userData = await Officer.findOne({ pen })
             if (!userData) {
-                return res.status(400).json({ errors: "try loggin in with correct credentials" });
+                return res.json({case : 2 , errors: "try loggin in with correct credentials" });
             }
 
             const pwdCompare = await bcrypt.compare(req.body.password, userData.password)
             if (!pwdCompare) {
-                return res.status(400).json({ errors: "try loggin in with correct credentials" });
+                return res.json({case : 3 , errors: "try loggin in with correct credentials" });
             }
             
             const data = {
