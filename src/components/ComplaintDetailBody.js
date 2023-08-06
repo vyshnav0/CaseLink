@@ -29,6 +29,7 @@ export default function ComplaintDetailBody() {
   const status = json.status;
 
   const stat = status === 'Open';
+  const closed = status === 'Closed';
   const valid = investigatedby == ofname;
   const officer = user === 'officer';
 
@@ -237,10 +238,11 @@ export default function ComplaintDetailBody() {
     </div>
     </div>
   <div class="btn1">
-  {officer && !stat && <button onClick={takeCase} class="btn btn-primary me-1 ">Take Case</button> }
+  {officer && !stat && !closed && <button onClick={takeCase} class="btn btn-primary me-1 ">Take Case</button> }
   {officer && stat && !valid && <button onClick = {() => {alert("This case is already being investigated.");navigate("/complaintstatus")}} class="btn btn-primary me-1 ">Already Taken</button>}
   {officer && stat && valid && <button onClick = {viewCrime} class="btn btn-primary me-1 ">View Crime</button>}
   {officer && stat && valid && <button onClick = {dropCase} class="btn btn-outline-primary  me-1 " >Drop Crime</button>}
+  {officer && closed && <button onClick = {viewCrime} class="btn btn-outline-primary  me-1 " >Show Final Report</button>}
   </div>
   </div>
   )
