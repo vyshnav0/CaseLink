@@ -1,6 +1,138 @@
 @import url("https://fonts.googleapis.com/css2?family=Questrial:wght@400&display=swap");
 
-.head{
+.body{
     font-family: Questrial;
     text-align: center;
 }
+.body-2{
+    font-family: Questrial;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.container-2 {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  .container-2 header {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+  }
+  .container-2 .form {
+    margin-top: 30px;
+  }
+  .form .input-box {
+    width:100%;
+    margin-top: 20px;
+  }
+  .input-box label {
+    color: #747373;
+    font-size: small;
+  }
+  .label{
+    color: #747373;
+    font-size: small;
+    margin-top: 20px;
+  }
+
+  .form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #151515;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 0 15px;
+  }
+  textarea{
+    position: relative;
+    width: 100%;
+    height: 115px;
+    outline: none;
+    font-size: 1rem;
+    color: #151515;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    padding: 0 15px;
+    
+  }
+
+  .input-box input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  }
+  .form .column {
+    display: flex;
+    column-gap: 15px;
+  }
+  .form .gender-box {
+    margin-top: 20px;
+  }
+  .gender-box h3 {
+    color: #333;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .form :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+  }
+  .form .gender {
+    column-gap: 5px;
+  }
+  .gender input {
+    accent-color: rgb(130, 106, 251);
+  }
+  .form :where(.gender input, .gender label) {
+    cursor: pointer;
+  }
+  .gender label {
+    color: #707070;
+  }
+  .select-box select {
+    height: 95%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #000000;
+    font-size: 1rem;
+  }
+  .form button {
+    height: 35px;
+    border-radius: 15px;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background:  rgba(20, 74, 185, 1);
+  }
+  .form button:hover {
+    background: rgb(88, 56, 250);
+  }
+
+  .idtype{
+    margin-top: 23px;
+    font-size: small;
+    color:  #747373;
+  }
+  .idselect{
+    width: 250px;
+  }

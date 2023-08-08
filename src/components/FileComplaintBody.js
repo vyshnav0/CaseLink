@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { MDBContainer, MDBInput, MDBTextArea, MDBDropdown, MDBDropdownMenu, MDBDropdownToggle, MDBDropdownItem } from "mdb-react-ui-kit";
 import "../style/FileComplaint.css";
-import { Button } from "react-bootstrap";
 
 export default function FileComplaint() {
   const effectRan = useRef(false);
@@ -157,77 +155,71 @@ export default function FileComplaint() {
   const onChange = (event) => {
     setcredentials({ ...credentials, [event.target.name]: event.target.value });
   };
-  return (
-    // use variable userOrOfficer in className for the create complaintee button. className = userOrOfficer <other classnames>
-    // then in css create two designs one for .user{} and one for .officer{} and make the button display:none in .user{} and style
-    // it in .officer{}. Also use it to make other design choices like give input fields of personal data className = userOrData and
-    // if user then make fields uneditable. Only the officers have right to create new complaintee. All other logged in users will
-    // have their information autofilled IF input field is given the right name from [credentials,setCredentials](refer above code).
-    //  On the create complaintee button give onClick = {createComplaintee} function given above
-    <>
-      <form onSubmit={handleSubmit}>
-        <h2 className="head">File a Complaint</h2>
-        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Reported By"
-            name="reportedby"
-            type="text"
+  return ( 
+    <div class='body-2'>
+    <section class="container-2">
+    <header>File a Complaint</header>
+    <form onSubmit={handleSubmit} class="form">
+    
+      <div class="input-box">
+        <label>Reported by</label>
+        <input type="text" placeholder="Enter your name" name='reportedby'
             value={credentials.reportedby}
             onChange={onChange}
-            required
-          />
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Email"
-            name="email"
-            type="email"
+            required/>
+        </div>
+        <div class="column">
+        <div class="input-box">
+        <label>E-mail</label>
+        <input type="email" placeholder="Enter your e-mail" name='email'
             value={credentials.email}
             onChange={onChange}
-            required
-          />
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Phone No"
-            name="contactno"
-            type="text"
+            required/>
+        </div>
+        <div class="input-box">
+        <label>Contact number</label>
+        <input type="text" placeholder="Enter your contact number" name='contactno'
             value={credentials.contactno}
             onChange={onChange}
-            required
-          />
-          <div className="d-flex justify-content-between">
-            {off && <div>
+            required/>
+        </div>
+        </div>
+        <div class="column">
+        {off&&
+        <div>
+        <label class='idtype'>ID Type</label>
+        <div class='idselect'>
+        <div className="select-box">
+            <div>
               <select id = 'selectId' class = 'form-select' label="ID Type" name="idType" value={credentials.idType} onChange={onChange}>
                 <option>Aadhaar</option>
-                <option>Drivers</option>
-                <option>Voters</option>
+                <option>Driving License</option>
+                <option>Voters ID</option>
               </select>
-              <label for="selectId">Id Type</label>
-              </div>}
-            {usr && <MDBInput 
-              wrapperClass="mb-4"
-              label="ID Type"
-              name="idType"
-              type="text"
-              value={credentials.idType}
-              
-              onChange={onChange}
-              required
-              />}
-           
-            <MDBInput
-              wrapperClass="mb-4"
-              label="ID Number"
-              name="idno"
-              type="number"
-              value={credentials.idno}
-              onChange={onChange}
-              required
-            />
-          </div>
-
-          <div>
-              <select id = 'selectComplaint' class = 'form-select' label="Complaint Type" name="type" value={credentials.type} onChange={onChange}>
+              </div>
+        </div>
+        </div>
+        </div>}
+        {usr &&
+        <div class="input-box">
+        <label>ID Type</label>
+        <input type="text" placeholder="Enter your ID type" name="idType"
+            value={credentials.idType}
+            onChange={onChange}
+            required/>
+        </div>}
+            <div class="input-box">
+            <label>ID number</label>
+            <input type="text" placeholder="Enter your id number" name="idno"
+                value={credentials.idno}
+                onChange={onChange}
+                required/>
+            </div>
+            </div>
+            <label class='label'>Complaint type</label>
+            <div className="select-box">
+              <select id = 'selectComplaint' class = 'form-select' name="type" value={credentials.type} onChange={onChange}>
+                <option hidden>Select Complaint Type</option>
                 <option>Theft</option>
                 <option>Trespassing</option>
                 <option>Vandalism</option>
@@ -238,84 +230,62 @@ export default function FileComplaint() {
                 <option>Murder</option>
                 <option>Others</option>
               </select>
-              <label for="selectComplaint">Complaint Type</label>
               </div>
-          {/* <MDBInput
-            wrapperClass="mb-4"
-            label="Complaint Type"
-            name="type"
-            type="text"
-            value={credentials.type}
-            onChange={onChange}
-            required
-          /> */}
+              <div class='column'>
+              <div class="input-box">
+              <label>Location</label>
+              <input type="text" placeholder="location" name="location"
+                value={credentials.location}
+                onChange={onChange}
+                required/>
+              </div>
+              <div class="input-box">
+              <label>Date</label>
+              <input type="date" placeholder="Enter the date" name="time"
+                value={credentials.time}
+                onChange={onChange}
+                required/>
+              </div>
+              </div>
+              <div class='column'>
+              <div class="input-box">
+              <label>Accused</label>
+              <input type="text" placeholder="Enter accused name" name="accused"
+                value={credentials.accused}
+                onChange={onChange}
+                required/>
+              </div>
+              <div class="input-box">
+              <label>Victim</label>
+              <input type="text" placeholder="Enter victim name" 
+                value={credentials.victim}
+                name="victim"
+                onChange={onChange}
+                required/>
+              </div>
+              </div>
+              <div class="input-box">
+              <label>Nearest Station</label>
+              <input type="text" placeholder="Enter Nearest Station name" name="nearestStation"
+                value={credentials.nearestStation}
+                onChange={onChange}
+                required/>
+              </div>
+              <div class="input-box">
+              <label>Description</label>
+              <textarea type="text" placeholder="Enter the details of the complaint" name="description"
+                value={credentials.description}
+                onChange={onChange}
+                required/>
+              </div>
+        
 
-          <div className="d-flex justify-content-between">
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Location"
-              name="location"
-              type="text"
-              value={credentials.location}
-              onChange={onChange}
-              required
-            />
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Date"
-              name="time"
-              type="date"
-              value={credentials.time}
-              onChange={onChange}
-              required
-            />
-          </div>
-
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Accused"
-            name="accused"
-            type="text"
-            value={credentials.accused}
-            onChange={onChange}
-            required
-          />
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Victim"
-            name="victim"
-            type="text"
-            value={credentials.victim}
-            onChange={onChange}
-            required
-          />
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Nearest Station"
-            name="nearestStation"
-            type="text"
-            value={credentials.nearestStation}
-            onChange={onChange}
-            required
-          />
-          {/* <MDBInput wrapperClass='mb-4' label='Description' name='description' type='text'  /> */}
-          <MDBTextArea
-            label="Complaint Description"
-            name="description"
-            id="textAreaExample"
-            rows={4}
-            value={credentials.description}
-            onChange={onChange}
-            required
-          />
-
-          <Button className="mb-4 w-100" type="submit">
-            {userOrOfficer === "user"
+      
+      <button>{userOrOfficer === "user"
               ? "Submit"
-              : "Create Complaintee and submit"}
-          </Button>
-        </MDBContainer>
-      </form>
-    </>
+              : "Create Complaintee and submit"}</button>
+    </form>
+  </section>
+  </div>
   );
 }
