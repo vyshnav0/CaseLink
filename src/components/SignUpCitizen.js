@@ -1,16 +1,6 @@
 import React,{useState} from 'react'
-import {
-  MDBContainer,
-  MDBTabs,
-  MDBTabsItem,
-  MDBTabsLink,
-  MDBTabsContent,
-  MDBTabsPane,
-  MDBInput,
-}
-from 'mdb-react-ui-kit';
-import { Button } from 'react-bootstrap';
-import {Link,useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
+import '../style/Forms.css'
 
 export default function SignUpCitizen() {
 
@@ -56,58 +46,128 @@ export default function SignUpCitizen() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-       
-       <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+    <div class='body-2'>
+    <section class="container-2">
+    <header>Register</header>
+    <form onSubmit={handleSubmit} class="form">
+      <div class='column'>
+      <div class="input-box">
+        <label>First Name</label>
+        <input type="text" placeholder="Enter your first name" name='fname'
+            value={credentials.fname}
+            onChange={onChange}
+            required/>
+        </div>
+        <div class="input-box">
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter your last name" name='lname'
+            value={credentials.lname}
+            onChange={onChange}
+            required/>
+        </div>
+        </div>
+        <div class="column">
+        <div class="input-box">
+        <label>Username</label>
+        <input type="text" placeholder="Create a username" name='username'
+            value={credentials.username}
+            onChange={onChange}
+            required/>
+        </div>
+        <div class="input-box">
+        <label>Create a Password</label>
+        <input type="password" placeholder="Create a password" name='password'
+            value={credentials.password}
+            onChange={onChange}
+            required/>
+        </div>
+        </div>
+              <div class='column'>
+              <div class="input-box">
+              <label>Age</label>
+              <input type="number" placeholder="Enter your age" name="age"
+                value={credentials.age}
+                onChange={onChange}
+                required/>
+              </div>
+          <div class="gender-box">
+          <label class='idtype'>Gender</label>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-male" name="sex" value='Male' checked={credentials.sex==="Male"} onChange={onChange}/>
+              <label for="check-male">Male</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-female" name="sex" value='Female' checked={credentials.sex==="Female"} onChange={onChange}/>
+              <label for="check-female">Female</label> 
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-other" name="sex" value='Other' checked={credentials.sex==="Other"} onChange={onChange}/>
+              <label for="check-other">Other</label>
+            </div>
+          </div>
+        </div>
+              </div>
+              <div class='column'>
+              <div class="input-box">
+              <label>E-mail</label>
+              <input type="text" placeholder="Enter your email" name="email"
+                value={credentials.email}
+                onChange={onChange}
+                required/>
+              </div>
+              <div class="input-box">
+              <label>Contact Number</label>
+              <input type="text" placeholder="Enter your Contact number" 
+                value={credentials.contactno}
+                name="contactno"
+                onChange={onChange}
+                required/>
+              </div>
+              </div>
+              <div class="input-box">
+              <label>Address</label>
+              <input type="text" placeholder="Enter your address" name="address"
+                value={credentials.address}
+                onChange={onChange}
+                required/>
+              </div>
+        <div class="column">
+        <div class="input-box">
+        <label>Father's Name</label>
+        <input type="text" placeholder="Enter your Father's name" name="fathersname"
+            value={credentials.fathersName}
+            onChange={onChange}/>
+        </div>
+        <div class="input-box">
+        <label>Mother's Name</label>
+        <input type="text" placeholder="Enter your Mother's name" name="mothersname"
+            value={credentials.mothersName}
+            onChange={onChange}/>
+        </div>
+        </div>
+        <div class="column">
+        <div class="input-box">
+        <label>ID Type</label>
+        <input type="text" placeholder="Enter your ID type" name="idType"
+            value={credentials.idType}
+            onChange={onChange}
+            required/>
+        </div>
+            <div class="input-box">
+            <label>ID number</label>
+            <input type="text" placeholder="Enter your id number" name="idNo"
+                value={credentials.idNo}
+                onChange={onChange}
+                required/>
+            </div>
+            </div>
+        
 
-{/* <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
-<MDBTabsItem>
-  <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-    Register as Citizen
-  </MDBTabsLink>
-</MDBTabsItem>
-{/* <MDBTabsItem>
-  <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
-    Register as Officer
-  </MDBTabsLink>
-</MDBTabsItem> */}
-{/* </MDBTabs> */}
-
-<MDBTabsContent>
-
-<MDBTabsPane show={justifyActive === 'tab1'}>
-
-  {/* <MDBInput wrapperClass='mb-4' label='Email / Username' id='form1' type='text' name = 'email' value = {credentials.email} onChange={onChange}/>
-  <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' name = 'password' value = {credentials.password} onChange={onChange}/> */}
-
-      <MDBInput wrapperClass='mb-4' label='First Name' name='fname' type='text' value = {credentials.fname} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Last Name' name='lname' type='text' value = {credentials.lname} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Username' name='username' type='text' value = {credentials.username} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Password' name='password' type='password' value = {credentials.password} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Age' name='age' type='text' value = {credentials.age} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Sex' name='sex' type='text' value = {credentials.sex} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Contact No' name='contactno' type='text' value = {credentials.contactno} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Email' name='email' type='email' value = {credentials.email} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='Address' name='address' type='text' value = {credentials.address} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label="Father's Name" name='fathersName' type='text' value = {credentials.fathersName} onChange={onChange} required={false} />
-      <MDBInput wrapperClass='mb-4' label="Mother's Name" name='mothersName' type='text' value = {credentials.mothersName} onChange={onChange} required={false} />
-      <MDBInput wrapperClass='mb-4' label='Card Type' name='idType' type='text' value = {credentials.idType} onChange={onChange} required />
-      <MDBInput wrapperClass='mb-4' label='ID Number' name='idNo' type='text' value = {credentials.idNo} onChange={onChange} required />
-
-<Button className="mb-4 w-100" type='submit'>Sign up</Button>
-
-
-</MDBTabsPane>
-
-{/* <MDBTabsPane show={justifyActive === 'tab2'}>
-
-</MDBTabsPane> */}
-
-</MDBTabsContent>
-
-</MDBContainer>
+      
+      <button>Sign Up</button>
     </form>
-    </div>
+  </section>
+  </div>
   )
 }

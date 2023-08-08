@@ -135,6 +135,9 @@ export default function CrimeDetailsBody() {
   const onChange =(event) => {
     setnewupdate(event.target.value)
   }
+  const len=48*(updates.length-1);
+  
+
 
   return (
   <div>
@@ -223,8 +226,8 @@ export default function CrimeDetailsBody() {
       </div>
       <div class="col-lg-12">
       <div className="cardcomplaint">
-        <div class="card mb-4">
-          <div class="card-body" style={{border:'0'}}>
+        <div class="card mb-4" style={{border:'0'}}>
+          <div class="card-body">
             <h6 class='complaint_head '>Updates</h6>
             <p>
             { !user &&

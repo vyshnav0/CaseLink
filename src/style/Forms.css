@@ -36,11 +36,11 @@
   }
   .input-box label {
     color: #747373;
-    font-size: small;
+    font-size:smaller;
   }
   .label{
     color: #747373;
-    font-size: small;
+    font-size: smaller;
     margin-top: 20px;
   }
 
@@ -51,7 +51,7 @@
     outline: none;
     font-size: 1rem;
     color: #151515;
-    margin-top: 8px;
+    margin-top: 10px;
     border: 1px solid #ddd;
     border-radius: 15px;
     padding: 0 15px;
@@ -78,12 +78,7 @@
   }
   .form .gender-box {
     margin-top: 20px;
-  }
-  .gender-box h3 {
-    color: #333;
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 8px;
+    width: 650px;
   }
   .form :where(.gender-option, .gender) {
     display: flex;
@@ -130,7 +125,7 @@
 
   .idtype{
     margin-top: 23px;
-    font-size: small;
+    font-size: smaller;
     color:  #747373;
   }
   .idselect{

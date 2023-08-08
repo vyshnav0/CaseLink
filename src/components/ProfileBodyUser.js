@@ -33,7 +33,11 @@ export default function ProfileBody() {
                 <h2 class="mb-1">{name}</h2>
                 <p class="mb-2 pb-1" >{username}</p>
                 <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
-                  <div class="px-3">
+                  <div class="px">
+                    <p class="small text-muted mb-1">Age</p>
+                    <p class="mb-0">{age}</p>
+                  </div>
+                  <div class="px-5">
                     <p class="small text-muted mb-1">Gender</p>
                     <p class="mb-0">{sex}</p>
                   </div>

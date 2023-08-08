@@ -1,4 +1,6 @@
-
+:root{
+    --height:144px;
+}
 .container-fluid{
     margin: 50px;
 }
@@ -33,9 +35,9 @@
 .timeline::before{
     content:'';
     position: absolute;
-    height: 50%;
+    height: var(--height);
     width: 2px;
-    background-color: rgb(207, 205, 205);
+    background-color: #b9dff9;
     left: 5%;
 }
 .timeline ul li{
@@ -48,7 +50,7 @@
     position: absolute;
     height: 15px;
     width: 15px;
-    background-color: rgb(196, 196, 196);
+    background-color: #b9dff9;
     border-radius: 50%;
     left: 18px;
 }

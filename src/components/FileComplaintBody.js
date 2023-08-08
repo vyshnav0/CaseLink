@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "../style/FileComplaint.css";
+import "../style/Forms.css";
 
 export default function FileComplaint() {
   const effectRan = useRef(false);
@@ -218,7 +218,7 @@ export default function FileComplaint() {
             </div>
             <label class='label'>Complaint type</label>
             <div className="select-box">
-              <select id = 'selectComplaint' class = 'form-select' name="type" value={credentials.type} onChange={onChange}>
+              <select id = 'selectComplaint' class = 'form-select' name="type" value={credentials.type} onChange={onChange} >
                 <option hidden>Select Complaint Type</option>
                 <option>Theft</option>
                 <option>Trespassing</option>
