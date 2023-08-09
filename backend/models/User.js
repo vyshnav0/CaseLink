@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const {Schema} = mongoose;
 
@@ -55,6 +55,10 @@ const userSchema = new Schema({
     password:{
         type : String,
         required : true
+    },
+    verified:{
+        type: Boolean,
+        deault: false
     },
     cases:{
         type : [String],
