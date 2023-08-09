@@ -40,31 +40,31 @@ const callAuthentication = async () => {
 <div className="bd-out">
 
     <div className="bd-element" onClick={() => window.location.href = '/complaintstatus'}>
-        <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/2519/2519057.png"/>
     Complaints
     </div>
 
     <div className="bd-element" onClick={() => window.location.href = '/missingadd'}>
-            <img src="/images/search.png"/>
+            <img src="https://cdn-icons-png.flaticon.com/512/1178/1178498.png"/>
             Add-Missing
     </div>
 
     <div className="bd-element" onClick={() => window.location.href = '/wantedadd'}>
-        <img src="/images/wanted.png"/>
+        <img src='https://cdn-icons-png.flaticon.com/512/3304/3304252.png'/>
         Add-Wanted
     </div>
 
     <div className="bd-element" onClick={() => window.location.href = '/analysis'}>
 
-        <img src="/images/monitoring.png"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/2439/2439100.png"/>
         Crime Analysis
     </div>
     <div className="bd-element" onClick={() => window.location.href = '/missingtable'}>
-        <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/10175/10175662.png"/>
     Missing Data
     </div>
     <div className="bd-element" onClick={() => window.location.href = '/wantedtable'}>
-        <img src="https://cdn-icons-png.flaticon.com/512/2519/2519204.png"/>
+        <img src="https://cdn-icons-png.flaticon.com/512/1022/1022340.png"/>
     Wanted Data
     </div>
 </div>
