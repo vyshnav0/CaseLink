@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MDBContainer, MDBInput } from 'mdb-react-ui-kit';
 import { Button } from 'react-bootstrap';
+import '../style/Forms.css'
 
 export default function WantedAddingBody() {
   const [base64, setBase64] = useState('');
@@ -118,114 +119,96 @@ export default function WantedAddingBody() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <h2 className="head">Add a Missing Person</h2>
-        <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
-          {/* <label htmlFor="imageUpload" className="form-label">
-            Upload Image
-          </label>
-          <input
-            className="form-control form-control-sm"
-            id="imageUpload"
-            type="file"
-            onChange={(e) => {
-              UplaodImage(e);
-            }} 
-            accept="image/*"
-          /> */}
-
-          <MDBInput
-            wrapperClass="mb-4"
-            label="First name"
-            name="fname"
-            type="text"
+    <div class='body-3'>
+    <section class="container-2">
+    <header>Add a Missing Person</header>
+    <form onSubmit={handleSubmit} class="form">
+      <div class='column'>
+      <div class="input-box">
+        <label>First Name</label>
+        <input type="text" placeholder="Enter your first name" name='fname'
             value={credentials.fname}
             onChange={onChange}
-            required
-          />
-          <MDBInput
-            wrapperClass="mb-4"
-            label="Last name"
-            name="lname"
-            type="text"
+            required/>
+        </div>
+        <div class="input-box">
+        <label>Last Name</label>
+        <input type="text" placeholder="Enter your last name" name='lname'
             value={credentials.lname}
             onChange={onChange}
-            required
-          />
-          <div className="d-flex justify-content-between">
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Age"
-              name="age"
-              type="number"
-              value={credentials.age}
-              onChange={onChange}
-              required
-            />
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Gender"
-              name="gender"
-              type="text"
-              value={credentials.gender}
-              onChange={onChange}
-              required
-            />
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Contact no"
-              name="contactno"
-              type="number"
-              value={credentials.contactno}
-              onChange={onChange}
-              required
-            />
+            required/>
+        </div>
+        </div>
+              <div class='column'>
+              <div class="input-box">
+              <label>Age</label>
+              <input type="number" placeholder="Enter your age" name="age"
+                value={credentials.age}
+                onChange={onChange}
+                required/>
+              </div>
+          <div class="gender-box">
+          <label class='idtype'>Gender</label>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-male" name="gender" value='Male' checked={credentials.gender==="Male"} onChange={onChange}/>
+              <label for="check-male">Male</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-female" name="gender" value='Female' checked={credentials.gender==="Female"} onChange={onChange}/>
+              <label for="check-female">Female</label> 
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-other" name="gender" value='Other' checked={credentials.gender==="Other"} onChange={onChange}/>
+              <label for="check-other">Other</label>
+            </div>
           </div>
-
-          <div className="d-flex justify-content-between">
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Height"
-              name="height"
-              type="number"
-              value={credentials.height}
-              onChange={onChange}
-              required
-            />
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Weight"
-              name="weight"
-              type="number"
-              value={credentials.weight}
-              onChange={onChange}
-              required
-            />
-          </div>
-          <div className="d-flex justify-content-between">
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Location"
-              name="location"
-              type="text"
-              value={credentials.location}
-              onChange={onChange}
-              required
-            />
-            <MDBInput
-              wrapperClass="mb-4"
-              label="Date"
-              name="date"
-              type="date"
-              value={credentials.date}
-              onChange={onChange}
-              required
-            />
-          </div>
-
-          <Button className="mb-4 w-100" type='submit'>Submit</Button>
-        </MDBContainer>
-      </form>
+        </div>
+              </div>
+              <div class='column'>
+              <div class="input-box">
+              <label>Contact Number</label>
+              <input type="text" placeholder="Contact number" 
+                value={credentials.contactno}
+                name="contactno"
+                onChange={onChange}
+                required/>
+              </div>
+              <div class="input-box">
+              <label>Location</label>
+              <input type="text" placeholder="Enter the location" name="location"
+                value={credentials.location}
+                onChange={onChange}
+                required/>
+              </div>
+              <div class="input-box">
+              <label>Date</label>
+              <input type="date" placeholder="Enter the date" name="date"
+                value={credentials.date}
+                onChange={onChange}
+                required/>
+              </div>
+              </div>
+        <div class="column">
+        <div class="input-box">
+        <label>Height</label>
+        <input type="text" placeholder="Enter the height of the missing person" name="height"
+            value={credentials.height}
+            onChange={onChange}
+            required/>
+        </div>
+        <div class="input-box">
+        <label>Weight</label>
+        <input type="text" placeholder="Enter the weight of the missing person" name="weight"
+            value={credentials.weight}
+            onChange={onChange}
+            required />
+        </div>
+        </div>
+      <button>Submit</button>
+    </form>
+  </section>
+  </div>
     </>
   );
 }

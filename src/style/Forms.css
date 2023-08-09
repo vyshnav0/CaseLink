@@ -12,6 +12,14 @@
     justify-content: center;
     padding: 20px;
 }
+.body-3{
+  font-family: Questrial;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
 .container-2 {
     position: relative;
     max-width: 700px;
