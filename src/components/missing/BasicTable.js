@@ -1,110 +1,78 @@
 import React, { useState, useEffect, useRef } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './basicTable.css'
-
 function TableRows({ rows, tableRowRemove, onValUpdate }) {
   return rows.map((rowData, index) => {
     const {  full_name, age, gender, height, weight, last_seen_location, last_seen_date, contact_number } = rowData;
     return (
-      <tr key={index}>
-        {/* <td>
-          <input
-            type="text"
-            value={id}
-            onChange={(event) => onValUpdate(index, event)}
-            name="id"
-            className="form-control"
-          />
-        </td> */}
-        <td>
-          <input
-            type="text"
-            value={full_name}
-            onChange={(event) => onValUpdate(index, event)}
-            name="full_name"
-            readOnly
-            className="form-control"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            value={age}
-            onChange={(event) => onValUpdate(index, event)}
-            name="age"
-            readOnly
-            className="form-control"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            value={gender}
-            onChange={(event) => onValUpdate(index, event)}
-            name="gender"
-            readOnly
-            className="form-control"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            value={height}
-            onChange={(event) => onValUpdate(index, event)}
-            name="height"
-            readOnly
-            className="form-control"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            value={weight}
-            onChange={(event) => onValUpdate(index, event)}
-            name="weight"
-            readOnly
-            className="form-control"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            value={last_seen_location}
-            onChange={(event) => onValUpdate(index, event)}
-            readOnly
-            name="last_seen_location"
-            className="form-control"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            value={last_seen_date}
-            onChange={(event) => onValUpdate(index, event)}
-            name="last_seen_date"
-            readOnly
-            className="form-control"
-          />
-        </td>
-        <td>
-          <input
-            type="text"
-            value={contact_number}
-            onChange={(event) => onValUpdate(index, event)}
-            name="contact_number"
-            readOnly
-            className="form-control"
-          />
-        </td>
-        <td>
-          <button
-            className="btn btn-dark"
-            onClick={() => tableRowRemove(index)}
-          >
-            Remove
-          </button>
-        </td>
-      </tr>
+      <div class="container-fluid">
+      <div className="card_missing">
+        <div class="card" style={{border:'0'}}>
+          <div class="card-body p-5 d-flex align-items-center">
+          <div class="flex-shrink-0">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                  alt="Generic placeholder image" class="img-fluid1"/>
+          </div>
+            <p>
+            <div class='column'>
+            <h5 class='complaint_head '>{full_name}</h5>
+            </div>
+            <div className='column'>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Age</p>
+                      <p class="mb-0">{age}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Gender</p>
+                      <p class="mb-0">{gender}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Height</p>
+                      <p class="mb-0">{height}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Weight</p>
+                      <p class="mb-0">{weight}</p>
+            </div>
+            </div>
+            </div>
+            <div className='column'>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Contact Number</p>
+                      <p class="mb-0">{contact_number}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Last seen Date</p>
+                      <p class="mb-0">{last_seen_date}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-start mb-2">
+            <div class="px-1">
+                      <p class="small text-muted mb-1 mt-3">Last seen Location</p>
+                      <p class="mb-0">{last_seen_location}</p>
+            </div>
+            </div>
+            <div class="d-flex justify-content-end mb-2">
+            <button className="buttn" onClick={() => tableRowRemove(index)}>Remove</button>
+            </div>
+            </div>
+
+            
+            </p>
+            </div>
+        </div>
+      </div>
+      </div>
     );
   });
 }
@@ -254,9 +222,7 @@ export const BasicTable = () => {
       // do nothing
     }
   };
-  
-
-  const onValUpdate = (index, event) => {
+    const onValUpdate = (index, event) => {
     const { name, value } = event.target;
     const updatedRows = [...rows];
     updatedRows[index][name] = value;
@@ -265,28 +231,16 @@ export const BasicTable = () => {
 
   return (
     <>
-    <div className='tableheading'>
-    <h1>MISSING PERSONS</h1>
+    <div className='missing'>
+    <div className='tableheading1'>
+    <h2>MISSING PERSONS</h2>
     </div>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            {/* <th>Id</th> */}
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Full Name</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Age</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Gender</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Height</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Weight</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Location</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Date</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>Contact Info</th>
-            <th style={{backgroundColor: '#f2f2f2', position: 'sticky', top: 0}}>
-              <button className="btn btn-danger" onClick={updateBackend}>
-                Confirm Delete
-              </button>
-            </th>
-          </tr>
-        </thead>
+    <div class="d-flex justify-content-end mt-1 mb-2 me-5">
+      <div class="px-1">
+      <button className="buttn1" onClick={updateBackend}>Confirm Delete</button>
+      </div>
+      </div>
+      <table className="table_1">
         <tbody>
           <TableRows
             rows={rows}
@@ -295,6 +249,7 @@ export const BasicTable = () => {
           />
         </tbody>
       </table>
+      </div>
     </>
   );
 }

@@ -17,7 +17,7 @@ export default function ProfileBody() {
   const complaints = data.cases
 
   return (
-    <div className='pro'>
+  <div className='pro'>
   <section class="vh-100" >
   <div class="container py-5">
     <div class="row d-flex justify-content-center align-items-top ">
