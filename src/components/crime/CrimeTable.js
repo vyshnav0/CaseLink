@@ -209,7 +209,7 @@ const ComplaintsTable = () => {
   return (
     <>
     <div className='tableheading'>
-    <h1>CRIME</h1>
+    <h2 class='head'>CRIME</h2>
     </div>
     <div className="app-container">
       <form className="formtab" onSubmit={handleEditFormSubmit}>
