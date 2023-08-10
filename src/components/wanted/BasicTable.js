@@ -3,7 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import '../missing/basicTable.css'
 
 function TableRows({ rows, tableRowRemove, onValUpdate }) {
+  const imageArr = ["https://i.insider.com/61fa954fef63e10018101fb5?width=1000&format=jpeg&auto=webp","https://images.foxtv.com/static.fox10phoenix.com/www.fox10phoenix.com/content/uploads/2019/10/764/432/f169cce2-Ricky-Deeley-mug.jpg?ve=1&tl=1","https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Jeremy_Meeks_Mug_Shot.jpg/330px-Jeremy_Meeks_Mug_Shot.jpg","http://hollywoodlife.com/wp-content/uploads/2009/12/kyle-chrisley-5-things-to-know-about-todde28099s-oldest-son-after-his-latest-arrest-01.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/DaniLeigh-Arrested-Mugshot-MEGA.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/ryan-edwards-mugshots-spl.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/ezra-miller-arrested-in-hawaii-mega-1.jpg?w=680","https://hollywoodlife.com/wp-content/uploads/2009/12/shutterstock_editorial_12844652a.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/bug-hall-mug-shot.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/jen-hartley-mugshot-embed.jpg?w=680","http://hollywoodlife.com/wp-content/uploads/2009/12/ynw-melly.jpg?w=680","https://akm-img-a-in.tosshub.com/indiatoday/images/bodyeditor/202205/1212c9e4-b957-4928-a01f-58d51b-x1280.jpg?7Ygd.TOEYroNOcQ0idAwNdo4MYqrouJp","http://hollywoodlife.com/wp-content/uploads/2009/12/jussie-smollett-mugshot-gallery.jpg?w=680"]
   return rows.map((rowData, index) => {
+    const img=imageArr[index]
     const {  full_name, age, gender, height, weight, last_seen_location, last_seen_date, contact_number } = rowData;
     return (
       <div class="container-fluid">
@@ -11,7 +13,7 @@ function TableRows({ rows, tableRowRemove, onValUpdate }) {
         <div class="card" style={{border:'0'}}>
           <div class="card-body p-5 d-flex align-items-center">
           <div class="flex-shrink-0">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                <img src={img}
                   alt="Generic placeholder image" class="img-fluid1"/>
           </div>
             <p>

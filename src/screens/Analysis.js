@@ -2,6 +2,7 @@ import React, { useEffect, useState , useRef } from 'react';
 import Chart from 'react-apexcharts';
 import Header from '../components/Header'
 import { useNavigate } from 'react-router-dom';
+import '../style/Analysis.css'
 
 export default function Analysis() {
   const navigate = useNavigate()
@@ -91,6 +92,7 @@ export default function Analysis() {
             text: "Crimes",
             style: {
               fontSize: '20px', 
+              fontfamily:'poppins'
             }
           },
           categories: categories,       
@@ -99,7 +101,8 @@ export default function Analysis() {
           title: {
             text: "Rate",
             style: {
-              fontSize: '20px', 
+              fontSize: '20px',
+              fontfamily:'poppins'
             }
           },
         }
@@ -108,7 +111,9 @@ export default function Analysis() {
     <div>
       <Header></Header>
         {/* <p>hi</p> */}
+        <div className='analysis'>
         <Chart  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }} options={options} type="bar" series={series} width="60%" />
+        </div>
     </div>
   )
 }
