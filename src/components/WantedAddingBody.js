@@ -124,14 +124,14 @@ export default function WantedAddingBody() {
       <div class='column'>
       <div class="input-box">
         <label>First Name</label>
-        <input type="text" placeholder="Enter your first name" name='fname'
+        <input type="text" placeholder="Enter the first name" name='fname'
             value={credentials.fname}
             onChange={onChange}
             required/>
         </div>
         <div class="input-box">
         <label>Last Name</label>
-        <input type="text" placeholder="Enter your last name" name='lname'
+        <input type="text" placeholder="Enter the last name" name='lname'
             value={credentials.lname}
             onChange={onChange}
             required/>
@@ -140,7 +140,7 @@ export default function WantedAddingBody() {
               <div class='column'>
               <div class="input-box">
               <label>Age</label>
-              <input type="number" placeholder="Enter your age" name="age"
+              <input type="number" placeholder="Enter the age" name="age"
                 value={credentials.age}
                 onChange={onChange}
                 required/>
@@ -190,14 +190,14 @@ export default function WantedAddingBody() {
         <div class="column">
         <div class="input-box">
         <label>Height</label>
-        <input type="text" placeholder="Enter the height of the missing person" name="height"
+        <input type="text" placeholder="Enter the height of the wanted person" name="height"
             value={credentials.height}
             onChange={onChange}
             required/>
         </div>
         <div class="input-box">
         <label>Weight</label>
-        <input type="text" placeholder="Enter the weight of the missing person" name="weight"
+        <input type="text" placeholder="Enter the weight of the wanted person" name="weight"
             value={credentials.weight}
             onChange={onChange}
             required />
