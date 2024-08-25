@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const mongoURI = "mongodb+srv://arjun:caselink@web4.twsr1jr.mongodb.net/caselink?retryWrites=true&w=majority"
-// const mongoURI = "Enter a valid mongoose connection string here"
+const mongoURI = "/"
+// const mongoURI = "Enter a valid mongoose connection string here" mongodb+srv://arjun:caselink@web4.twsr1jr.mongodb.net/caselink?retryWrites=true&w=majority
 
 const mongoDB = () => {
   return mongoose.connect(mongoURI)
